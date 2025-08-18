@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beacon RP - Your Signal Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+            background: #0a0e1a;
+            min-height: 100vh;
+            color: rgba(255, 255, 255, 0.95);
+            overflow-x: hidden;        }
+
+        /* Hero Section */
+.hero {
+    margin-top: 60px; /* Fixed from 10 to 60px */
+    position: relative;
+    min-height: 85vh;
+            min-height: 85vh;
+            background: linear-gradient(180deg, rgba(10, 14, 26, 0.5) 0%, rgba(7, 43, 81, 0.8) 100%), 
+                        url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQ...') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Animated Background Grid */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(228, 167, 31, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(228, 167, 31, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 10s linear infinite;
+        }
+
+        @keyframes grid-move {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        /* Glow Effects */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(228, 167, 31, 0.15) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* Countdown Timer */
+        .countdown-container {
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .countdown-label {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px;
+            letter-spacing: 3px;
+            color: rgba(228, 167, 31, 0.8);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .countdown-block {
+            background: rgba(7, 43, 81, 0.6);
+            border: 1px solid rgba(228, 167, 31, 0.3);
+            border-radius: 12px;
+            padding: 15px 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .countdown-block:hover {
+            transform: translateY(-5px);
+            border-color: rgba(228, 167, 31, 0.6);
+            box-shadow: 
+                0 12px 40px rgba(228, 167, 31, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .countdown-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            color: #e4a71f;
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(228, 167, 31, 0.5);
+        }
+
+        .countdown-unit {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* Main Title */
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(70px, 10vw, 140px);
+            letter-spacing: 4px;
+            margin-bottom: 5px;
+            line-height: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            text-transform: uppercase;
+            background: linear-gradient(180deg, #ffffff 0%, #e4a71f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 10px 40px rgba(228, 167, 31, 0.3));
+        }
+
+        .hero-subtitle {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(22px, 3.5vw, 32px);
+            color: rgba(228, 167, 31, 0.9);
+            margin-bottom: 20px;
+            letter-spacing: 6px;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(228, 167, 31, 0.4);
+        }
+
+        .hero-description {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 500px;
+            margin: 0 auto 35px;
+            line-height: 1.5;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        /* CTA Buttons Container */
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        /* Discord & Tebex Buttons */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 35px;
+            background: linear-gradient(135deg, #e4a71f 0%, #c4901b 100%);
+            color: #0a0e1a;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 
+                0 10px 40px rgba(228, 167, 31, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button.secondary {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+            color: #0a0e1a;
+            box-shadow: 
+                0 10px 40px rgba(255, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 
+                0 15px 50px rgba(228, 167, 31, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .cta-button.secondary:hover {
+            box-shadow: 
+                0 15px 50px rgba(255, 255, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Main Content Section */
+        .main-content {
+            background: #0a0e1a;
+            padding: 80px 40px;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #e4a71f;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #e4a71f, transparent);
+            margin: 20px auto 0;
+        }
+
+        /* Story Card */
+        .story-card {
+            background: rgba(7, 43, 81, 0.4);
+            border: 1px solid rgba(228, 167, 31, 0.2);
+            border-radius: 24px;
+            padding: 60px;
+            margin-bottom: 80px;
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(228, 167, 31, 0.05) 0%, transparent 70%);
+            animation: rotate-glow 20s linear infinite;
+        }
+
+        @keyframes rotate-glow {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .story-text {
+            font-size: 20px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: #e4a71f;
+            font-weight: 600;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: rgba(7, 43, 81, 0.3);
+            border: 1px solid rgba(228, 167, 31, 0.15);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #e4a71f, transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(7, 43, 81, 0.6);
+            border-color: rgba(228, 167, 31, 0.4);
+            box-shadow: 0 30px 60px rgba(228, 167, 31, 0.2);
+        }
+
+        .feature-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(228, 167, 31, 0.4));
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2);
+        }
+
+        .feature-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            letter-spacing: 1px;
+            color: #e4a71f;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .feature-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .support-section {
+            background: linear-gradient(180deg, #0a0e1a 0%, #072b51 50%, #0a0e1a 100%);
+            padding: 80px 40px; /* Fixed: Changed from 40px 40px 80px 40px to consistent 80px */
+        }
+
+        .support-intro {
+            text-align: center;
+            max-width: 1200px; /* Fixed: Changed from 800px to match other containers */
+            margin: 0 auto 50px;
+            padding: 30px;
+            background: rgba(7, 43, 81, 0.3);
+            border-radius: 20px;
+            border: 1px solid rgba(228, 167, 31, 0.15);
+        }
+
+        .support-intro p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .support-intro .highlight {
+            color: #e4a71f;
+            font-weight: 600;
+        }
+
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .tier-card {
+            background: rgba(7, 43, 81, 0.5);
+            border: 2px solid rgba(228, 167, 31, 0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(228, 167, 31, 0.4);
+            box-shadow: 0 20px 40px rgba(228, 167, 31, 0.15);
+        }
+
+        .tier-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            color: #e4a71f;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .tier-price {
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .tier-price .currency {
+            font-size: 24px;
+            vertical-align: super;
+        }
+
+        .tier-period {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 30px;
+        }
+
+        .tier-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .tier-features li {
+            padding: 10px 0;
+            color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tier-features li:last-child {
+            border-bottom: none;
+        }
+
+        .tier-button {
+            display: inline-block;
+            width: 100%;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #e4a71f 0%, #c4901b 100%);
+            color: #0a0e1a;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            border-radius: 50px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(228, 167, 31, 0.3);
+        }
+
+        .tier-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(228, 167, 31, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, #0a0e1a 0%, #072b51 100%);
+            padding: 60px 40px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(228, 167, 31, 0.2);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e4a71f, transparent);
+        }
+
+        .footer-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            letter-spacing: 2px;
+            color: #e4a71f;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out 0.1s both;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-link:hover {
+            color: #e4a71f;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Countdown Timer Section */
+        .countdown-section {
+            background: #0a0e1a;
+            padding: 80px 40px 0 40px; /* Fixed: Changed from 60px to 80px for consistency */
+            width: 100%;
+        }
+
+        .countdown-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .countdown-label {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            letter-spacing: 4px;
+            color: #e4a71f;
+            text-transform: uppercase;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .countdown-block {
+            flex: 1 1 0;
+            min-width: 120px;
+            max-width: 220px;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 100vh;
+            }
+
+            .hero-title {
+                font-size: 60px;
+            }
+
+            .hero-subtitle {
+                font-size: 24px;
+                letter-spacing: 4px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                width: 250px;
+            }
+
+            .countdown {
+                gap: 10px;
+            }
+
+            .countdown-block {
+                padding: 12px 16px;
+            }
+
+            .countdown-number {
+                font-size: 28px;
+            }
+
+            .story-card {
+                padding: 40px 30px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tiers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tier-card.featured {
+                transform: scale(1);
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .cta-button {
+                padding: 14px 25px;
+                font-size: 16px;
+            }
+
+            .story-card {
+                padding: 30px 20px;
+            }
+
+            .story-text {
+                font-size: 16px;
+            }
+        }
+
+        .hero-content,
+.hero-title,
+.hero-subtitle,
+.hero-description,
+.cta-buttons {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.countdown-section .container,
+.countdown-label,
+.countdown {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-content .container,
+.section-title,
+.story-card,
+.features-grid {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-menu {
+    position: fixed;  /* Add this to stick it to the top */
+    top: 0;          /* Add this */
+    left: 0;         /* Add this */
+    right: 0;        /* Add this */
+    background: rgba(10, 14, 26, 0.95); /* Add background */
+    backdrop-filter: blur(10px);  /* Add blur effect */
+    z-index: 1000;   /* Add this to keep it on top */
+    padding: 20px 40px;  /* Adjusted padding */
+    border-bottom: 1px solid rgba(228, 167, 31, 0.1); /* Add subtle border */
+}
+
+.header-nav {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.header-link:hover {
+    color: #e4a71f;
+}
+    </style>
+</head>
+<body>
+    <!-- Simple Header Menu -->
+    <header class="header-menu">
+        <div class="container">
+            <nav class="header-nav">
+                <a href="#" class="header-link">Home</a>
+                <a href="#" class="header-link">Discord</a>
+                <a href="#" class="header-link">Rules</a>
+                <a href="#" class="header-link">Tebex Store</a>
+            </nav>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+<img src="beaconlogo.png" alt="Beacon RP Hero" class="hero-logo" style="max-width: 320px; margin-bottom: 30px; border-radius: 20px; animation: fadeInDown 1s ease-out forwards;">
+            <p class="hero-subtitle">Your Signal Home</p>
+            <p class="hero-description">A new era of GTA Roleplay awaits<br>Are you ready to be part of something extraordinary?</p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
+                    Join Discord
+                </a>
+                <a href="#" class="cta-button secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                    Tebex Store
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Timer Section -->
+    <section class="countdown-section">
+        <div class="container">
+            <h2 class="section-title" style="margin-bottom: 40px;">Launches This October</h2>
+            <div class="countdown" id="countdown">
+                <div class="countdown-block">
+                    <div class="countdown-number" id="days">0</div>
+                    <div class="countdown-unit">Days</div>
+                </div>
+                <div class="countdown-block">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-unit">Hours</div>
+                </div>
+                <div class="countdown-block">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-unit">Minutes</div>
+                </div>
+                <div class="countdown-block">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-unit">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="main-content">
+        <div class="container">
+            <!-- Story Section -->
+            <div class="story-card">
+                <p class="story-text">
+                    <span class="highlight">Beacon RP was created with heart, not hype.</span> A homegrown space where creativity, connection, and community come first. Founded by roleplayers who understand what it means to belong, Beacon is a signal to all who seek something more—a richer roleplay experience, a supportive network, and a place where everyone, from curious newcomers to seasoned veterans, are genuinely welcome.
+                </p>
+                <p class="story-text">
+                    This isn't just a server. <span class="highlight">It's a space to grow, to create, to support and be supported.</span> Whether you're streaming, storytelling, or simply exploring, Beacon is a community that has your back—built out of love for the game, and the people who bring it to life.
+                </p>
+                <p class="story-text" style="text-align: center; font-size: 24px; margin-top: 40px;">
+                    <strong>Welcome to Beacon. <span class="highlight">Welcome home.</span></strong>
+                </p>
+            </div>
+
+            <!-- Features Section -->
+            <h2 class="section-title">What Awaits in the City?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3 class="feature-title">Clean, Polished Design</h3>
+                    <p class="feature-description">Smooth, stable, and visually consistent. Experience roleplay without the technical hiccups.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3 class="feature-title">Civilian Jobs & Activities</h3>
+                    <p class="feature-description">A HUGE number of civilian jobs and activities to build your character's story.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌃</div>
+                    <h3 class="feature-title">Criminal Underworld</h3>
+                    <p class="feature-description">A criminal underworld that will keep you on your toes. Choose your path wisely.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3 class="feature-title">Custom Heists</h3>
+                    <p class="feature-description">Not just your normal banks and jewellery stores. Unique challenges await the bold.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Advanced Phone & Socials</h3>
+                    <p class="feature-description">Groups, apps, and more. Stay connected in ways that matter to your story.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏛️</div>
+                    <h3 class="feature-title">Government Departments</h3>
+                    <p class="feature-description">PD & EMS recruiting now! Shape the city's future through public service.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Tiers Section -->
+    <section class="support-section">
+        <div class="container">
+            <h2 class="section-title">Support Our Community</h2>
+            <div class="support-intro">
+                <p>
+                    <span class="highlight">We will never be a "pay to win" server.</span> 
+                    Our community thrives on fair play and equal opportunities for all players. 
+                    If you'd like to support our vision and help keep Beacon RP running, 
+                    your contribution would be greatly appreciated. Every tier comes with 
+                    small perks as a thank you, but nothing that gives an unfair advantage.
+                </p>
+            </div>
+            <div class="tiers-grid">
+                <div class="tier-card">
+                    <h3 class="tier-name">Silver Beacon</h3>
+                    <div class="tier-price">
+                        <span class="currency">£</span>5
+                    </div>
+                    <div class="tier-period">per month</div>
+                    <ul class="tier-features">
+                        <li>Supporter Badge</li>
+                        <li>Discord Role</li>
+                        <li>Priority Queue</li>
+                        <li>Exclusive Channels</li>
+                        <li>Exclusive Channels</li>
+                    </ul>
+                    <a href="#" class="tier-button">Support Now</a>
+                </div>
+                
+                <div class="tier-card">
+                    <h3 class="tier-name">Gold Beacon</h3>
+                    <div class="tier-price">
+                        <span class="currency">£</span>10
+                    </div>
+                    <div class="tier-period">per month</div>
+                    <ul class="tier-features">
+                        <li>All Silver Perks</li>
+                        <li>Custom Plate</li>
+                        <li>Extra Character Slot</li>
+                        <li>Monthly Reward</li>
+                        <li>Beta Access</li>
+                    </ul>
+                    <a href="#" class="tier-button">Support Now</a>
+                </div>
+                
+                <div class="tier-card">
+                    <h3 class="tier-name">Platinum Beacon</h3>
+                    <div class="tier-price">
+                        <span class="currency">£</span>15
+                    </div>
+                    <div class="tier-period">per month</div>
+                    <ul class="tier-features">
+                        <li>All Gold & Silver Perks</li>
+                        <li>Exclusive Vehicles</li>
+                        <li>Custom Housing</li>
+                        <li>Direct Support Line</li>
+                        <li>Event Priority</li>
+                    </ul>
+                    <a href="#" class="tier-button">Support Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">Beacon RP</div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Home</a>
+                <a href="#" class="footer-link">Discord</a>
+                <a href="#" class="footer-link">Rules</a>
+                <a href="#" class="footer-link">Tebex Store</a>
+            </div>
+            <div class="footer-copyright">
+                © 2025 Beacon RP. All rights reserved. Created with heart, not hype.<br>
+                <span style="font-size: 12px; color: rgba(255, 255, 255, 0.3);">
+                    Beacon RP is not affiliated with or endorsed by Rockstar Games.
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer - Set to 0 0 0 0 for now
+        function updateCountdown() {
+            document.getElementById('days').textContent = '00';
+            document.getElementById('hours').textContent = '00';
+            document.getElementById('minutes').textContent = '00';
+            document.getElementById('seconds').textContent = '00';
+        }
+
+        updateCountdown();
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply to feature cards and tier cards
+        document.querySelectorAll('.feature-card, .tier-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+        // You can add actual image URLs here when you have them
+        // Example: Update feature images dynamically
+        // document.querySelectorAll('.feature-image').forEach((img, index) => {
+        //     img.style.backgroundImage = `url('path-to-image-${index}.jpg')`;
+        // });
+    </script>
+</body>
+</html>
