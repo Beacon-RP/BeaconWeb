@@ -186,17 +186,19 @@
         /* CTA Buttons Container */
         .cta-buttons {
             display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.8s both;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         /* Discord & Tebex Buttons */
         .cta-button {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            text-align: center;
+            width: 250px; /* or 100% for full width on mobile */
+            margin-bottom: 16px;
             padding: 16px 35px;
             background: linear-gradient(135deg, #e4a71f 0%, #c4901b 100%);
             color: #0a0e1a;
@@ -249,6 +251,11 @@
 
         .cta-button:hover::before {
             left: 100%;
+        }
+
+        .cta-button svg {
+            margin-right: 10px;
+            vertical-align: middle;
         }
 
         /* Main Content Section */
@@ -776,17 +783,17 @@
     </style>
 </head>
 <body>
-    <!-- Simple Header Menu -->
-    <header class="header-menu">
-        <div class="container">
-            <nav class="header-nav">
-                <a href="#" class="header-link">Home</a>
-                <a href="#" class="header-link">Discord</a>
-                <a href="#" class="header-link">Rules</a>
-                <a href="#" class="header-link">Tebex Store</a>
-            </nav>
-        </div>
-    </header>
+    <!-- Header Menu -->
+<header class="header-menu">
+    <div class="container">
+        <nav class="header-nav">
+            <a href="https://beaconrp.life" class="header-link" target="_blank" rel="noopener">Home</a>
+            <a href="https://discord.gg/beaconroleplay" class="header-link" target="_blank" rel="noopener">Discord</a>
+            <a href="https://beaconrp.gitbook.io/rules/" class="header-link" target="_blank" rel="noopener">Rules</a>
+            <a href="#" class="header-link">Tebex Store</a>
+        </nav>
+    </div>
+</header>
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -794,7 +801,7 @@
             <p class="hero-subtitle">Your Signal Home</p>
             <p class="hero-description">A new era of GTA Roleplay awaits<br>Are you ready to be part of something extraordinary?</p>
             <div class="cta-buttons">
-                <a href="#" class="cta-button">
+                <a href="https://discord.gg/beaconroleplay" class="cta-button" target="_blank" rel="noopener">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
                     </svg>
@@ -857,7 +864,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">✨</div>
                     <h3 class="feature-title">Clean, Polished Design</h3>
-                    <p class="feature-description">Smooth, stable, and visually consistent. Experience roleplay without the technical hiccups.</p>
+                    <p class="feature-description">Smooth, stable, and visually consistent.<br> Experience roleplay without the technical hiccups.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💼</div>
@@ -910,10 +917,11 @@
                     <div class="tier-period">per month</div>
                     <ul class="tier-features">
                         <li>Supporter Badge</li>
-                        <li>Discord Role</li>
-                        <li>Priority Queue</li>
-                        <li>Exclusive Channels</li>
-                        <li>Exclusive Channels</li>
+                        <li>Supporter Discord Role</li>
+                        <li>Server Priority</li>
+                        <li>-</li>
+                        <li>-</li>
+                        <li>-</li>
                     </ul>
                     <a href="#" class="tier-button">Support Now</a>
                 </div>
@@ -925,11 +933,12 @@
                     </div>
                     <div class="tier-period">per month</div>
                     <ul class="tier-features">
-                        <li>All Silver Perks</li>
-                        <li>Custom Plate</li>
-                        <li>Extra Character Slot</li>
-                        <li>Monthly Reward</li>
-                        <li>Beta Access</li>
+                        <li>Supporter Badge</li>
+                        <li>Supporter Discord Role</li>
+                        <li>Extended Server Priority</li>
+                        <li>Exclusive Sneak Peaks</li>
+                        <li>Exclusive Discord Channels</li>
+                        <li>-</li>
                     </ul>
                     <a href="#" class="tier-button">Support Now</a>
                 </div>
@@ -941,11 +950,12 @@
                     </div>
                     <div class="tier-period">per month</div>
                     <ul class="tier-features">
-                        <li>All Gold & Silver Perks</li>
-                        <li>Exclusive Vehicles</li>
-                        <li>Custom Housing</li>
-                        <li>Direct Support Line</li>
-                        <li>Event Priority</li>
+                        <li>Supporter Badge</li>
+                        <li>Supporter Discord Role</li>
+                        <li>Extended Server Priority</li>
+                        <li>Exclusive Sneak Peaks</li>
+                        <li>Exclusive Discord Channels</li>
+                        <li>The Team's Eternal Love ❤️</li>
                     </ul>
                     <a href="#" class="tier-button">Support Now</a>
                 </div>
@@ -956,13 +966,13 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-logo">Beacon RP</div>
-            <div class="footer-links">
-                <a href="#" class="footer-link">Home</a>
-                <a href="#" class="footer-link">Discord</a>
-                <a href="#" class="footer-link">Rules</a>
+            <nav class="footer-nav">
+                <a href="https://beaconrp.life" class="footer-link" target="_blank" rel="noopener">Home</a>
+                <a href="https://discord.gg/beaconroleplay" class="footer-link" target="_blank" rel="noopener">Discord</a>
+                <a href="https://beaconrp.gitbook.io/rules/" class="footer-link" target="_blank" rel="noopener">Rules</a>
                 <a href="#" class="footer-link">Tebex Store</a>
-            </div>
+            </nav>
+            <div class="footer-logo">Beacon RP</div>
             <div class="footer-copyright">
                 © 2025 Beacon RP. All rights reserved. Created with heart, not hype.<br>
                 <span style="font-size: 12px; color: rgba(255, 255, 255, 0.3);">
