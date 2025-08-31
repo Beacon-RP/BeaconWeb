@@ -168,6 +168,11 @@
             padding: 30px;
             margin-bottom: 60px;
             backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: none;
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
         }
 
         .rules-nav-title {
@@ -326,6 +331,11 @@
             position: relative;
             overflow: hidden;
             scroll-margin-top: 100px;
+            width: 100%;
+            max-width: none;
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
         }
 
         .rules-section::before {
@@ -534,8 +544,10 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .rules-section {
-                padding: 30px 20px;
+            .rules-section,
+            .rules-nav,
+            .age-banner {
+                padding: 20px;
             }
 
             .rules-section-title {
@@ -560,6 +572,12 @@
         }
 
         @media (max-width: 480px) {
+            .rules-section,
+            .rules-nav,
+            .age-banner {
+                padding: 15px;
+            }
+
             .rule-subsection {
                 margin-left: 10px;
                 padding-left: 10px;
