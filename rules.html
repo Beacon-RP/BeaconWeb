@@ -239,12 +239,15 @@
         .age-banner {
             background: linear-gradient(135deg, rgba(228, 167, 31, 0.2) 0%, rgba(228, 167, 31, 0.1) 100%);
             border: 2px solid rgba(228, 167, 31, 0.4);
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 30px;
             margin-bottom: 40px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            width: 100%;
+            max-width: none;
+            box-sizing: border-box;
         }
 
         .age-banner::before {
@@ -281,6 +284,9 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            width: 100%;
+            max-width: none;
+            box-sizing: border-box;
         }
 
         .golden-rule::before {
@@ -402,7 +408,6 @@
         }
 
         .warning-box::before {
-            content: '⚠️';
             position: absolute;
             top: -15px;
             left: 20px;
