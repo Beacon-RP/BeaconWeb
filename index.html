@@ -818,31 +818,60 @@
         </div>
     </section>
 
-    <!-- Countdown Timer Section -->
-    <section class="countdown-section">
-        <div class="container">
-            <h2 class="section-title" style="margin-bottom: 40px;">Launches This October<br>The Countdown Begins Soon<br></h2>
-            <div class="countdown" id="countdown">
-                <div class="countdown-block">
-                    <div class="countdown-number" id="days">0</div>
-                    <div class="countdown-unit">Days</div>
-                </div>
-                <div class="countdown-block">
-                    <div class="countdown-number" id="hours">00</div>
-                    <div class="countdown-unit">Hours</div>
-                </div>
-                <div class="countdown-block">
-                    <div class="countdown-number" id="minutes">00</div>
-                    <div class="countdown-unit">Minutes</div>
-                </div>
-                <div class="countdown-block">
-                    <div class="countdown-number" id="seconds">00</div>
-                    <div class="countdown-unit">Seconds</div>
-                </div>
+<!-- Countdown Timer Section -->
+<section class="countdown-section">
+    <div class="container">
+        <h2 class="section-title" style="margin-bottom: 40px;">Launches This October<br>Beta Weekend Countdown<br></h2>
+        <div class="countdown" id="countdown">
+            <div class="countdown-block">
+                <div class="countdown-number" id="days">0</div>
+                <div class="countdown-unit">Days</div>
+            </div>
+            <div class="countdown-block">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-unit">Hours</div>
+            </div>
+            <div class="countdown-block">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-unit">Minutes</div>
+            </div>
+            <div class="countdown-block">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-unit">Seconds</div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
+<script>
+// Set the target date/time (local timezone)
+const targetDate = new Date("September 5, 2025 19:00:00").getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "<h3>It's live!</h3>";
+        clearInterval(timer);
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+}
+
+// Run every second
+const timer = setInterval(updateCountdown, 1000);
+updateCountdown(); // run immediately so no delay
+</script>
 
     <section class="main-content">
         <div class="container">
@@ -911,7 +940,7 @@
             </div>
             <div class="tiers-grid">
                 <div class="tier-card">
-                    <h3 class="tier-name">Silver Beacon</h3>
+                    <h3 class="tier-name">Diamond Beacon</h3>
                     <div class="tier-price">
                         <span class="currency">£</span>5
                     </div>
@@ -928,7 +957,7 @@
                 </div>
                 
                 <div class="tier-card">
-                    <h3 class="tier-name">Gold Beacon</h3>
+                    <h3 class="tier-name">Sapphire Beacon</h3>
                     <div class="tier-price">
                         <span class="currency">£</span>10
                     </div>
@@ -945,7 +974,7 @@
                 </div>
                 
                 <div class="tier-card">
-                    <h3 class="tier-name">Platinum Beacon</h3>
+                    <h3 class="tier-name">Emerald Beacon</h3>
                     <div class="tier-price">
                         <span class="currency">£</span>15
                     </div>
