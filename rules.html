@@ -168,11 +168,6 @@
             padding: 30px;
             margin-bottom: 60px;
             backdrop-filter: blur(10px);
-            width: 100%;
-            max-width: none;
-            margin-left: auto;
-            margin-right: auto;
-            box-sizing: border-box;
         }
 
         .rules-nav-title {
@@ -187,10 +182,10 @@
 
         .rules-nav-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 15px;
-            justify-items: center;
-            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .nav-link {
@@ -209,7 +204,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             width: 100%;
-            max-width: 200px;
+            min-height: 50px;
         }
 
         .nav-link:hover {
@@ -331,11 +326,6 @@
             position: relative;
             overflow: hidden;
             scroll-margin-top: 100px;
-            width: 100%;
-            max-width: none;
-            margin-left: auto;
-            margin-right: auto;
-            box-sizing: border-box;
         }
 
         .rules-section::before {
@@ -412,6 +402,7 @@
         }
 
         .warning-box::before {
+            content: '⚠️';
             position: absolute;
             top: -15px;
             left: 20px;
@@ -543,10 +534,8 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .rules-section,
-            .rules-nav,
-            .age-banner {
-                padding: 20px;
+            .rules-section {
+                padding: 30px 20px;
             }
 
             .rules-section-title {
@@ -571,12 +560,6 @@
         }
 
         @media (max-width: 480px) {
-            .rules-section,
-            .rules-nav,
-            .age-banner {
-                padding: 15px;
-            }
-
             .rule-subsection {
                 margin-left: 10px;
                 padding-left: 10px;
@@ -622,17 +605,16 @@
         <div class="container">
             <!-- Age Restriction Banner -->
             <div class="age-banner">
-                <h2>Age Requirement</h2>
-                <p><strong>You must be aged 18 or over to play in Beacon RP.<br></strong><br>
+                <h2>Important: Age Requirement</h2>
+                <p><strong>You must be aged 18 or over to play in Beacon RP.</strong><br>
                 There are no exceptions to this rule. If you are under 18, please do not continue.</p>
             </div>
 
             <!-- Golden Rule -->
             <div class="golden-rule">
-                <h2>The Most Important Rule of Them All</h2><br>
-                <p><strong>NO ARSEHOLERY... PLEASE.</strong><br><br>
-                    <p>Please treat others how you would expect to be treated. <br>If any member of the staff team determine that your behaviour does not meet our standards, or if your behaviour goes against any of our rules, then you may be temporarily or permanently removed from Beacon RP.</p>
-                </div>
+                <h2>The Most Important Rule of Them All</h2>
+                <p><strong>NO ARSEHOLERY... PLEASE.</strong><br>
+                It's simple, treat others how you would expect to be treated.</p>
             </div>
 
             <!-- Quick Navigation -->
@@ -681,7 +663,10 @@
                 <div class="rule-item">
                     <span class="rule-text">Please do not DM any staff members. Instead, please use the ticket system provided within Discord for anything city related.</span>
                 </div>
-
+                
+                <div class="rule-item">
+                    <span class="rule-text">If any member of the staff team determine that your behaviour does not meet our standards, or if your behaviour goes against any of our rules, then you may be temporarily or permanently removed from Beacon RP.</span>
+                </div>
             </div>
 
             <!-- Voice and Microphones -->
