@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beacon RP - Server Rules</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+            background: #0a0e1a;
+            min-height: 100vh;
+            color: rgba(255, 255, 255, 0.95);
+            overflow-x: hidden;
+        }
+
+        /* Header Menu */
+        .header-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 40px;
+            border-bottom: 1px solid rgba(228, 167, 31, 0.1);
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .header-link:hover,
+        .header-link.active {
+            color: #e4a71f;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 60px;
+            position: relative;
+            min-height: 40vh;
+            background: linear-gradient(180deg, rgba(10, 14, 26, 0.5) 0%, rgba(7, 43, 81, 0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Animated Background Grid */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(228, 167, 31, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(228, 167, 31, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 10s linear infinite;
+        }
+
+        @keyframes grid-move {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        /* Glow Effects */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(228, 167, 31, 0.15) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(60px, 8vw, 100px);
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            line-height: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            text-transform: uppercase;
+            background: linear-gradient(180deg, #ffffff 0%, #e4a71f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 10px 40px rgba(228, 167, 31, 0.3));
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: #0a0e1a;
+            padding: 80px 40px;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Rules Navigation */
+        .rules-nav {
+            background: rgba(7, 43, 81, 0.3);
+            border: 1px solid rgba(228, 167, 31, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 60px;
+            backdrop-filter: blur(10px);
+        }
+
+        .rules-nav-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            color: #e4a71f;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .rules-nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            background: rgba(7, 43, 81, 0.4);
+            border: 1px solid rgba(228, 167, 31, 0.15);
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .nav-link:hover {
+            background: rgba(228, 167, 31, 0.2);
+            border-color: rgba(228, 167, 31, 0.4);
+            transform: translateY(-2px);
+            color: #e4a71f;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #e4a71f;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #e4a71f, transparent);
+            margin: 20px auto 0;
+        }
+
+        /* Age Restriction Banner */
+        .age-banner {
+            background: linear-gradient(135deg, rgba(228, 167, 31, 0.2) 0%, rgba(228, 167, 31, 0.1) 100%);
+            border: 2px solid rgba(228, 167, 31, 0.4);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .age-banner::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 30px;
+            transform: translateY(-50%);
+            font-size: 48px;
+            opacity: 0.3;
+        }
+
+        .age-banner h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            color: #e4a71f;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .age-banner p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+        }
+
+        /* Golden Rule Box */
+        .golden-rule {
+            background: linear-gradient(135deg, rgba(228, 167, 31, 0.15) 0%, rgba(7, 43, 81, 0.5) 100%);
+            border: 2px solid rgba(228, 167, 31, 0.3);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .golden-rule::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 36px;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .golden-rule h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 42px;
+            color: #e4a71f;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .golden-rule p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.6;
+        }
+
+        /* Rules Sections */
+        .rules-section {
+            background: rgba(7, 43, 81, 0.3);
+            border: 1px solid rgba(228, 167, 31, 0.2);
+            border-radius: 24px;
+            padding: 50px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            scroll-margin-top: 100px;
+        }
+
+        .rules-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #e4a71f, transparent);
+        }
+
+        .rules-section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            color: #e4a71f;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-icon {
+            font-size: 32px;
+            filter: drop-shadow(0 0 10px rgba(228, 167, 31, 0.4));
+        }
+
+        .rule-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .rule-item::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #e4a71f;
+            font-size: 18px;
+        }
+
+        .rule-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .rule-subsection {
+            margin-top: 15px;
+            margin-left: 20px;
+            padding-left: 20px;
+            border-left: 2px solid rgba(228, 167, 31, 0.3);
+        }
+
+        .highlight {
+            color: #e4a71f;
+            font-weight: 600;
+        }
+
+        strong {
+            color: #e4a71f;
+            font-weight: 600;
+        }
+
+        .warning-box {
+            background: rgba(228, 167, 31, 0.1);
+            border: 2px solid rgba(228, 167, 31, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .warning-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #0a0e1a;
+            padding: 0 10px;
+            font-size: 24px;
+        }
+
+        .info-box {
+            background: rgba(7, 43, 81, 0.5);
+            border: 1px solid rgba(228, 167, 31, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .tbc-badge {
+            display: inline-block;
+            background: rgba(228, 167, 31, 0.2);
+            border: 1px solid rgba(228, 167, 31, 0.3);
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 14px;
+            color: #e4a71f;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, #0a0e1a 0%, #072b51 100%);
+            padding: 60px 40px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(228, 167, 31, 0.2);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e4a71f, transparent);
+        }
+
+        .footer-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            letter-spacing: 2px;
+            color: #e4a71f;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-link:hover {
+            color: #e4a71f;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #e4a71f 0%, #c4901b 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a0e1a;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(228, 167, 31, 0.3);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(228, 167, 31, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .rules-section {
+                padding: 30px 20px;
+            }
+
+            .rules-section-title {
+                font-size: 28px;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .rules-nav-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .age-banner::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .rule-subsection {
+                margin-left: 10px;
+                padding-left: 10px;
+            }
+
+            .rules-section {
+                padding: 20px 15px;
+            }
+
+            .golden-rule {
+                padding: 30px 20px;
+            }
+
+            .golden-rule h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Menu -->
+    <header class="header-menu">
+        <div class="container">
+            <nav class="header-nav">
+                <a href="index.html" class="header-link">Home</a>
+                <a href="https://discord.gg/beaconroleplay" class="header-link" target="_blank" rel="noopener">Discord</a>
+                <a href="rules.html" class="header-link active">Rules</a>
+                <a href="#" class="header-link">Tebex Store</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Server Rules</h1>
+            <p class="hero-subtitle">Welcome to Beacon RP! Your Signal Home.<br>Please take your time to read through our rules.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <!-- Age Restriction Banner -->
+            <div class="age-banner">
+                <h2>Age Requirement</h2>
+                <p><strong>You must be aged 18 or over to play in Beacon RP.<br></strong><br>
+                There are no exceptions to this rule. If you are under 18, please do not continue.</p>
+            </div>
+
+            <!-- Golden Rule -->
+            <div class="golden-rule">
+                <h2>The Most Important Rule of Them All</h2><br>
+                <p><strong>NO ARSEHOLERY... PLEASE.</strong><br><br>
+                    <p>Please treat others how you would expect to be treated. <br>If any member of the staff team determine that your behaviour does not meet our standards, or if your behaviour goes against any of our rules, then you may be temporarily or permanently removed from Beacon RP.</p>
+                </div>
+            </div>
+
+            <!-- Quick Navigation -->
+            <div class="rules-nav">
+                <h2 class="rules-nav-title">Quick Navigation</h2>
+                <div class="rules-nav-grid">
+                    <a href="#general" class="nav-link">General</a>
+                    <a href="#voice" class="nav-link">Voice & Microphones</a>
+                    <a href="#modifications" class="nav-link">Modifications</a>
+                    <a href="#characters" class="nav-link">Characters</a>
+                    <a href="#restricted" class="nav-link">Restricted Roleplay</a>
+                    <a href="#basics" class="nav-link">The Basics</a>
+                    <a href="#criminal" class="nav-link">Criminal Numbers</a>
+                    <a href="#hostages" class="nav-link">Hostages</a>
+                    <a href="#robbing" class="nav-link">Robbing & Stealing</a>
+                    <a href="#greenzones" class="nav-link">Green Zones</a>
+                    <a href="#medical" class="nav-link">Medical</a>
+                    <a href="#business" class="nav-link">Business Rules</a>
+                    <a href="#gangs" class="nav-link">Gang Rules</a>
+                </div>
+            </div>
+
+            <!-- General Rules -->
+            <div id="general" class="rules-section">
+                <h2 class="rules-section-title">
+                    <span class="section-icon">📋</span>
+                    General
+                </h2>
+                
+                <div class="rule-item">
+                    <span class="rule-text">Beacon RP has a <strong>zero tolerance policy</strong> towards derogatory terms, racism and hate speech.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text">Please be respectful of other members of the community at all times.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text">At all times you should recognise <strong>consent within RP</strong>. This means that fellow players feel in control, feel safe and are enjoying the experience.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text">Our team are here for everybody's safety, and to ensure the best possible experience, however we ask that you respect that sometimes we do have to make difficult decisions.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text">Please do not DM any staff members. Instead, please use the ticket system provided within Discord for anything city related.</span>
+                </div>
+
+            </div>
+
+            <!-- Voice and Microphones -->
+            <div id="voice" class="rules-section">
+                <h2 class="rules-section-title">
+                    <span class="section-icon">🎤</span>
+                    Voice and Microphones
+                </h2>
+                
+                <div class="rule-item">
+                    <span class="rule-text">You must have a <strong>good quality microphone</strong>, ideally without excessive background noise, or anything else restricting clarity.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text">Realistic Voice Mods are permitted, but you must ensure that you can be understood. A member of the staff team will always be happy to test your voice mods with you in a quiet place.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text">Beacon RP is an <strong>English speaking server</strong>.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text">Any content used in the city (such as music) must be <strong>DMCA-free</strong>, and safe for streamers.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text">Muted or Voiceless RP is allowed. However, please open the relevant ticket if you plan to RP this way.</span>
+                </div>
+            </div>
+
+            <!-- Modifications -->
+            <div id="modifications" class="rules-section">
+                <h2 class="rules-section-title">
+                    <span class="section-icon">⚙️</span>
+                    Modifications
+                </h2>
+                
+                <div class="rule-item">
+                    <span class="rule-text">Any third party mods, software, exploits or hacks are not permitted, with the exception of some graphical mods, listed below. Anybody found to be using modifications that exploit or provide an unfair advantage will be removed from Beacon RP immediately.</span>
+                </div>
+                
+                <div class="warning-box">
+                    <p class="rule-text"><strong>Allowed Mods:</strong><br>
+                    - NVE<br>
+                    - Reshade<br><br>
+                    The server will be running on Pure Mode 1. You may have to make adjustments and staff will not answer any tickets if you are running these mods and are having graphical issues.</p>
+                </div>
+            </div>
+
+            <!-- Characters -->
+            <div id="characters" class="rules-section">
+                <h2 class="rules-section-title">
+                    <span class="section-icon">👤</span>
+                    Characters
+                </h2>
+                
+                <div class="rule-item">
+                    <span class="rule-text">You must <strong>stay in character at all times</strong>. Any player reports must be raised via a Discord ticket, and never raised during Roleplay.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text">You may have multiple characters, but you should explore different RP avenues for each, and they can not be involved in the same gangs or businesses.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text"><strong>RP Bleeding is strictly prohibited</strong> - this means that you CANNOT pass information between any of your characters and have the same knowledge base as another character you portray.</span>
+                </div>
+            </div>
+
+            <!-- Restricted Roleplay -->
+            <div id="restricted" class="rules-section">
+                <h2 class="rules-section-title">
+                    <span class="section-icon">🚫</span>
+                    Restricted Roleplay
+                </h2>
+                
+                <div class="rule-item">
+                    <span class="rule-text">There are a number of RP storylines and characters which are not permitted.</span>
+                </div>
+                
+                <div class="warning-box">
+                    <p class="rule-text"><strong>Restricted Roleplay includes:</strong><br>
+                    - Suicide<br>
+                    - Religious Extremism<br>
+                    - Pregnancy<br>
+                    - Storylines and Scenarios involving sexual assault or rape is not allowed—do not portray, reference, or suggest these topics.</p>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text">Political, celebrity, or trademark character names are not permitted. If you are unsure, please raise a General Support Ticket via Discord.</span>
+                </div>
+            </div>
+
+            <!-- The Basics -->
+            <div id="basics" class="rules-section">
+                <h2 class="rules-section-title">
+                    <span class="section-icon">📚</span>
+                    The Basics
+                </h2>
+                
+                <div class="rule-item">
+                    <span class="rule-text"><strong>RDM/VDM (Random Deathmatch/Vehicle Deathmatch)</strong><br>
+                    Randomly assaulting or killing fellow players without a justifiable roleplay motive is strictly prohibited. This includes running players over with vehicles for no reason.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Metagaming</strong><br>
+                    Information you've gained out of character cannot be used in RP. This includes information from Discord, Twitch, or any other methods. If your character doesn't know it, then don't use it.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Power Gaming</strong><br>
+                    Power gaming and abusing game mechanics to gain an advantage is strictly prohibited. For example; quitting the game mid-roleplay, or using bugged doors which do not open.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Fail RP</strong><br>
+                    FailRP, such as abusing game mechanics, carrying more people than will fit in a vehicle, voice ID'ing etc, is strictly prohibited.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Value your life, and the life of others</strong><br>
+                    Treat your character's life as you would your own. Don't put your life at risk unless absolutely necessary. If your character is put into a fearful situation (such as being taken hostage) then this should reflect in your RP. Being a hero can sometimes put others' lives in danger, you must value the lives of other players. Similarly, if you're not involved in a criminal RP (e.g a police chase), don't involve yourself.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Forced RP</strong><br>
+                    Forcing a player into a situation they may not feel comfortable with is strictly prohibited. You should always be open minded to allow a player to exit an RP scene if they feel uncomfortable. Forcing permanent injuries or death against other players is strictly prohibited.</span>
+                </div>
+            </div>
+
+            <!-- Criminal Numbers -->
+            <div id="criminal" class="rules-section">
+                <h2 class="rules-section-title">
+                    <span class="section-icon">🔫</span>
+                    Criminal Numbers
+                </h2>
+                
+                <div class="rule-item">
+                    <span class="rule-text"><span class="tbc-badge">TBC - To Be Confirmed</span></span>
+                </div>
+                
+                <div class="info-box">
+                    <p class="rule-text">Criminal activity limits and group sizes will be announced soon. Check back for updates or join our Discord for the latest information.</p>
+                </div>
+            </div>
+
+            <!-- Hostages -->
+            <div id="hostages" class="rules-section">
+                <h2 class="rules-section-title">
+                    <span class="section-icon">🔒</span>
+                    Hostages
+                </h2>
+                
+                <div class="rule-item">
+                    <span class="rule-text">Anyone taken hostage must not be a willing participant.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text"><strong>On-Duty EMS cannot be taken hostage</strong>. People on duty at business can be taken, however read the room before taking.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text">There is no fixed time limit that you can hold a hostage for, however, please do respect the time of other players.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text">As a hostage taker, it is your responsibility to ensure your hostages are kept alive and healthy.</span>
+                </div>
+            </div>
+
+            <!-- Robbing and Stealing -->
+            <div id="robbing" class="rules-section">
+                <h2 class="rules-section-title">
+                    <span class="section-icon">💰</span>
+                    Robbing and Stealing
+                </h2>
+                
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Robbing and Stealing Items from another player should only be completed when it allows you to continue your RP progression.</strong></span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text">Pocket Wiping/Loot Boxing (the act of stealing all of a player's items and money) should be avoided, this isn't GTA Online. Don't be a dick about it, think about your players progression when robbing another.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text">Robbery of EMS and PD equipment and vehicles are permitted on a <strong>sensible level</strong> if it enhances your roleplay, though your character will feel the full force of the law once caught.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text">You cannot force another player to withdraw any money from their personal or business accounts.</span>
+                </div>
+            </div>
+
+            <!-- Green Zones -->
+            <div id="greenzones" class="rules-section">
+                <h2 class="rules-section-title">
+                    <span class="section-icon">🏥</span>
+                    Green Zones
+                </h2>
+                
+                <div class="rule-item">
+                    <span class="rule-text">The grounds of any hospital are Green Zones and are designated as no-conflict zones.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text">You must not create new conflict or commit any crime on these premises, however, should Roleplay take you to these areas, then you may continue your storyline.</span>
+                </div>
+            </div>
+
+            <!-- Medical -->
+            <div id="medical" class="rules-section">
+                <h2 class="rules-section-title">
+                    <span class="section-icon">🚑</span>
+                    Medical
+                </h2>
+                
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Knockout</strong> - Beacon RP has a built in Knockout system - when you are knocked out, you naturally cannot speak, and should not remember your surroundings for this period of time.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Downed</strong> - When incapacitated, you should ensure to Roleplay your injuries. Make it realistic! When you've bled out, you cannot speak, and cannot hear or see your surroundings for this period of time.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Memory Loss</strong> - If you are not revived by a member of EMS, you will suffer from short term memory loss. This means you will not remember the scenarios surrounding your incident, nor how you arrived in hospital.</span>
+                </div>
+                
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Permanent Death</strong> - Permanent deaths are permitted in Beacon RP, however, should always be a last resort, and should <strong>ALWAYS</strong> be completed respectfully, of high quality, and must not touch upon any Restricted Roleplay categories. Your character can only be removed by Staff and therefore this may not be possible to do instantaneously. Once complete, your character is automatically removed from the game Database and you cannot recreate this character.</span>
+                </div>
+            </div>
+
+            <!-- Business Rules -->
+            <div id="business" class="rules-section">
+                <h2 class="rules-section-title">
+                    <span class="section-icon">💼</span>
+                    Business Rules
+                </h2>
+                
+                <div class="rule-item">
+                    <span class="rule-text"><span class="tbc-badge">TBC - To Be Confirmed</span></span>
+                </div>
+                
+                <div class="info-box">
+                    <p class="rule-text">Business regulations and guidelines will be announced soon. Stay tuned for updates!</p>
+                </div>
+            </div>
+
+            <!-- Gang Rules -->
+            <div id="gangs" class="rules-section">
+                <h2 class="rules-section-title">
+                    <span class="section-icon">🎭</span>
+                    Gang Rules
+                </h2>
+                
+                <div class="rule-item">
+                    <span class="rule-text"><span class="tbc-badge">TBC - To Be Confirmed</span></span>
+                </div>
+                
+                <div class="info-box">
+                    <p class="rule-text">Gang formation, territories, and conflict rules will be detailed soon. Join our Discord for announcements!</p>
+                </div>
+            </div>
+
+            <!-- Final Notice -->
+            <div class="rules-section" style="background: rgba(228, 167, 31, 0.1); border-color: rgba(228, 167, 31, 0.4);">
+                <h2 class="rules-section-title">
+                    <span class="section-icon">⭐</span>
+                    Remember
+                </h2>
+                <p class="rule-text" style="font-size: 18px; text-align: center; margin: 0;">
+                    We've made our rules nice and simple to allow Roleplay to flow as seamlessly as possible. If you're ever unsure, please open a support ticket from our #tickets channel in Discord.
+                </p>
+                <p class="rule-text" style="font-size: 20px; text-align: center; margin-top: 20px;">
+                    <span class="highlight">Welcome to Beacon RP - Your Signal Home!</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <nav class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="https://discord.gg/beaconroleplay" class="footer-link" target="_blank" rel="noopener">Discord</a>
+                <a href="rules.html" class="footer-link">Rules</a>
+                <a href="#" class="footer-link">Tebex Store</a>
+            </nav>
+            <div class="footer-logo">Beacon RP</div>
+            <div class="footer-copyright">
+                © 2025 Beacon RP. All rights reserved. Created with heart, not hype.<br>
+                <span style="font-size: 12px; color: rgba(255, 255, 255, 0.3);">
+                    Beacon RP is not affiliated with or endorsed by Rockstar Games.
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation to rules sections
+        document.querySelectorAll('.rules-section').forEach((section, index) => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(section);
+        });
+
+        // Active section highlighting in navigation
+        const sections = document.querySelectorAll('.rules-section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
