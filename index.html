@@ -821,7 +821,7 @@
 <!-- Countdown Timer Section -->
 <section class="countdown-section">
     <div class="container">
-        <h2 class="section-title" style="margin-bottom: 40px;">Launches This October<br>Beta Weekend Countdown<br></h2>
+        <h2 class="section-title" style="margin-bottom: 40px;">Launches This October</h2>
         <div class="countdown" id="countdown">
             <div class="countdown-block">
                 <div class="countdown-number" id="days">0</div>
@@ -845,14 +845,14 @@
 
 <script>
 // Set the target date/time (local timezone)
-const targetDate = new Date("September 5, 2025 19:00:00").getTime();
+const targetDate = new Date("October 10, 2025 19:00:00").getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();
     const diff = targetDate - now;
 
     if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = "<h3>It's live!</h3>";
+        document.getElementById("countdown").innerHTML = "<h3>Beacon RP Is Now Live!</h3>";
         clearInterval(timer);
         return;
     }
