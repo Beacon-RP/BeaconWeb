@@ -824,10 +824,6 @@
         <h2 class="section-title" style="margin-bottom: 40px;">Launches This October</h2>
         <div class="countdown" id="countdown">
             <div class="countdown-block">
-                <div class="countdown-number" id="days">0</div>
-                <div class="countdown-unit">Days</div>
-            </div>
-            <div class="countdown-block">
                 <div class="countdown-number" id="hours">00</div>
                 <div class="countdown-unit">Hours</div>
             </div>
@@ -857,13 +853,11 @@ function updateCountdown() {
         return;
     }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const totalHours = Math.floor(diff / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("hours").textContent = String(totalHours).padStart(2, "0");
     document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
     document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
 }
@@ -872,7 +866,6 @@ function updateCountdown() {
 const timer = setInterval(updateCountdown, 1000);
 updateCountdown(); // run immediately so no delay
 </script>
-
     <section class="main-content">
         <div class="container">
             <!-- Story Section -->
