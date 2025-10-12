@@ -817,55 +817,6 @@
             </div>
         </div>
     </section>
-
-<!-- Countdown Timer Section -->
-<section class="countdown-section">
-    <div class="container">
-        <h2 class="section-title" style="margin-bottom: 40px;">Launches This Friday</h2>
-        <div class="countdown" id="countdown">
-            <div class="countdown-block">
-                <div class="countdown-number" id="hours">00</div>
-                <div class="countdown-unit">Hours</div>
-            </div>
-            <div class="countdown-block">
-                <div class="countdown-number" id="minutes">00</div>
-                <div class="countdown-unit">Minutes</div>
-            </div>
-            <div class="countdown-block">
-                <div class="countdown-number" id="seconds">00</div>
-                <div class="countdown-unit">Seconds</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<script>
-// Set the target date/time (local timezone)
-const targetDate = new Date("October 10, 2025 19:30:00").getTime();
-
-function updateCountdown() {
-    const now = new Date().getTime();
-    const diff = targetDate - now;
-
-    if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = "<h3>Beacon RP Is Now Live!</h3>";
-        clearInterval(timer);
-        return;
-    }
-
-    const totalHours = Math.floor(diff / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    document.getElementById("hours").textContent = String(totalHours).padStart(2, "0");
-    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
-    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
-}
-
-// Run every second
-const timer = setInterval(updateCountdown, 1000);
-updateCountdown(); // run immediately so no delay
-</script>
     <section class="main-content">
         <div class="container">
             <!-- Story Section -->
