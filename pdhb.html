@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beacon RP - PD Employee Handbook</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+            background: #0a0e1a;
+            min-height: 100vh;
+            color: rgba(255, 255, 255, 0.95);
+            overflow-x: hidden;
+        }
+
+        /* Header Menu */
+        .header-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 40px;
+            border-bottom: 1px solid rgba(228, 167, 31, 0.1);
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .header-link:hover,
+        .header-link.active {
+            color: #e4a71f;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 60px;
+            position: relative;
+            min-height: 40vh;
+            background: linear-gradient(180deg, rgba(10, 14, 26, 0.5) 0%, rgba(7, 43, 81, 0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Animated Background Grid */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(228, 167, 31, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(228, 167, 31, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 10s linear infinite;
+        }
+
+        @keyframes grid-move {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        /* Glow Effects */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(228, 167, 31, 0.15) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(60px, 8vw, 100px);
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            line-height: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            text-transform: uppercase;
+            background: linear-gradient(180deg, #ffffff 0%, #e4a71f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 10px 40px rgba(228, 167, 31, 0.3));
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: #0a0e1a;
+            padding: 80px 40px;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Rules Navigation */
+        .rules-nav {
+            background: rgba(7, 43, 81, 0.3);
+            border: 1px solid rgba(228, 167, 31, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 60px;
+            backdrop-filter: blur(10px);
+        }
+
+        .rules-nav-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            color: #e4a71f;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .rules-nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            background: rgba(7, 43, 81, 0.4);
+            border: 1px solid rgba(228, 167, 31, 0.15);
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            min-height: 50px;
+        }
+
+        .nav-link:hover {
+            background: rgba(228, 167, 31, 0.2);
+            border-color: rgba(228, 167, 31, 0.4);
+            transform: translateY(-2px);
+            color: #e4a71f;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #e4a71f;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #e4a71f, transparent);
+            margin: 20px auto 0;
+        }
+
+        /* Age Restriction Banner */
+        .age-banner {
+            background: linear-gradient(135deg, rgba(228, 167, 31, 0.2) 0%, rgba(228, 167, 31, 0.1) 100%);
+            border: 2px solid rgba(228, 167, 31, 0.4);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: none;
+            box-sizing: border-box;
+        }
+
+        .age-banner::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 30px;
+            transform: translateY(-50%);
+            font-size: 48px;
+            opacity: 0.3;
+        }
+
+        .age-banner h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            color: #e4a71f;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .age-banner p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+        }
+
+        /* Golden Rule Box */
+        .golden-rule {
+            background: linear-gradient(135deg, rgba(228, 167, 31, 0.15) 0%, rgba(7, 43, 81, 0.5) 100%);
+            border: 2px solid rgba(228, 167, 31, 0.3);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: none;
+            box-sizing: border-box;
+        }
+
+        .golden-rule::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 36px;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .golden-rule h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 42px;
+            color: #e4a71f;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .golden-rule p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.6;
+        }
+
+        /* Rules Sections */
+        .rules-section {
+            background: rgba(7, 43, 81, 0.3);
+            border: 1px solid rgba(228, 167, 31, 0.2);
+            border-radius: 24px;
+            padding: 50px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            scroll-margin-top: 100px;
+        }
+
+        .rules-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #e4a71f, transparent);
+        }
+
+        .rules-section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            color: #e4a71f;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-icon {
+            font-size: 32px;
+            filter: drop-shadow(0 0 10px rgba(228, 167, 31, 0.4));
+        }
+
+        .rule-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .rule-item::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #e4a71f;
+            font-size: 18px;
+        }
+
+        .rule-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .rule-subsection {
+            margin-top: 15px;
+            margin-left: 20px;
+            padding-left: 20px;
+            border-left: 2px solid rgba(228, 167, 31, 0.3);
+        }
+
+        .highlight {
+            color: #e4a71f;
+            font-weight: 600;
+        }
+
+        strong {
+            color: #e4a71f;
+            font-weight: 600;
+        }
+
+        .warning-box {
+            background: rgba(228, 167, 31, 0.1);
+            border: 2px solid rgba(228, 167, 31, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .warning-box::before {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #0a0e1a;
+            padding: 0 10px;
+            font-size: 24px;
+        }
+
+        .info-box {
+            background: rgba(7, 43, 81, 0.5);
+            border: 1px solid rgba(228, 167, 31, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .tbc-badge {
+            display: inline-block;
+            background: rgba(228, 167, 31, 0.2);
+            border: 1px solid rgba(228, 167, 31, 0.3);
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 14px;
+            color: #e4a71f;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, #0a0e1a 0%, #072b51 100%);
+            padding: 60px 40px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(228, 167, 31, 0.2);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e4a71f, transparent);
+        }
+
+        .footer-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            letter-spacing: 2px;
+            color: #e4a71f;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-link:hover {
+            color: #e4a71f;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #e4a71f 0%, #c4901b 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a0e1a;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(228, 167, 31, 0.3);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(228, 167, 31, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .rules-section {
+                padding: 30px 20px;
+            }
+
+            .rules-section-title {
+                font-size: 28px;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .rules-nav-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .age-banner::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .rule-subsection {
+                margin-left: 10px;
+                padding-left: 10px;
+            }
+
+            .rules-section {
+                padding: 20px 15px;
+            }
+
+            .golden-rule {
+                padding: 30px 20px;
+            }
+
+            .golden-rule h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Menu -->
+    <header class="header-menu">
+        <div class="container">
+            <nav class="header-nav">
+                <a href="index.html" class="header-link">Home</a>
+                <a href="rules.html" class="header-link">Server Rules</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">PD Employee Handbook</h1>
+            <div class="hero-subtitle">LSPD Standard Operating Procedures</div>
+        </div>
+    </section>
+
+    <div class="rules-nav">
+        <h2 class="rules-nav-title">Quick Navigation</h2>
+        <div class="rules-nav-grid">
+            <a href="#welcome" class="nav-link">Welcome</a>
+            <a href="#suspicion" class="nav-link">Suspicion & Cause</a>
+            <a href="#weapons" class="nav-link">Weapons Licenses</a>
+            <a href="#vehicles" class="nav-link">PD Vehicles & Impound</a>
+            <a href="#prison" class="nav-link">Prison Transport</a>
+            <a href="#injured" class="nav-link">Injured Parties</a>
+            <a href="#threat" class="nav-link">Threat Levels & Equipment</a>
+            <a href="#induction" class="nav-link">Induction & Misc</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="section-title" id="welcome">Welcome to LSPD</div>
+            <div class="rules-section">
+                <div class="rule-item">
+                    <span class="rule-text">Standard Operating Procedures for the Police Department. You are an employee of the State, during your time in employment, you are expected to ensure you follow the Laws within Los Santos, and subsequently enforce the Law in your position as an Officer. You can find in this document definitions that will help with your educational knowledge for the procedures within the Policing Departments.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Key information for Police Employees:</strong><br>
+                    • Respect the Chain of Command<br>
+                    • Ensure Standard Operating Procedures are followed as required<br>
+                    • All evidence should be logged and stored, and then stored in evidence rooms as soon as possible.<br>
+                    • EMS should be called to help at the roadside.<br>
+                    • If not, EMS are available, people should be transported by an Officer to the Pillbox for Treatment<br>
+                    • Ensure you are fair and open, and only base your decisions on facts, training, or interview knowledge. We do not know mechanics.<br>
+                    • We cannot speak to ‘suppliers’ of certain things; from our view, they are not willing to talk or engage with the Police.</span>
+                </div>
+            </div>
+
+            <div class="section-title" id="suspicion">Reasonable Suspicion & Probable Cause</div>
+            <div class="rules-section">
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Reasonable Suspicion:</strong> A suspicion, based on specific and articulable facts, that you, as an officer, believe that a suspect has committed, will commit or is about to commit a crime. Reasonable Suspicion is grounds for detaining, but not arresting. This allows you to question, GSR and Frisk (If you believe they are armed and dangerous).</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Probable Cause:</strong> Probable cause requires that the police have more than just suspicion that a suspect committed a crime. You have hard evidence someone has committed a crime, but this does not have to be complete certainty. You can search and arrest with probable cause.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text">The difference: Reasonable suspicion is a step before probable cause. At the point of reasonable suspicion, it appears that a crime may have been committed. The situation escalates to probable cause when it becomes obvious that a crime has most likely been committed. Evidence is key to having a distinct difference where the required Probable Cause has been reached to arrest and search a suspect.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text"><strong>When can you Frisk?</strong> You can conduct a frisk when you have Reasonable Suspicion that a person has committed, will commit or is committing a crime AND is armed and dangerous. (Terry v. Ohio 1968). When you frisk and remove a weapon, you can only see the weapon and nothing else.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text"><strong>When can you search a person or a vehicle?</strong> (Carroll vs United States)<br>
+                    • You can search a person when you have Probable Cause to arrest.<br>
+                    • The vehicle has been involved in a crime or contains illegal contraband.<br>
+                    • You can search a person/vehicle when you have consent.<br>
+                    • You can search a person under extreme circumstances (saving someone's life takes precedence over SOPs and case laws).<br>
+                    • You can search a vehicle when you are checking the vehicle after an incident in which you impounded the car.</span>
+                </div>
+            </div>
+            <div class="section-title" id="weapons">Granting Weapons Licenses</div>
+            <div class="rules-section">
+                <div class="rule-item">
+                    <span class="rule-text">• All citizens have an amendment right to purchase and possess firearms.<br>
+                    • Any weapons not sold by licensed distributors by the State (Ammunition) are to be seized and destroyed.<br>
+                    • If a citizen is found to be in possession of a firearm without a licence, the firearm will be confiscated, and they will be charged with unlicensed possession.<br>
+                    • If a citizen is found to be in possession of an illegal firearm, they will have their licence revoked.<br>
+                    • If a citizen is found to be committing a felony crime and they have a firearm in their possession, the firearm will be confiscated and not returned.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text">To issue a new license, you must be a full officer or above.<br>
+                    To reissue a license you will need to be Cpl or above.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text">Steps:<br>
+                    1. Ask for the recipient's Physical ID.<br>
+                    2. Ask the recipient when they are allowed to discharge their firearm by running through 2 scenarios to test how they would react.<br>
+                    3. Inform the recipient that if they have to discharge their firearm in self-defence, they should stay on the scene and report it via 911 to the police.<br>
+                    4. Check the recipient's profile on the MDT (Add a Picture to their profile if one is not present).<br>
+                    5. Bill the recipient for $1000 - If the license is a reissue, bill $2500 & only after 21 days with no violent crime.<br>
+                    6. Issue the license via the MDT - A Gun License should last 3 months from the date of issue.</span>
+                </div>
+            </div>
+            <div class="section-title" id="vehicles">PD Vehicles & Impound</div>
+            <div class="rules-section">
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Repairing PD Vehicles:</strong><br>
+                    • Carry Repair Kits (Bought at a mechanic)<br>
+                    • Duct Tape (Bought at Tool Station)<br>
+                    • Visit a Mechanics & Bennys<br>
+                    • Use garages where possible for repairs. Ensure vehicles are repaired before putting them away.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Impound Vehicles:</strong><br>
+                    • Check for tow trucks first. If none, use access tool and drive back to DDPD/Impound via PD escort.<br>
+                    • As a last resort, /IV can be used.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Lockbox:</strong> Accessed from the F1 wheel while in a vehicle. Used to store only Class 2 Firearms whilst on duty. Once off High Alert, move to using these lockboxes.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Plate Scanner:</strong> Keybind needs to be configured within FiveM Keybinds. With radar on, click the keybind to scan the vehicle and get Bolo/reported stolen/name/plate, etc. Plate Scanner needs to be on at all times.</span>
+                </div>
+            </div>
+            <div class="section-title" id="prison">Prison Transport</div>
+            <div class="rules-section">
+                <div class="rule-item">
+                    <span class="rule-text">Minimum officer count for safe prison transport: <strong>7</strong></span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text">Prison transport for anyone sentenced to 60+ months in Bolingbroke. Ready to transport as soon as processing is done.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text">Prison Bus (2 Officers Min) escorted by 3 cars:<br>
+                    • 1 x STX<br>
+                    • 2 x Baller<br>
+                    • 1 x Air one plus Co-Pilot (optional)</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Attempted Breakout:</strong> If a breakout occurs en route, 78S WILL BE CALLED. Transport stops, all units surround bus, officers stay with prisoners, units cover bus and act on weapon identification. Bus stays until safe. If prisoner escapes, units pursue as per SOPs.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text">Escort vehicles block/station at junctions, air one provides overview. Blocking/escort vehicle stays until convoy passes, then moves ahead to next junction.</span>
+                </div>
+            </div>
+            <div class="section-title" id="injured">Responding to Injured Parties</div>
+            <div class="rules-section">
+                <div class="rule-item">
+                    <span class="rule-text"><strong>If EMS are available:</strong><br>
+                    1. Check vitals - pulse, injuries<br>
+                    2. If no pulse, perform CPR<br>
+                    3. See if responsive - ask what happened<br>
+                    4. Contact EMS - Radio 10 AND /911e, advise on situation<br>
+                    5. If performing CPR, continue until EMS arrives</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text"><strong>If EMS are NOT available:</strong><br>
+                    1. Check vitals - pulse, injuries<br>
+                    2. If no pulse, perform CPR<br>
+                    3. See if responsive - ask what happened<br>
+                    4. If shot, stop bleeding. If neck injury, apply brace.<br>
+                    5. Carry/Escort to Police Vehicle, transport to Pillbox for treatment. Pack wound, bandage, apply neck brace as needed.</span>
+                </div>
+            </div>
+            <div class="section-title" id="threat">Threat Levels & Equipment</div>
+            <div class="rules-section">
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Routine Duty (Default):</strong> Business as usual. Entered after every tsunami. Maintain awareness, no special measures beyond normal duty.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Substantial Threat:</strong> Elevated security. Triggered by sustained threat. Additional protective measures required. Body armour, pair up, carry Class 2 openly.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Critical Threat:</strong> Maximum protective security. Triggered by severe threats (e.g., Class 3 usage). Heavier uniform, double units, Class 3 rifle on back.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Weapon Classification:</strong><br>
+                    • Class 0 → Non-lethal<br>
+                    • Class 1 → Single-fire / lower calibre<br>
+                    • Class 2 → Automatic fire (low calibre) OR single-fire (high calibre)<br>
+                    • Class 3 → Snipers, explosives, automatic fire (high calibre)</span>
+                </div>
+            </div>
+            <div class="section-title" id="induction">Police Induction & Miscellaneous</div>
+            <div class="rules-section">
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Induction (CPL & Above):</strong> Hire via Services App. Interview, decide Officer (2 x Ride Along) or Cadet. Induction covers: Welcome, Equipment Checklist, Standards, MDT, Radio, Call Signs & 10-Codes.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text">Cadet follows process with FTO as in MDT FTO Reports. Officer continues journey.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Boats:</strong> Collect PD Boat at Vespucci Beach (next to pier).</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Equipment Returns:</strong> On separation, surrender all issued equipment to San Andreas Law Enforcement. Complete PR (Property Return) Form for all equipment returned.</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-text"><strong>Leave of Absence (LOA):</strong> No prior approval needed. Mark yourself as [LOA] in email system & LOA Channel.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button. -->
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <nav class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="https://discord.gg/beaconroleplay" class="footer-link" target="_blank" rel="noopener">Discord</a>
+                <a href="rules.html" class="footer-link">Rules</a>
+                <a href="https://beaconrp.tebex.io" class="footer-link">Store</a>
+            </nav>
+            <div class="footer-logo">Beacon RP</div>
+            <div class="footer-copyright">
+                © 2025 Beacon RP. All rights reserved. Created with heart, not hype.<br>
+                <span style="font-size: 12px; color: rgba(255, 255, 255, 0.3);">
+                    Beacon RP is not affiliated with or endorsed by Rockstar Games.
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation to rules sections
+        document.querySelectorAll('.rules-section').forEach((section, index) => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(section);
+        });
+
+        // Active section highlighting in navigation
+        const sections = document.querySelectorAll('.rules-section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
