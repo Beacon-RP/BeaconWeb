@@ -216,6 +216,31 @@
 
         /* Section Title */
         .section-title {
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 24px;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gallery-item img {
+    max-width: 100%;
+    border-radius: 12px;
+    border: 2px solid #e4a71f;
+    margin-bottom: 12px;
+}
+.gallery-caption {
+    color: #fff;
+    font-size: 17px;
+    text-align: center;
+    margin-top: 0;
+}
             font-family: 'Bebas Neue', sans-serif;
             font-size: 48px;
             letter-spacing: 2px;
@@ -333,6 +358,27 @@
             overflow: hidden;
             scroll-margin-top: 100px;
         }
+            /* 10 Codes Grid */
+            .ten-codes-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, auto);
+                gap: 24px 32px;
+                margin-top: 32px;
+                margin-bottom: 16px;
+            }
+            .ten-code-item {
+                background: none;
+                border: none;
+                border-radius: 0;
+                padding: 0;
+                font-size: 18px;
+                color: #fff;
+                box-shadow: none;
+                text-align: left;
+                font-family: 'Inter', sans-serif;
+                font-weight: 500;
+            }
 
         .rules-section::before {
             content: '';
@@ -354,6 +400,51 @@
             display: flex;
             align-items: center;
             gap: 15px;
+                /* Radar Keybinds Box */
+                .radar-keybinds-box {
+                    background: rgba(7, 43, 81, 0.85);
+                    border: 1px solid rgba(228, 167, 31, 0.18);
+                    border-radius: 18px;
+                    padding: 32px 28px 24px 28px;
+                    margin: 32px auto 0 auto;
+                    max-width: 400px;
+                    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+                }
+                .radar-keybinds-title {
+                    font-family: 'Bebas Neue', sans-serif;
+                    font-size: 22px;
+                    color: #fff;
+                    letter-spacing: 1px;
+                    margin-bottom: 18px;
+                    text-align: left;
+                }
+                .radar-keybinds-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                }
+                .radar-keybind-row {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 18px;
+                    color: #fff;
+                }
+                .radar-keybind-label {
+                    font-family: 'Inter', sans-serif;
+                    font-weight: 500;
+                }
+                .radar-keybind-key {
+                    background: rgba(228, 167, 31, 0.18);
+                    border-radius: 8px;
+                    padding: 4px 16px;
+                    font-family: 'Bebas Neue', sans-serif;
+                    font-size: 18px;
+                    color: #e4a71f;
+                    min-width: 48px;
+                    text-align: center;
+                    margin-left: 16px;
+                }
         }
 
         .section-icon {
@@ -365,6 +456,9 @@
             margin-bottom: 25px;
             padding-left: 20px;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .rule-item::before {
@@ -373,6 +467,7 @@
             left: 0;
             color: #e4a71f;
             font-size: 18px;
+            display: none;
         }
 
         .rule-text {
@@ -614,6 +709,14 @@
             <a href="#injured" class="nav-link">Injured Parties</a>
             <a href="#threat" class="nav-link">Threat Levels & Equipment</a>
             <a href="#induction" class="nav-link">Induction & Misc</a>
+            <a href="#gallery" class="nav-link">PD Locations Gallery</a>
+            <a href="#10codes" class="nav-link">10 Codes</a>
+            <a href="#keybinds" class="nav-link">Keybinds</a>
+            <a href="#equipment" class="nav-link">Equipment</a>
+            <a href="#vehicleusage" class="nav-link">Vehicle Usage</a>
+            <a href="#incidentunits" class="nav-link">Incident Units</a>
+            <a href="#evidence" class="nav-link">Evidence</a>
+            <a href="#miranda" class="nav-link">Miranda Rights</a>
         </div>
     </div>
 
@@ -762,7 +865,7 @@
                     • Class 2 → Automatic fire (low calibre) OR single-fire (high calibre)<br>
                     • Class 3 → Snipers, explosives, automatic fire (high calibre)</span>
                 </div>
-            </div>
+
             <div class="section-title" id="induction">Police Induction & Miscellaneous</div>
             <div class="rules-section">
                 <div class="rule-item">
@@ -781,6 +884,120 @@
                     <span class="rule-text"><strong>Leave of Absence (LOA):</strong> No prior approval needed. Mark yourself as [LOA] in email system & LOA Channel.</span>
                 </div>
             </div>
+
+                <div class="section-title" id="10codes">10 Codes</div>
+                <div class="rules-section">
+                        <div class="ten-codes-grid">
+                            <div class="ten-code-item">10-2 - Loud & Clear</div>
+                            <div class="ten-code-item">10-19 - Return to</div>
+                            <div class="ten-code-item">10-80 - Pursuit in Progress</div>
+                            <div class="ten-code-item">10-3 - Break</div>
+                            <div class="ten-code-item">10-20 - Location</div>
+                            <div class="ten-code-item">10-90 - Robbery in Progress</div>
+                            <div class="ten-code-item">10-4 - Acknowledgment</div>
+                            <div class="ten-code-item">10-21 - Disregard</div>
+                            <div class="ten-code-item">10-94 - Reckless Driver</div>
+                            <div class="ten-code-item">10-5 - Relay</div>
+                            <div class="ten-code-item">10-23 - Arriving on scene</div>
+                            <div class="ten-code-item">10-95 - Suspect in Custody</div>
+                            <div class="ten-code-item">10-6 - Busy, Unless Urgent</div>
+                            <div class="ten-code-item">10-26 - Detaining subject</div>
+                            <div class="ten-code-item">10-98 - Jail Break</div>
+                            <div class="ten-code-item">10-7 - Out Of service</div>
+                            <div class="ten-code-item">10-25 - Report in Person</div>
+                            <div class="ten-code-item">10-99 - Stolen Vehicle</div>
+                            <div class="ten-code-item">10-8 - Back In Service</div>
+                            <div class="ten-code-item">10-31 - Crime in Progress</div>
+                            <div class="ten-code-item">10-41 - On Duty</div>
+                            <div class="ten-code-item">10-9 - Repeat</div>
+                            <div class="ten-code-item">10-32 - Person with a Gun</div>
+                            <div class="ten-code-item">10-42 - Off Duty</div>
+                            <div class="ten-code-item">10-10 - Fight in Progress</div>
+                            <div class="ten-code-item">10-38 - Traffic Stop</div>
+                            <div class="ten-code-item">10-12 - Standby</div>
+                            <div class="ten-code-item">10-47 - Injured Person</div>
+                            <div class="ten-code-item">10-13A - Officer down (Emergency)</div>
+                            <div class="ten-code-item">10-50 - Traffic Accident</div>
+                            <div class="ten-code-item">10-13B - Officer Down (None-Emergency)</div>
+                            <div class="ten-code-item">10-52 - EMS Needed</div>
+                            <div class="ten-code-item">10-14A - Medic Down (Emergency)</div>
+                            <div class="ten-code-item">10-60 - Car Jacking</div>
+                            <div class="ten-code-item">10-14B - Medic Down  (None-Emergency)</div>
+                            <div class="ten-code-item">10-65 - Armed Robbery</div>
+                            <div class="ten-code-item">10-15 - Civil Disturbance</div>
+                            <div class="ten-code-item">10-71 - Shots Fired</div>
+                            <div class="ten-code-item">VCB - Visual Contact Broken</div>
+                            <div class="ten-code-item">10-16 - Domestic Problem</div>
+                            <div class="ten-code-item">10-76 - enroute</div>
+                            <div class="ten-code-item">10-17 - Meet Complainant</div>
+                            <div class="ten-code-item">10-77 - Backup Required</div>
+                            <div class="ten-code-item">10-18 - Quickly</div>
+                            <div class="ten-code-item">10-78 - Backup Required (Urgent)</div>
+                            <div class="ten-code-item">Code 1 - No Lights or sirens</div>
+                            <div class="ten-code-item">Code 2 - Lights only</div>
+                            <div class="ten-code-item">Code 3 - Lights and Sirens</div>
+                            <div class="ten-code-item">Code 4 - All Clear</div>
+                            <div class="ten-code-item">Code 5 - StakeOut</div>
+                            <div class="ten-code-item">Code 6 - Searching the Area</div>
+                            <div class="ten-code-item">UTL - Unable to Locate</div>
+                        </div>
+                </div>
+
+                <div class="section-title" id="keybinds">Keybinds</div>
+                <div class="rules-section">
+                    <div class="rules-section-title">Police Radar</div>
+                    <div class="radar-keybinds-box">
+                        <div class="radar-keybinds-title"><strong>KEYBOARD SHORTCUTS</strong></div>
+                        <div class="radar-keybinds-list">
+                            <div class="radar-keybind-row"><span class="radar-keybind-label">Toggle Radar</span><span class="radar-keybind-key">F5</span></div>
+                            <div class="radar-keybind-row"><span class="radar-keybind-label">Interact with Radar</span><span class="radar-keybind-key">K</span></div>
+                            <div class="radar-keybind-row"><span class="radar-keybind-label">Save Reading</span><span class="radar-keybind-key">J</span></div>
+                            <div class="radar-keybind-row"><span class="radar-keybind-label">Lock/Unlock Radar</span><span class="radar-keybind-key">F9</span></div>
+                            <div class="radar-keybind-row"><span class="radar-keybind-label">Switch to Front</span><span class="radar-keybind-key">←</span></div>
+                            <div class="radar-keybind-row"><span class="radar-keybind-label">Switch to Rear</span><span class="radar-keybind-key">→</span></div>
+                            <div class="radar-keybind-row"><span class="radar-keybind-label">Toggle Log</span><span class="radar-keybind-key">F10</span></div>
+                            <div class="radar-keybind-row"><span class="radar-keybind-label">Toggle BOLO List</span><span class="radar-keybind-key">F11</span></div>
+                            <div class="radar-keybind-row"><span class="radar-keybind-label">Show/Hide Keybinds</span><span class="radar-keybind-key">F12</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-title" id="equipment">Equipment</div>
+                <div class="rules-section">
+                    <div class="rule-item">
+                        <span class="rule-text">Standard issue and optional equipment for officers. (Add equipment details here)</span>
+                    </div>
+                </div>
+
+                <div class="section-title" id="vehicleusage">Vehicle Usage</div>
+                <div class="rules-section">
+                    <div class="rule-item">
+                        <span class="rule-text">Rules and guidelines for using PD vehicles. (Add vehicle usage info here)</span>
+                    </div>
+                </div>
+
+                <div class="section-title" id="incidentunits">Incident Units</div>
+                <div class="rules-section">
+                    <div class="rule-item">
+                        <span class="rule-text">Types of units and their roles during incidents. (Add incident unit info here)</span>
+                    </div>
+                </div>
+
+                    <div class="section-title" id="evidence">Evidence</div>
+                    <div class="rules-section">
+                        <div class="rule-item">
+                            <span class="rule-text">Procedures for handling, logging, and storing evidence. (Add evidence info here)</span>
+                        </div>
+                    </div>
+
+                    <div class="section-title" id="miranda">Miranda Rights</div>
+                    <div class="rules-section">
+                        <div class="rule-item">
+                            <span class="rule-text">The Miranda Rights must be read to all suspects in custody prior to questioning. 
+                            We do this to follow the Miranda v. Arizona case law and to ensure suspects are aware of their rights. The Standard Miranda Rights script is as follows:<br><br>
+                            <em>You have the right to remain silent. Anything you say can and will be used against you in a court of law, You have the right to an attorney. If you cannot afford an attorney, one will be appointed for you. Do you understand these rights as I have read them to you?</em></span>
+                        </div>
+                    </div>
         </div>
     </section>
 
