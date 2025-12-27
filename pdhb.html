@@ -13,618 +13,166 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: #0a0e1a;
-            min-height: 100vh;
             color: rgba(255, 255, 255, 0.95);
             overflow-x: hidden;
         }
 
-        /* Header Menu */
-        .header-menu {
+        /* Header */
+        .top-header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(10, 14, 26, 0.95);
+            height: 70px;
+            background: rgba(10, 14, 26, 0.98);
             backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(228, 167, 31, 0.2);
             z-index: 1000;
-            padding: 20px 40px;
-            border-bottom: 1px solid rgba(228, 167, 31, 0.1);
-        }
-
-        .header-nav {
             display: flex;
-            gap: 30px;
-            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
+            padding: 0 40px;
         }
 
-        .header-link {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
+        .header-logo {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 16px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
-
-        .header-link:hover,
-        .header-link.active {
-            color: #e4a71f;
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 60px;
-            position: relative;
-            min-height: 40vh;
-            background: linear-gradient(180deg, rgba(10, 14, 26, 0.5) 0%, rgba(7, 43, 81, 0.8) 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        /* Animated Background Grid */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                linear-gradient(rgba(228, 167, 31, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(228, 167, 31, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: grid-move 10s linear infinite;
-        }
-
-        @keyframes grid-move {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(50px, 50px);
-            }
-        }
-
-        /* Glow Effects */
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(228, 167, 31, 0.15) 0%, transparent 70%);
-            transform: translate(-50%, -50%);
-            animation: pulse-glow 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0.5;
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.2);
-                opacity: 0.8;
-            }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(50px, 7vw, 90px);
-            letter-spacing: 4px;
-            margin-bottom: 10px;
-            line-height: 0.9;
-            animation: fadeInUp 1s ease-out 0.2s both;
-            text-transform: uppercase;
+            font-size: 28px;
+            letter-spacing: 2px;
             background: linear-gradient(180deg, #ffffff 0%, #e4a71f 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 10px 40px rgba(228, 167, 31, 0.3));
+            margin-right: 40px;
         }
 
-        .hero-subtitle {
-            font-size: 16px;
+        .header-search {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .header-search input {
+            width: 100%;
+            padding: 12px 45px 12px 20px;
+            background: rgba(7, 43, 81, 0.4);
+            border: 1px solid rgba(228, 167, 31, 0.3);
+            border-radius: 25px;
+            color: white;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .header-search input:focus {
+            border-color: #e4a71f;
+            background: rgba(7, 43, 81, 0.6);
+        }
+
+        .header-search input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #e4a71f;
+            font-size: 18px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 70px;
+            width: 280px;
+            height: calc(100vh - 70px);
+            background: rgba(7, 43, 81, 0.3);
+            border-right: 1px solid rgba(228, 167, 31, 0.2);
+            overflow-y: auto;
+            padding: 30px 0;
+            z-index: 900;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(228, 167, 31, 0.5);
+            border-radius: 3px;
+        }
+
+        .sidebar-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            padding: 0 25px 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-link {
+            padding: 15px 25px;
             color: rgba(255, 255, 255, 0.7);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.5;
-            animation: fadeInUp 1s ease-out 0.4s both;
+            text-decoration: none;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sidebar-link:hover {
+            background: rgba(228, 167, 31, 0.1);
+            color: #e4a71f;
+            border-left-color: #e4a71f;
+        }
+
+        .sidebar-link.active {
+            background: rgba(228, 167, 31, 0.2);
+            color: #e4a71f;
+            border-left-color: #e4a71f;
+            font-weight: 600;
+        }
+
+        .sidebar-icon {
+            font-size: 18px;
+            width: 20px;
         }
 
         /* Main Content */
-        .main-content {
-            background: #0a0e1a;
-            padding: 80px 40px;
-            position: relative;
+        .main-wrapper {
+            margin-left: 280px;
+            margin-top: 70px;
+            padding: 40px 60px;
+            min-height: calc(100vh - 70px);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Rules Navigation */
-        .rules-nav {
-            background: rgba(7, 43, 81, 0.3);
-            border: 1px solid rgba(228, 167, 31, 0.2);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 60px;
-            backdrop-filter: blur(10px);
-        }
-
-        .rules-nav-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 28px;
-            color: #e4a71f;
-            margin-bottom: 20px;
-            text-align: center;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .rules-nav-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 15px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 20px;
-            background: rgba(7, 43, 81, 0.4);
-            border: 1px solid rgba(228, 167, 31, 0.15);
-            border-radius: 10px;
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            text-align: center;
-            transition: all 0.3s ease;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            width: 100%;
-            min-height: 50px;
-        }
-
-        .nav-link:hover {
-            background: rgba(228, 167, 31, 0.2);
-            border-color: rgba(228, 167, 31, 0.4);
-            transform: translateY(-2px);
-            color: #e4a71f;
-        }
-
-        /* Section Title */
-        .section-title {
-/* Gallery Grid */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px 24px;
-    margin-top: 32px;
-    margin-bottom: 16px;
-}
-.gallery-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.gallery-item img {
-    max-width: 100%;
-    border-radius: 12px;
-    border: 2px solid #e4a71f;
-    margin-bottom: 12px;
-}
-.gallery-caption {
-    color: #fff;
-    font-size: 17px;
-    text-align: center;
-    margin-top: 0;
-}
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 48px;
-            letter-spacing: 2px;
-            text-align: center;
-            margin-bottom: 60px;
-            color: #e4a71f;
-            text-transform: uppercase;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #e4a71f, transparent);
-            margin: 20px auto 0;
-        }
-
-        /* Age Restriction Banner */
-        .age-banner {
-            background: linear-gradient(135deg, rgba(228, 167, 31, 0.2) 0%, rgba(228, 167, 31, 0.1) 100%);
-            border: 2px solid rgba(228, 167, 31, 0.4);
-            border-radius: 24px;
-            padding: 30px;
-            margin-bottom: 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            max-width: none;
-            box-sizing: border-box;
-        }
-
-        .age-banner::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 30px;
-            transform: translateY(-50%);
-            font-size: 48px;
-            opacity: 0.3;
-        }
-
-        .age-banner h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 32px;
-            color: #e4a71f;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-
-        .age-banner p {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 600;
-        }
-
-        /* Golden Rule Box */
-        .golden-rule {
-            background: linear-gradient(135deg, rgba(228, 167, 31, 0.15) 0%, rgba(7, 43, 81, 0.5) 100%);
-            border: 2px solid rgba(228, 167, 31, 0.3);
-            border-radius: 24px;
-            padding: 40px;
-            margin-bottom: 60px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            max-width: none;
-            box-sizing: border-box;
-        }
-
-        .golden-rule::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 36px;
-            animation: sparkle 2s ease-in-out infinite;
-        }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-
-        .golden-rule h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 42px;
-            color: #e4a71f;
-            margin-bottom: 15px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .golden-rule p {
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.95);
-            line-height: 1.6;
-        }
-
-        /* Rules Sections */
-        .rules-section {
-            background: rgba(7, 43, 81, 0.3);
-            border: 1px solid rgba(228, 167, 31, 0.2);
-            border-radius: 24px;
-            padding: 50px;
-            margin-bottom: 40px;
-            backdrop-filter: blur(10px);
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-            scroll-margin-top: 100px;
-        }
-            /* 10 Codes Grid */
-            .ten-codes-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: repeat(2, auto);
-                gap: 24px 32px;
-                margin-top: 32px;
-                margin-bottom: 16px;
-            }
-            .ten-code-item {
-                background: none;
-                border: none;
-                border-radius: 0;
-                padding: 0;
-                font-size: 15px;
-                color: #fff;
-                box-shadow: none;
-                text-align: left;
-                font-family: 'Inter', sans-serif;
-                font-weight: 500;
-            }
-
-        .rules-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, #e4a71f, transparent);
-        }
-
-        .rules-section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 36px;
-            color: #e4a71f;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-                /* Radar Keybinds Box */
-                .radar-keybinds-box {
-                    background: rgba(7, 43, 81, 0.85);
-                    border: 1px solid rgba(228, 167, 31, 0.18);
-                    border-radius: 18px;
-                    padding: 32px 28px 24px 28px;
-                    margin: 32px auto 0 auto;
-                    max-width: 400px;
-                    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-                }
-                .radar-keybinds-title {
-                    font-family: 'Bebas Neue', sans-serif;
-                    font-size: 22px;
-                    color: #fff;
-                    letter-spacing: 1px;
-                    margin-bottom: 18px;
-                    text-align: left;
-                }
-                .radar-keybinds-list {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 16px;
-                }
-                .radar-keybind-row {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    font-size: 18px;
-                    color: #fff;
-                }
-                .radar-keybind-label {
-                    font-family: 'Inter', sans-serif;
-                    font-weight: 500;
-                }
-                .radar-keybind-key {
-                    background: rgba(228, 167, 31, 0.18);
-                    border-radius: 8px;
-                    padding: 4px 16px;
-                    font-family: 'Bebas Neue', sans-serif;
-                    font-size: 18px;
-                    color: #e4a71f;
-                    min-width: 48px;
-                    text-align: center;
-                    margin-left: 16px;
-                }
-        }
-
-        .section-icon {
-            font-size: 32px;
-            filter: drop-shadow(0 0 10px rgba(228, 167, 31, 0.4));
-        }
-
-        .rule-item {
-            margin-bottom: 25px;
-            padding-left: 20px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .rule-item::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: #e4a71f;
-            font-size: 18px;
+        .content-section {
             display: none;
+            animation: fadeIn 0.5s ease;
         }
 
-        .rule-text {
-            font-size: 16px;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
+        .content-section.active {
+            display: block;
         }
 
-        .rule-subsection {
-            margin-top: 15px;
-            margin-left: 20px;
-            padding-left: 20px;
-            border-left: 2px solid rgba(228, 167, 31, 0.3);
-        }
-
-        .highlight {
-            color: #e4a71f;
-            font-weight: 600;
-        }
-
-        strong {
-            color: #e4a71f;
-            font-weight: 600;
-        }
-
-        .warning-box {
-            background: rgba(228, 167, 31, 0.1);
-            border: 2px solid rgba(228, 167, 31, 0.3);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            position: relative;
-        }
-
-        .warning-box::before {
-            position: absolute;
-            top: -15px;
-            left: 20px;
-            background: #0a0e1a;
-            padding: 0 10px;
-            font-size: 24px;
-        }
-
-        .info-box {
-            background: rgba(7, 43, 81, 0.5);
-            border: 1px solid rgba(228, 167, 31, 0.2);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .tbc-badge {
-            display: inline-block;
-            background: rgba(228, 167, 31, 0.2);
-            border: 1px solid rgba(228, 167, 31, 0.3);
-            border-radius: 20px;
-            padding: 5px 15px;
-            font-size: 14px;
-            color: #e4a71f;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Footer */
-        .footer {
-            background: linear-gradient(180deg, #0a0e1a 0%, #072b51 100%);
-            padding: 60px 40px 40px;
-            text-align: center;
-            border-top: 1px solid rgba(228, 167, 31, 0.2);
-            position: relative;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #e4a71f, transparent);
-        }
-
-        .footer-logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 36px;
-            letter-spacing: 2px;
-            color: #e4a71f;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-link {
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .footer-link:hover {
-            color: #e4a71f;
-        }
-
-        .footer-copyright {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 14px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #e4a71f 0%, #c4901b 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #0a0e1a;
-            font-size: 24px;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(228, 167, 31, 0.3);
-            z-index: 999;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(228, 167, 31, 0.4);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -632,533 +180,1111 @@
             }
         }
 
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            letter-spacing: 3px;
+            color: #e4a71f;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            background: rgba(7, 43, 81, 0.3);
+            border: 1px solid rgba(228, 167, 31, 0.2);
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .carousel-image-wrapper {
+            position: relative;
+            height: 400px;
+            background: #000;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #e4a71f;
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 10;
+        }
+
+        .carousel-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            color: #0a0e1a;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            background: #e4a71f;
+            transform: scale(1.1);
+        }
+
+        .carousel-content {
+            padding: 40px;
+        }
+
+        .carousel-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            color: #e4a71f;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .carousel-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+        }
+
+        .carousel-points {
+            display: grid;
+            gap: 15px;
+        }
+
+        .carousel-point {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .carousel-point-icon {
+            color: #e4a71f;
+            font-size: 20px;
+            margin-top: 2px;
+        }
+
+        .carousel-point-text {
+            flex: 1;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Content Box */
+        .content-box {
+            background: rgba(7, 43, 81, 0.3);
+            border: 1px solid rgba(228, 167, 31, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .content-box h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            color: #e4a71f;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .content-box p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+        }
+
+        .content-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content-box li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .content-box li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #e4a71f;
+            font-size: 18px;
+        }
+
+        /* 10 Codes Table */
+        .codes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .code-item {
+            background: rgba(7, 43, 81, 0.4);
+            border: 1px solid rgba(228, 167, 31, 0.15);
+            border-radius: 12px;
+            padding: 18px 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .code-item:hover {
+            background: rgba(228, 167, 31, 0.15);
+            border-color: rgba(228, 167, 31, 0.4);
+            transform: translateX(5px);
+        }
+
+        .code-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: #e4a71f;
+            min-width: 80px;
+        }
+
+        .code-description {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Search Controls */
+        .search-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .search-controls input {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px 20px;
+            background: rgba(7, 43, 81, 0.4);
+            border: 1px solid rgba(228, 167, 31, 0.3);
+            border-radius: 10px;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .search-controls button {
+            padding: 12px 25px;
+            background: rgba(228, 167, 31, 0.2);
+            border: 1px solid rgba(228, 167, 31, 0.4);
+            border-radius: 10px;
+            color: #e4a71f;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 16px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-controls button:hover {
+            background: rgba(228, 167, 31, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: rgba(228, 167, 31, 0.1);
+            border: 2px solid rgba(228, 167, 31, 0.3);
+            border-left: 4px solid #e4a71f;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .warning-box strong {
+            color: #e4a71f;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
         /* Responsive */
-        @media (max-width: 768px) {
-            .rules-section {
-                padding: 30px 20px;
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 240px;
             }
-
-            .rules-section-title {
-                font-size: 28px;
-            }
-
-            .hero-title {
-                font-size: 48px;
-            }
-
-            .section-title {
-                font-size: 36px;
-            }
-
-            .rules-nav-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .age-banner::before {
-                display: none;
+            .main-wrapper {
+                margin-left: 240px;
+                padding: 30px 40px;
             }
         }
 
-        @media (max-width: 480px) {
-            .rule-subsection {
-                margin-left: 10px;
-                padding-left: 10px;
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
             }
+            .sidebar.mobile-open {
+                transform: translateX(0);
+            }
+            .main-wrapper {
+                margin-left: 0;
+                padding: 20px;
+            }
+            .carousel-image-wrapper {
+                height: 300px;
+            }
+            .section-title {
+                font-size: 36px;
+            }
+        }
 
-            .rules-section {
-                padding: 20px 15px;
-            }
+        .mobile-menu-btn {
+            display: none;
+            width: 40px;
+            height: 40px;
+            background: rgba(228, 167, 31, 0.2);
+            border: 1px solid rgba(228, 167, 31, 0.4);
+            border-radius: 8px;
+            color: #e4a71f;
+            font-size: 20px;
+            cursor: pointer;
+            margin-right: 15px;
+        }
 
-            .golden-rule {
-                padding: 30px 20px;
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
+        }
 
-            .golden-rule h2 {
-                font-size: 32px;
-            }
+        /* Table Styles */
+        .info-table {
+            width: 100%;
+            margin: 25px 0;
+            border-collapse: collapse;
+        }
+
+        .info-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(228, 167, 31, 0.15);
+            font-size: 15px;
+        }
+
+        .info-table tr:hover {
+            background: rgba(228, 167, 31, 0.05);
+        }
+
+        .info-table td:first-child {
+            color: #e4a71f;
+            font-weight: 600;
+            width: 40%;
+        }
+
+        .highlight {
+            color: #e4a71f;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
-    <!-- Header Menu -->
-    <header class="header-menu">
-        <div class="container">
-            <nav class="header-nav">
-                <a href="index.html" class="header-link">Home</a>
-                <a href="rules.html" class="header-link">Server Rules</a>
-            </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation functionality
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const sidebar = document.getElementById('sidebar');
+            const globalSearch = document.getElementById('globalSearch');
+
+            // Handle navigation clicks
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetSection = this.getAttribute('data-section');
+                    
+                    // Remove active class from all links and sections
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    contentSections.forEach(s => s.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show target section
+                    const targetElement = document.getElementById(targetSection);
+                    if (targetElement) {
+                        targetElement.classList.add('active');
+                    }
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('mobile-open');
+                    }
+                });
+            });
+
+            // Mobile menu toggle
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    sidebar.classList.toggle('mobile-open');
+                });
+            }
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    if (!sidebar.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        sidebar.classList.remove('mobile-open');
+                    }
+                }
+            });
+
+            // Global search functionality
+            if (globalSearch) {
+                globalSearch.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase().trim();
+                    
+                    if (searchTerm === '') {
+                        // Show all content normally
+                        contentSections.forEach(section => {
+                            const elements = section.querySelectorAll('.content-box, .code-item, .carousel-point-text');
+                            elements.forEach(el => {
+                                el.style.display = '';
+                                el.style.backgroundColor = '';
+                            });
+                        });
+                        return;
+                    }
+                    
+                    // Search through all sections
+                    contentSections.forEach(section => {
+                        let sectionHasMatch = false;
+                        const elements = section.querySelectorAll('.content-box, .code-item, .carousel-point-text');
+                        
+                        elements.forEach(el => {
+                            const text = el.textContent.toLowerCase();
+                            if (text.includes(searchTerm)) {
+                                el.style.display = '';
+                                el.style.backgroundColor = 'rgba(228, 167, 31, 0.2)';
+                                sectionHasMatch = true;
+                            } else {
+                                el.style.display = 'none';
+                                el.style.backgroundColor = '';
+                            }
+                        });
+                        
+                        // If section has matches, show it
+                        if (sectionHasMatch) {
+                            // Remove active from all sections first
+                            contentSections.forEach(s => s.classList.remove('active'));
+                            sidebarLinks.forEach(l => l.classList.remove('active'));
+                            
+                            // Show this section
+                            section.classList.add('active');
+                            
+                            // Highlight corresponding nav link
+                            const correspondingLink = document.querySelector(`[data-section="${section.id}"]`);
+                            if (correspondingLink) {
+                                correspondingLink.classList.add('active');
+                            }
+                        }
+                    });
+                });
+            }
+
+            // 10 Codes search functionality
+            const codesSearch = document.getElementById('codesSearch');
+            const codeItems = document.querySelectorAll('.code-item');
+            
+            if (codesSearch && codeItems.length > 0) {
+                codesSearch.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase().trim();
+                    
+                    codeItems.forEach(item => {
+                        const text = item.textContent.toLowerCase();
+                        if (searchTerm === '' || text.includes(searchTerm)) {
+                            item.style.display = '';
+                            item.style.backgroundColor = searchTerm !== '' && text.includes(searchTerm) 
+                                ? 'rgba(228, 167, 31, 0.2)' : '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        // Handle navigation
+                        contentSections.forEach(s => s.classList.remove('active'));
+                        sidebarLinks.forEach(l => l.classList.remove('active'));
+                        
+                        targetSection.classList.add('active');
+                        const correspondingLink = document.querySelector(`[data-section="${targetId}"]`);
+                        if (correspondingLink) {
+                            correspondingLink.classList.add('active');
+                        }
+                    }
+                });
+            });
+
+            // Initialize carousel if it exists
+            initializeCarousel();
+            
+            function initializeCarousel() {
+                const carouselSlides = document.querySelectorAll('.carousel-slide');
+                const carouselDots = document.querySelectorAll('.carousel-dot');
+                const carouselBtns = document.querySelectorAll('.carousel-btn');
+                
+                if (carouselSlides.length === 0) return;
+                
+                let currentSlide = 0;
+                
+                function showSlide(index) {
+                    carouselSlides.forEach((slide, i) => {
+                        slide.classList.toggle('active', i === index);
+                    });
+                    carouselDots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                }
+                
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % carouselSlides.length;
+                    showSlide(currentSlide);
+                }
+                
+                function prevSlide() {
+                    currentSlide = currentSlide === 0 ? carouselSlides.length - 1 : currentSlide - 1;
+                    showSlide(currentSlide);
+                }
+                
+                // Dot clicks
+                carouselDots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        currentSlide = index;
+                        showSlide(currentSlide);
+                    });
+                });
+                
+                // Button clicks
+                carouselBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        if (this.textContent.includes('❮') || this.textContent.includes('<')) {
+                            prevSlide();
+                        } else {
+                            nextSlide();
+                        }
+                    });
+                });
+                
+                // Auto-advance carousel
+                setInterval(nextSlide, 5000);
+            }
+        });
+    </script>
+    <!-- Top Header -->
+    <header class="top-header">
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        <div class="header-logo">LSPD HANDBOOK</div>
+        <div class="header-search">
+            <input type="text" id="globalSearch" placeholder="Search entire handbook...">
+            <span class="search-icon">🔍</span>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">PD Employee Handbook</h1>
-            <div class="hero-subtitle">LSPD Standard Operating Procedures</div>
-        </div>
-    </section>
-
-    <div class="rules-nav">
-        <h2 class="rules-nav-title">Quick Navigation</h2>
-        <div class="rules-nav-grid">
-            <a href="#welcome" class="nav-link">Welcome</a>
-            <a href="#suspicion" class="nav-link">Suspicion & Cause</a>
-            <a href="#weapons" class="nav-link">Weapons Licenses</a>
-            <a href="#vehicles" class="nav-link">PD Vehicles & Impound</a>
-            <a href="#prison" class="nav-link">Prison Transport</a>
-            <a href="#injured" class="nav-link">Injured Parties</a>
-            <a href="#threat" class="nav-link">Threat Levels & Equipment</a>
-            <a href="#induction" class="nav-link">Induction & Misc</a>
-            <a href="#gallery" class="nav-link">PD Locations Gallery</a>
-            <a href="#10codes" class="nav-link">10 Codes</a>
-            <a href="#keybinds" class="nav-link">Keybinds</a>
-            <a href="#equipment" class="nav-link">Equipment</a>
-            <a href="#vehicleusage" class="nav-link">Vehicle Usage</a>
-            <a href="#incidentunits" class="nav-link">Incident Units</a>
-            <a href="#evidence" class="nav-link">Evidence</a>
-            <a href="#miranda" class="nav-link">Miranda Rights</a>
-        </div>
-    </div>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-title">Navigation</div>
+        <nav class="sidebar-nav">
+            <a href="#welcome" class="sidebar-link active" data-section="welcome">
+                <span class="sidebar-icon">🏛️</span>
+                <span>Welcome</span>
+            </a>
+            <a href="#suspicion" class="sidebar-link" data-section="suspicion">
+                <span class="sidebar-icon">⚖️</span>
+                <span>Suspicion & Cause</span>
+            </a>
+            <a href="#weapons" class="sidebar-link" data-section="weapons">
+                <span class="sidebar-icon">🔫</span>
+                <span>Weapons Licenses</span>
+            </a>
+            <a href="#vehicles" class="sidebar-link" data-section="vehicles">
+                <span class="sidebar-icon">🚗</span>
+                <span>PD Vehicles</span>
+            </a>
+            <a href="#prison" class="sidebar-link" data-section="prison">
+                <span class="sidebar-icon">🚌</span>
+                <span>Prison Transport</span>
+            </a>
+            <a href="#injured" class="sidebar-link" data-section="injured">
+                <span class="sidebar-icon">🚑</span>
+                <span>Injured Parties</span>
+            </a>
+            <a href="#threat" class="sidebar-link" data-section="threat">
+                <span class="sidebar-icon">⚠️</span>
+                <span>Threat Levels</span>
+            </a>
+            <a href="#evidence" class="sidebar-link" data-section="evidence">
+                <span class="sidebar-icon">📋</span>
+                <span>Evidence</span>
+            </a>
+            <a href="#codes" class="sidebar-link" data-section="codes">
+                <span class="sidebar-icon">📻</span>
+                <span>10 Codes</span>
+            </a>
+            <a href="#keybinds" class="sidebar-link" data-section="keybinds">
+                <span class="sidebar-icon">⌨️</span>
+                <span>Keybinds</span>
+            </a>
+            <a href="#vehicleusage" class="sidebar-link" data-section="vehicleusage">
+                <span class="sidebar-icon">🚓</span>
+                <span>Vehicle Usage</span>
+            </a>
+            <a href="#incidents" class="sidebar-link" data-section="incidents">
+                <span class="sidebar-icon">🚨</span>
+                <span>Incident Units</span>
+            </a>
+            <a href="#miranda" class="sidebar-link" data-section="miranda">
+                <span class="sidebar-icon">📖</span>
+                <span>Miranda Rights</span>
+            </a>
+        </nav>
+    </aside>
 
     <!-- Main Content -->
-    <section class="main-content">
-        <div class="container">
-            <div class="section-title" id="welcome">Welcome to LSPD</div>
-            <div class="rules-section">
-                <div class="rule-item">
-                    <span class="rule-text">Standard Operating Procedures for the Police Department. You are an employee of the State, during your time in employment, you are expected to ensure you follow the Laws within Los Santos, and subsequently enforce the Law in your position as an Officer. You can find in this document definitions that will help with your educational knowledge for the procedures within the Policing Departments.</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text"><strong>Key information for Police Employees:</strong><br>
-                    • Respect the Chain of Command<br>
-                    • Ensure Standard Operating Procedures are followed as required<br>
-                    • All evidence should be logged and stored, and then stored in evidence rooms as soon as possible.<br>
-                    • EMS should be called to help at the roadside.<br>
-                    • If not, EMS are available, people should be transported by an Officer to the Pillbox for Treatment<br>
-                    • Ensure you are fair and open, and only base your decisions on facts, training, or interview knowledge. We do not know mechanics.<br>
-                    • We cannot speak to ‘suppliers’ of certain things; from our view, they are not willing to talk or engage with the Police.</span>
-                </div>
+    <main class="main-wrapper">
+        <!-- Welcome Section -->
+        <section id="welcome" class="content-section active">
+            <div class="section-header">
+                <h1 class="section-title">Welcome to LSPD</h1>
+                <p class="section-subtitle">Standard Operating Procedures for Police Department</p>
             </div>
 
-            <div class="section-title" id="suspicion">Reasonable Suspicion & Probable Cause</div>
-            <div class="rules-section">
-                <div class="rule-item">
-                    <span class="rule-text"><strong>Reasonable Suspicion:</strong> A suspicion, based on specific and articulable facts, that you, as an officer, believe that a suspect has committed, will commit or is about to commit a crime. Reasonable Suspicion is grounds for detaining, but not arresting. This allows you to question, GSR and Frisk (If you believe they are armed and dangerous).</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text"><strong>Probable Cause:</strong> Probable cause requires that the police have more than just suspicion that a suspect committed a crime. You have hard evidence someone has committed a crime, but this does not have to be complete certainty. You can search and arrest with probable cause.</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text">The difference: Reasonable suspicion is a step before probable cause. At the point of reasonable suspicion, it appears that a crime may have been committed. The situation escalates to probable cause when it becomes obvious that a crime has most likely been committed. Evidence is key to having a distinct difference where the required Probable Cause has been reached to arrest and search a suspect.</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text"><strong>When can you Frisk?</strong> You can conduct a frisk when you have Reasonable Suspicion that a person has committed, will commit or is committing a crime AND is armed and dangerous. (Terry v. Ohio 1968). When you frisk and remove a weapon, you can only see the weapon and nothing else.</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text"><strong>When can you search a person or a vehicle?</strong> (Carroll vs United States)<br>
-                    • You can search a person when you have Probable Cause to arrest.<br>
-                    • The vehicle has been involved in a crime or contains illegal contraband.<br>
-                    • You can search a person/vehicle when you have consent.<br>
-                    • You can search a person under extreme circumstances (saving someone's life takes precedence over SOPs and case laws).<br>
-                    • You can search a vehicle when you are checking the vehicle after an incident in which you impounded the car.</span>
-                </div>
-            </div>
-            <div class="section-title" id="weapons">Granting Weapons Licenses</div>
-            <div class="rules-section">
-                <div class="rule-item">
-                    <span class="rule-text">• All citizens have an amendment right to purchase and possess firearms.<br>
-                    • Any weapons not sold by licensed distributors by the State (Ammunition) are to be seized and destroyed.<br>
-                    • If a citizen is found to be in possession of a firearm without a licence, the firearm will be confiscated, and they will be charged with unlicensed possession.<br>
-                    • If a citizen is found to be in possession of an illegal firearm, they will have their licence revoked.<br>
-                    • If a citizen is found to be committing a felony crime and they have a firearm in their possession, the firearm will be confiscated and not returned.</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text">To issue a new license, you must be a full officer or above.<br>
-                    To reissue a license you will need to be Cpl or above.</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text">Steps:<br>
-                    1. Ask for the recipient's Physical ID.<br>
-                    2. Ask the recipient when they are allowed to discharge their firearm by running through 2 scenarios to test how they would react.<br>
-                    3. Inform the recipient that if they have to discharge their firearm in self-defence, they should stay on the scene and report it via 911 to the police.<br>
-                    4. Check the recipient's profile on the MDT (Add a Picture to their profile if one is not present).<br>
-                    5. Bill the recipient for $1000 - If the license is a reissue, bill $2500 & only after 21 days with no violent crime.<br>
-                    6. Issue the license via the MDT - A Gun License should last 3 months from the date of issue.</span>
-                </div>
-            </div>
-            <div class="section-title" id="vehicles">PD Vehicles & Impound</div>
-            <div class="rules-section">
-                <div class="rule-item">
-                    <span class="rule-text"><strong>Repairing PD Vehicles:</strong><br>
-                    • Carry Repair Kits (Bought at a mechanic)<br>
-                    • Duct Tape (Bought at Tool Station)<br>
-                    • Visit a Mechanics & Bennys<br>
-                    • Use garages where possible for repairs. Ensure vehicles are repaired before putting them away.</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text"><strong>Impound Vehicles:</strong><br>
-                    • Check for tow trucks first. If none, use access tool and drive back to DDPD/Impound via PD escort.<br>
-                    • As a last resort, /IV can be used.</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text"><strong>Lockbox:</strong> Accessed from the F1 wheel while in a vehicle. Used to store only Class 2 Firearms whilst on duty. Once off High Alert, move to using these lockboxes.</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text"><strong>Plate Scanner:</strong> Keybind needs to be configured within FiveM Keybinds. With radar on, click the keybind to scan the vehicle and get Bolo/reported stolen/name/plate, etc. Plate Scanner needs to be on at all times.</span>
-                </div>
-            </div>
-            <div class="section-title" id="prison">Prison Transport</div>
-            <div class="rules-section">
-                <div class="rule-item">
-                    <span class="rule-text">Minimum officer count for safe prison transport: <strong>7</strong></span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text">Prison transport for anyone sentenced to 60+ months in Bolingbroke. Ready to transport as soon as processing is done.</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text">Prison Bus (2 Officers Min) escorted by 3 cars:<br>
-                    • 1 x STX<br>
-                    • 2 x Baller<br>
-                    • 1 x Air one plus Co-Pilot (optional)</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text"><strong>Attempted Breakout:</strong> If a breakout occurs en route, 78S WILL BE CALLED. Transport stops, all units surround bus, officers stay with prisoners, units cover bus and act on weapon identification. Bus stays until safe. If prisoner escapes, units pursue as per SOPs.</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text">Escort vehicles block/station at junctions, air one provides overview. Blocking/escort vehicle stays until convoy passes, then moves ahead to next junction.</span>
-                </div>
-            </div>
-            <div class="section-title" id="injured">Responding to Injured Parties</div>
-                <div class="rules-section">
-                    <div class="rule-item" style="align-items: flex-start;">
-                        <span class="rule-text" style="text-align:left;display:block;">
-                            <span style="font-size:18px;font-weight:600;color:#e4a71f;">If EMS are available:</span>
-                            <ul style="margin:12px 0 0 24px;padding:0;text-align:left;list-style-type:disc;">
-                                <li>Check vitals (pulse, injuries)</li>
-                                <li>If no pulse, perform CPR</li>
-                                <li>See if responsive – ask what happened</li>
-                                <li>Contact EMS (Radio 10 AND /911e), advise on situation</li>
-                                <li>If performing CPR, continue until EMS arrives</li>
-                            </ul>
-                        </span>
-                    </div>
-                    <div class="rule-item" style="align-items: flex-start;">
-                        <span class="rule-text" style="text-align:left;display:block;">
-                            <span style="font-size:18px;font-weight:600;color:#e4a71f;">If EMS are NOT available:</span>
-                            <ul style="margin:12px 0 0 24px;padding:0;text-align:left;list-style-type:disc;">
-                                <li>Check vitals (pulse, injuries)</li>
-                                <li>If no pulse, perform CPR</li>
-                                <li>See if responsive – ask what happened</li>
-                                <li>If shot, stop bleeding. If neck injury, apply brace.</li>
-                                <li>Carry/Escort to Police Vehicle, transport to Pillbox for treatment. Pack wound, bandage, apply neck brace as needed.</li>
-                            </ul>
-                        </span>
-                    </div>
-                </div>
-            <div class="section-title" id="threat">Threat Levels & Equipment</div>
-                <div class="rules-section">
-                    <div class="rule-item">
-                        <span class="rule-text"><strong>Routine Duty (Default):</strong> Business as usual. Entered after every tsunami. Maintain awareness, no special measures beyond normal duty.</span>
-                    </div>
-                    <div class="rule-item">
-                        <span class="rule-text"><strong>Substantial Threat:</strong> Elevated security. Triggered by sustained threat. Additional protective measures required. Body armour, pair up, carry Class 2 openly.</span>
-                    </div>
-                    <div class="rule-item">
-                        <span class="rule-text"><strong>Critical Threat:</strong> Maximum protective security. Triggered by severe threats (e.g., Class 3 usage). Heavier uniform, double units, Class 3 rifle on back.</span>
-                    </div>
-                    <div class="rule-item">
-                            <span class="rule-text">
-                                <strong>Weapon Classification:</strong><br>
-                                <span style="display:inline-block;text-align:left;margin-left:0;">
-                                    • <strong>Class 0:</strong> Non-lethal<br>
-                                    • <strong>Class 1:</strong> Single-fire / lower calibre<br>
-                                    • <strong>Class 2:</strong> Automatic fire (low calibre) OR single-fire (high calibre)<br>
-                                    • <strong>Class 3:</strong> Snipers, explosives, automatic fire (high calibre)
-                                </span>
-                            </span>
-                    </div>
-                </div>
-
-                <div class="section-title" id="induction">Police Induction & Miscellaneous</div>
-                <div class="rules-section">
-                    <div class="rule-item">
-                        <span class="rule-text"><strong>Induction (CPL & Above):</strong> Hire via Services App. Interview, decide Officer (2 x Ride Along) or Cadet. Induction covers: Welcome, Equipment Checklist, Standards, MDT, Radio, Call Signs & 10-Codes.</span>
-                    </div>
-                    <div class="rule-item">
-                        <span class="rule-text">Cadet follows process with FTO as in MDT FTO Reports. Officer continues journey.</span>
-                    </div>
-                    <div class="rule-item">
-                        <span class="rule-text"><strong>Boats:</strong> Collect PD Boat at Vespucci Beach (next to pier).</span>
-                    </div>
-                    <div class="rule-item">
-                        <span class="rule-text"><strong>Equipment Returns:</strong> On separation, surrender all issued equipment to San Andreas Law Enforcement. Complete PR (Property Return) Form for all equipment returned.</span>
-                    </div>
-                    <div class="rule-item">
-                        <span class="rule-text"><strong>Leave of Absence (LOA):</strong> No prior approval needed. Mark yourself as [LOA] in email system & LOA Channel.</span>
-                    </div>
-                </div>
-
-            <div class="rules-section">
-                <div class="rule-item">
-                    <span class="rule-text"><strong>Induction (CPL & Above):</strong> Hire via Services App. Interview, decide Officer (2 x Ride Along) or Cadet. Induction covers: Welcome, Equipment Checklist, Standards, MDT, Radio, Call Signs & 10-Codes.</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text">Cadet follows process with FTO as in MDT FTO Reports. Officer continues journey.</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text"><strong>Boats:</strong> Collect PD Boat at Vespucci Beach (next to pier).</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text"><strong>Equipment Returns:</strong> On separation, surrender all issued equipment to San Andreas Law Enforcement. Complete PR (Property Return) Form for all equipment returned.</span>
-                </div>
-                <div class="rule-item">
-                    <span class="rule-text"><strong>Leave of Absence (LOA):</strong> No prior approval needed. Mark yourself as [LOA] in email system & LOA Channel.</span>
-                </div>
+            <div class="content-box">
+                <p>Standard Operating Procedures for the Police Department. You are an employee of the State, during your time in employment, you are expected to ensure you follow the Laws within Los Santos, and subsequently enforce the Law in your position as an Officer.</p>
             </div>
 
-                <div class="section-title" id="10codes">10 Codes</div>
-                <div class="rules-section">
-                        <div class="ten-codes-grid">
-                            <div class="ten-code-item">10-41 - On Duty</div>
-                            <div class="ten-code-item">10-42 - Off Duty</div>
-                            <div class="ten-code-item">10-6 - Busy, Unless Urgent</div>
-                            <div class="ten-code-item">10-7 - Out Of service</div>
-                            <div class="ten-code-item">10-8 - Back In Service</div>                            
-                            <div class="ten-code-item">10-9 - Repeat</div>
-                            <div class="ten-code-item">10-2 - Loud & Clear</div>
-                            <div class="ten-code-item">10-3 - Break</div>
-                            <div class="ten-code-item">10-4 - Acknowledgment</div>
-                            <div class="ten-code-item">10-95 - Suspect in Custody</div>                            
-                            <div class="ten-code-item">10-76 - enroute</div>
-                            <div class="ten-code-item">10-77 - Backup Required</div>
-                            <div class="ten-code-item">10-78 - Backup Required (Urgent)</div>                            
-                            <div class="ten-code-item">10-80 - Pursuit in Progress</div>
-                            <div class="ten-code-item">10-20 - Location</div>
-                            <div class="ten-code-item">10-90 - Robbery in Progress</div>
-                            <div class="ten-code-item">10-23 - Arriving on scene</div>
-                            <div class="ten-code-item">10-98 - Jail Break</div>                                                                                 
-                            <div class="ten-code-item">10-31 - Crime in Progress</div>
-                            <div class="ten-code-item">10-38 - Traffic Stop</div>
-                            <div class="ten-code-item">10-47 - Injured Person</div>
-                            <div class="ten-code-item">10-13A - Officer down (Emergency)</div>
-                            <div class="ten-code-item">10-13B - Officer Down (None-Emergency)</div>   
-                            <div class="ten-code-item">10-14A - Medic Down (Emergency)</div>   
-                            <div class="ten-code-item">10-14B - Medic Down (None-Emergency)</div>                      
-                            <div class="ten-code-item">10-50 - Traffic Accident</div>
-                            <div class="ten-code-item">10-71 - Shots Fired</div> 
-                            <div class="ten-code-item">10-69 - Turtled</div>
-                            <div class="ten-code-item">10-231 - Cooper's Car is Upside Down</div>                         
-                            <div class="ten-code-item">10-100 - Headpop</div>
-                            <div class="ten-code-item">Code 1 - No Lights or sirens</div>
-                            <div class="ten-code-item">Code 2 - Lights only</div>
-                            <div class="ten-code-item">Code 3 - Lights and Sirens</div>
-                            <div class="ten-code-item">Code 4 - All Clear</div>
-                            <div class="ten-code-item">Code 5 - Stake Out</div>
-                            <div class="ten-code-item">Code 6 - Searching the Area</div>
-                            <div class="ten-code-item">UTL - Unable to Locate</div>
-                            <div class="ten-code-item">VCB - Visual Contact Broken</div>                            
-                        </div>
-                </div>
-
-                <div class="section-title" id="keybinds">Keybinds</div>
-                <div class="rules-section">
-                    <div class="rules-section-title">Police Radar</div>
-                    <div class="radar-keybinds-box">
-                        <div class="radar-keybinds-title"><strong>KEYBOARD SHORTCUTS</strong></div>
-                        <div class="radar-keybinds-list">
-                            <div class="radar-keybind-row"><span class="radar-keybind-label">Toggle Radar</span><span class="radar-keybind-key">F5</span></div>
-                            <div class="radar-keybind-row"><span class="radar-keybind-label">Interact with Radar</span><span class="radar-keybind-key">K</span></div>
-                            <div class="radar-keybind-row"><span class="radar-keybind-label">Save Reading</span><span class="radar-keybind-key">J</span></div>
-                            <div class="radar-keybind-row"><span class="radar-keybind-label">Lock/Unlock Radar</span><span class="radar-keybind-key">F9</span></div>
-                            <div class="radar-keybind-row"><span class="radar-keybind-label">Switch to Front</span><span class="radar-keybind-key">←</span></div>
-                            <div class="radar-keybind-row"><span class="radar-keybind-label">Switch to Rear</span><span class="radar-keybind-key">→</span></div>
-                            <div class="radar-keybind-row"><span class="radar-keybind-label">Toggle Log</span><span class="radar-keybind-key">F10</span></div>
-                            <div class="radar-keybind-row"><span class="radar-keybind-label">Toggle BOLO List</span><span class="radar-keybind-key">F11</span></div>
-                            <div class="radar-keybind-row"><span class="radar-keybind-label">Show/Hide Keybinds</span><span class="radar-keybind-key">F12</span></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section-title" id="equipment">Equipment</div>
-                <div class="rules-section">
-                    <div class="rule-item">
-                        <span class="rule-text">Standard issue and optional equipment for officers. (Add equipment details here)</span>
-                    </div>
-                </div>
-
-                <div class="section-title" id="vehicleusage">Vehicle Usage</div>
-                <div class="rules-section">
-                        <div class="rule-item">
-                            <span class="rule-text">
-                                <strong>Car Model & Available to</strong>
-                                <table style="width:100%;margin-top:18px;margin-bottom:18px;border-collapse:collapse;">
-                                    <tbody>
-                                        <tr><td style="padding:6px 6px;">Cruiser</td><td style="padding:6px 6px;">Cadet+</td></tr>
-                                        <tr><td style="padding:6px 6px;">Panto</td><td style="padding:6px 6px;">Cadet+</td></tr>
-                                        
-                                        <tr><td style="padding:6px 6px;">STX</td><td style="padding:6px 6px;">Officer+</td></tr>
-
-                                        <tr><td style="padding:6px 6px;">Bison</td><td style="padding:6px 6px;">Corporal+</td></tr>
-                                        <tr><td style="padding:6px 6px;">Baller</td><td style="padding:6px 6px;">Corporal+</td></tr>
-
-                                        <tr><td style="padding:6px 6px;">Cypher</td><td style="padding:6px 6px;">Interceptor Lead & SRU Cert Only</td></tr>
-                                        <tr><td style="padding:6px 6px;">Sultan</td><td style="padding:6px 6px;">SRU Cert Only</td></tr>
-                                        <tr><td style="padding:6px 6px;">Dominator</td><td style="padding:6px 6px;">SRU Cert Only</td></tr>
-                                        <tr><td style="padding:6px 6px;">PD Helicopter</td><td style="padding:6px 6px;">SRU Cert Only</td></tr>
-                                        
-                                        <tr><td style="padding:6px 6px;">Dinka Thrust</td><td style="padding:6px 6px;">Moto Cert Only</td></tr>
-                                        <tr><td style="padding:6px 6px;">BF400</td><td style="padding:6px 6px;">Moto Cert Only</td></tr>
-                                    </tbody>
-                                </table>
-                            </span>
-                        </div>
-                </div>
-
-                <div class="section-title" id="incidentunits">Incident Units</div>
-                <div class="rules-section">
-                        <div class="rule-item">
-                            <span class="rule-text">
-                                <em>Unit = Vehicle (Heli/Car)</em><br><br>
-                                <strong>House Robbery (Includes Trevor's, Wade's & Mansion):</strong><br>
-                                • 2 Units Max & No Air One<br><br>
-                                <strong>Store Robbery / Cash Ex / Pillbox:</strong><br>
-                                • 3 Units Max & No Air One<br><br>
-                                <strong>MRPD & Vangelicos:</strong><br>
-                                • 4 Units Max<br>
-                                • Air One can be negotiated in – 15 mins in air – 5 Down for fuel or 1x Interceptor<br><br>
-                                <strong>Fleeca Bank:</strong><br>
-                                • 5 Units Max<br>
-                                • Max 2 x Interceptors, 1 can be negotiated OUT<br>
-                                • Air One can be negotiated in – 15 mins in air – 5 Down for fuel<br><br>
-                                <strong>Paleto Bank:</strong><br>
-                                • 6 Units Max<br>
-                                • Air One mandatory – 15 mins in air – 5 Down for fuel<br>
-                                • Max 2 x Interceptors, 1 can be negotiated OUT<br><br>
-                                <strong>Pacific Bank:</strong><br>
-                                • 12 Units Max<br>
-                                • Max 4 x Interceptor<br>
-                                • Air One Mandatory – 15 mins in air – 5 Down for fuel. Air 2 can also be used.<br>
-                            </span>
-                        </div>
-                </div>
-
-                    <div class="section-title" id="evidence">Evidence</div>
-                    <div class="rules-section">
-                        <div class="rule-item">
-                            <span class="rule-text">Procedures for handling, logging, and storing evidence. (Add evidence info here)</span>
-                        </div>
-                    </div>
-
-                    <div class="section-title" id="miranda">Miranda Rights</div>
-                    <div class="rules-section">
-                        <div class="rule-item">
-                            <span class="rule-text">The Miranda Rights must be read to all suspects in custody prior to questioning. 
-                            We do this to follow the Miranda v. Arizona case law and to ensure suspects are aware of their rights. The Standard Miranda Rights script is as follows:<br><br>
-                            <em>You have the right to remain silent. Anything you say can and will be used against you in a court of law, You have the right to an attorney. If you cannot afford an attorney, one will be appointed for you. Do you understand these rights as I have read them to you?</em></span>
-                        </div>
-                    </div>
-        </div>
-    </section>
-
-    <!-- Back to Top Button. -->
-    <div class="back-to-top" id="backToTop">↑</div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <nav class="footer-links">
-                <a href="index.html" class="footer-link">Home</a>
-                <a href="https://discord.gg/beaconroleplay" class="footer-link" target="_blank" rel="noopener">Discord</a>
-                <a href="rules.html" class="footer-link">Rules</a>
-                <a href="https://beaconrp.tebex.io" class="footer-link">Store</a>
-            </nav>
-            <div class="footer-logo">Beacon RP</div>
-            <div class="footer-copyright">
-                © 2025 Beacon RP. All rights reserved. Created with heart, not hype.<br>
-                <span style="font-size: 12px; color: rgba(255, 255, 255, 0.3);">
-                    Beacon RP is not affiliated with or endorsed by Rockstar Games.
-                </span>
+            <div class="content-box">
+                <h3>Key Information for Police Employees</h3>
+                <ul>
+                    <li>Respect the Chain of Command</li>
+                    <li>Ensure Standard Operating Procedures are followed as required</li>
+                    <li>All evidence should be logged and stored in evidence rooms as soon as possible</li>
+                    <li>EMS should be called to help at the roadside</li>
+                    <li>If EMS are not available, transport people to Pillbox for Treatment</li>
+                    <li>Ensure you are fair and open, base decisions on facts, training, or interview knowledge</li>
+                    <li>We cannot speak to 'suppliers' of certain things; they are not willing to engage with Police</li>
+                </ul>
             </div>
-        </div>
-    </footer>
+        </section>
 
-    <script>
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        <!-- Suspicion Section -->
+        <section id="suspicion" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">Reasonable Suspicion & Probable Cause</h1>
+                <p class="section-subtitle">Understanding the legal foundations of detainment and arrest</p>
+            </div>
 
-        // Back to top button
-        const backToTopButton = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        });
+            <div class="content-box">
+                <h3>Reasonable Suspicion</h3>
+                <p>A suspicion, based on specific and articulable facts, that you, as an officer, believe that a suspect has committed, will commit or is about to commit a crime. Reasonable Suspicion is grounds for detaining, but not arresting. This allows you to question, GSR and Frisk (If you believe they are armed and dangerous).</p>
+            </div>
 
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+            <div class="content-box">
+                <h3>Probable Cause</h3>
+                <p>Probable cause requires that the police have more than just suspicion that a suspect committed a crime. You have hard evidence someone has committed a crime, but this does not have to be complete certainty. You can search and arrest with probable cause.</p>
+            </div>
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+            <div class="warning-box">
+                <strong>The Difference:</strong>
+                Reasonable suspicion is a step before probable cause. At the point of reasonable suspicion, it appears that a crime may have been committed. The situation escalates to probable cause when it becomes obvious that a crime has most likely been committed.
+            </div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+            <div class="content-box">
+                <h3>When can you Frisk?</h3>
+                <p>You can conduct a frisk when you have Reasonable Suspicion that a person has committed, will commit or is committing a crime AND is armed and dangerous. (Terry v. Ohio 1968). When you frisk and remove a weapon, you can only see the weapon and nothing else.</p>
+            </div>
 
-        // Apply animation to rules sections
-        document.querySelectorAll('.rules-section').forEach((section, index) => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = `all 0.6s ease ${index * 0.1}s`;
-            observer.observe(section);
-        });
+            <div class="content-box">
+                <h3>When can you search a person or vehicle? (Carroll vs United States)</h3>
+                <ul>
+                    <li>You can search a person when you have Probable Cause to arrest</li>
+                    <li>The vehicle has been involved in a crime or contains illegal contraband</li>
+                    <li>You can search a person/vehicle when you have consent</li>
+                    <li>You can search a person under extreme circumstances (saving someone's life)</li>
+                    <li>You can search a vehicle when checking after an incident in which you impounded the car</li>
+                </ul>
+            </div>
+        </section>
 
-        // Active section highlighting in navigation
-        const sections = document.querySelectorAll('.rules-section');
-        const navLinks = document.querySelectorAll('.nav-link');
+        <!-- Weapons Section -->
+        <section id="weapons" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">Granting Weapons Licenses</h1>
+                <p class="section-subtitle">Procedures for issuing and managing firearm licenses</p>
+            </div>
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
+            <div class="content-box">
+                <h3>General Rules</h3>
+                <ul>
+                    <li>All citizens have an amendment right to purchase and possess firearms</li>
+                    <li>Any weapons not sold by licensed State distributors (Ammunition) are to be seized and destroyed</li>
+                    <li>If a citizen is found with a firearm without a licence, the firearm will be confiscated</li>
+                    <li>If a citizen is found with an illegal firearm, they will have their licence revoked</li>
+                    <li>If a citizen commits a felony crime with a firearm in possession, it will be confiscated and not returned</li>
+                </ul>
+            </div>
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
+            <div class="warning-box">
+                <strong>Authorization Levels:</strong>
+                To issue a new license: Full Officer or above<br>
+                To reissue a license: Corporal or above
+            </div>
+
+            <div class="content-box">
+                <h3>License Issue Steps</h3>
+                <ul>
+                    <li>Ask for the recipient's Physical ID</li>
+                    <li>Test their knowledge with 2 self-defense scenarios</li>
+                    <li>Inform them to stay on scene and call 911 if they discharge their firearm</li>
+                    <li>Check recipient's profile on MDT (Add photo if not present)</li>
+                    <li>Bill $1000 for new license, $2500 for reissue (after 21 days with no violent crime)</li>
+                    <li>Issue license via MDT - License lasts 3 months from issue date</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Vehicles Section -->
+        <section id="vehicles" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">PD Vehicles & Impound</h1>
+                <p class="section-subtitle">Vehicle operations, maintenance, and impound procedures</p>
+            </div>
+
+            <div class="content-box">
+                <h3>Repairing PD Vehicles</h3>
+                <ul>
+                    <li>Carry Repair Kits (Bought at a mechanic)</li>
+                    <li>Duct Tape (Bought at Tool Station)</li>
+                    <li>Visit a Mechanics & Bennys</li>
+                    <li>Use garages where possible for repairs. Ensure vehicles are repaired before putting them away</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h3>Impound Vehicles</h3>
+                <ul>
+                    <li>Check for tow trucks first. If none, use access tool and drive back to DDPD/Impound via PD escort</li>
+                    <li>As a last resort, /IV can be used</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h3>Lockbox</h3>
+                <p>Accessed from the F1 wheel while in a vehicle. Used to store only Class 2 Firearms whilst on duty. Once off High Alert, move to using these lockboxes.</p>
+            </div>
+
+            <div class="content-box">
+                <h3>Plate Scanner</h3>
+                <p>Keybind needs to be configured within FiveM Keybinds. With radar on, click the keybind to scan the vehicle and get Bolo/reported stolen/name/plate, etc. Plate Scanner needs to be on at all times.</p>
+            </div>
+        </section>
+
+        <!-- Prison Section -->
+        <section id="prison" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">Prison Transport</h1>
+                <p class="section-subtitle">Safe transport procedures for Bolingbroke Prison</p>
+            </div>
+
+            <div class="warning-box">
+                <strong>Minimum Officer Count:</strong> 7 officers required for safe prison transport
+            </div>
+
+            <div class="content-box">
+                <h3>Transport Requirements</h3>
+                <p>Prison transport for anyone sentenced to 60+ months in Bolingbroke. Ready to transport as soon as processing is done.</p>
+            </div>
+
+            <div class="content-box">
+                <h3>Prison Bus Escort (2 Officers Min)</h3>
+                <ul>
+                    <li>1 x STX</li>
+                    <li>2 x Baller</li>
+                    <li>1 x Air One plus Co-Pilot (optional)</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <strong>Attempted Breakout Protocol:</strong>
+                If a breakout occurs en route, 78S WILL BE CALLED. Transport stops, all units surround bus, officers stay with prisoners, units cover bus and act on weapon identification. Bus stays until safe. If prisoner escapes, units pursue as per SOPs.
+            </div>
+
+            <div class="content-box">
+                <h3>Escort Procedures</h3>
+                <p>Escort vehicles block/station at junctions, air one provides overview. Blocking/escort vehicle stays until convoy passes, then moves ahead to next junction.</p>
+            </div>
+        </section>
+
+        <!-- Injured Section -->
+        <section id="injured" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">Responding to Injured Parties</h1>
+                <p class="section-subtitle">Emergency medical response procedures</p>
+            </div>
+
+            <div class="content-box">
+                <h3>If EMS are Available</h3>
+                <ul>
+                    <li>Check vitals (pulse, injuries)</li>
+                    <li>If no pulse, perform CPR</li>
+                    <li>See if responsive – ask what happened</li>
+                    <li>Contact EMS (Radio 10 AND /911e), advise on situation</li>
+                    <li>If performing CPR, continue until EMS arrives</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h3>If EMS are NOT Available</h3>
+                <ul>
+                    <li>Check vitals (pulse, injuries)</li>
+                    <li>If no pulse, perform CPR</li>
+                    <li>See if responsive – ask what happened</li>
+                    <li>If shot, stop bleeding. If neck injury, apply brace</li>
+                    <li>Carry/Escort to Police Vehicle, transport to Pillbox for treatment</li>
+                    <li>Pack wound, bandage, apply neck brace as needed</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Threat Levels Section -->
+        <section id="threat" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">Threat Levels & Equipment</h1>
+                <p class="section-subtitle">Understanding department alert levels and required equipment</p>
+            </div>
+
+            <div class="content-box">
+                <h3>Alert Levels</h3>
+                <ul>
+                    <li><strong>Green Alert:</strong> Normal operations, standard equipment</li>
+                    <li><strong>Yellow Alert:</strong> Increased awareness, additional patrol units</li>
+                    <li><strong>Red Alert:</strong> High threat level, specialized equipment and units</li>
+                    <li><strong>Code 99:</strong> Maximum alert, all available units respond</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <strong>Equipment Requirements:</strong>
+                Officers must carry appropriate equipment based on current threat level.
+            </div>
+        </section>
+
+        <!-- Evidence Section -->
+        <section id="evidence" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">Evidence Collection & Storage</h1>
+                <p class="section-subtitle">Proper procedures for handling evidence</p>
+            </div>
+
+            <div class="content-box">
+                <h3>Collection Procedures</h3>
+                <ul>
+                    <li>Photograph all evidence before collection</li>
+                    <li>Use proper evidence bags and labeling</li>
+                    <li>Maintain chain of custody documentation</li>
+                    <li>Store in evidence room immediately after collection</li>
+                    <li>Log all evidence in the MDT system</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <strong>Critical:</strong> Never contaminate evidence. Always wear gloves and use proper collection tools.
+            </div>
+        </section>
+
+        <!-- 10 Codes Section -->
+        <section id="codes" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">10 Codes</h1>
+                <p class="section-subtitle">Standard radio communication codes</p>
+            </div>
+
+            <div class="codes-grid">
+                <div class="code-item">
+                    <div class="code-number">10-1</div>
+                    <div class="code-description">Receiving Poorly</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-2</div>
+                    <div class="code-description">Receiving Well</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-3</div>
+                    <div class="code-description">Stop Transmitting</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-4</div>
+                    <div class="code-description">Acknowledgement (OK)</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-5</div>
+                    <div class="code-description">Relay</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-6</div>
+                    <div class="code-description">Busy</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-7</div>
+                    <div class="code-description">Out of Service</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-8</div>
+                    <div class="code-description">In Service</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-9</div>
+                    <div class="code-description">Repeat</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-10</div>
+                    <div class="code-description">Fight in Progress</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-11</div>
+                    <div class="code-description">Dog Case</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-12</div>
+                    <div class="code-description">Stand By</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-13</div>
+                    <div class="code-description">Weather/Road Report</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-14</div>
+                    <div class="code-description">Prowler Report</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-15</div>
+                    <div class="code-description">Civil Disturbance</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-16</div>
+                    <div class="code-description">Domestic Problem</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-17</div>
+                    <div class="code-description">Meet Complainant</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-18</div>
+                    <div class="code-description">Complete Assignment Quickly</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-19</div>
+                    <div class="code-description">Return to Station</div>
+                </div>
+                <div class="code-item">
+                    <div class="code-number">10-20</div>
+                    <div class="code-description">Location</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keybinds Section -->
+        <section id="keybinds" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">Essential Keybinds</h1>
+                <p class="section-subtitle">Important keyboard shortcuts for officers</p>
+            </div>
+
+            <div class="content-box">
+                <h3>Radio Communications</h3>
+                <table class="info-table">
+                    <tr><td>F1</td><td>Open Phone/Menu</td></tr>
+                    <tr><td>F2</td><td>Open MDT</td></tr>
+                    <tr><td>F3</td><td>Animation Menu</td></tr>
+                    <tr><td>F5</td><td>Server Menu</td></tr>
+                    <tr><td>F6</td><td>Job Menu</td></tr>
+                </table>
+            </div>
+
+            <div class="content-box">
+                <h3>Vehicle Controls</h3>
+                <table class="info-table">
+                    <tr><td>B</td><td>Seatbelt</td></tr>
+                    <tr><td>G</td><td>Engine On/Off</td></tr>
+                    <tr><td>K</td><td>Vehicle Lock</td></tr>
+                    <tr><td>H</td><td>Lights/Sirens</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Vehicle Usage Section -->
+        <section id="vehicleusage" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">Vehicle Usage Guidelines</h1>
+                <p class="section-subtitle">Proper procedures for PD vehicle operation</p>
+            </div>
+
+            <div class="content-box">
+                <h3>General Guidelines</h3>
+                <ul>
+                    <li>Always perform pre-shift vehicle inspection</li>
+                    <li>Report any damage immediately</li>
+                    <li>Keep vehicles clean and organized</li>
+                    <li>Fuel vehicles before end of shift</li>
+                    <li>Secure all equipment when leaving vehicle</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h3>Pursuit Procedures</h3>
+                <ul>
+                    <li>Call out location and direction of travel</li>
+                    <li>Describe vehicle and occupants</li>
+                    <li>Follow department pursuit policy</li>
+                    <li>Coordinate with dispatch and supervisor</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Incident Units Section -->
+        <section id="incidents" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">Specialized Incident Units</h1>
+                <p class="section-subtitle">When and how to deploy specialized units</p>
+            </div>
+
+            <div class="content-box">
+                <h3>SWAT Team</h3>
+                <ul>
+                    <li>High-risk warrant execution</li>
+                    <li>Hostage situations</li>
+                    <li>Active shooter response</li>
+                    <li>Barricaded suspects</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h3>Air Support (Air One)</h3>
+                <ul>
+                    <li>Vehicle pursuits</li>
+                    <li>Search and rescue operations</li>
+                    <li>Surveillance operations</li>
+                    <li>Traffic monitoring</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h3>K-9 Units</h3>
+                <ul>
+                    <li>Drug detection</li>
+                    <li>Explosive detection</li>
+                    <li>Suspect tracking</li>
+                    <li>Building searches</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Miranda Rights Section -->
+        <section id="miranda" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">Miranda Rights</h1>
+                <p class="section-subtitle">Required advisement for custodial interrogation</p>
+            </div>
+
+            <div class="warning-box">
+                <strong>When Required:</strong> Before any custodial interrogation of a suspect in custody.
+            </div>
+
+            <div class="content-box">
+                <h3>Standard Miranda Warning</h3>
+                <p style="font-style: italic; border-left: 3px solid #e4a71f; padding-left: 20px; margin: 20px 0;">
+                    "You have the right to remain silent. Anything you say can and will be used against you in a court of law. You have the right to an attorney. If you cannot afford an attorney, one will be provided for you. Do you understand these rights as I have read them to you?"
+                </p>
+            </div>
+
+            <div class="content-box">
+                <h3>Key Points</h3>
+                <ul>
+                    <li>Must be given before interrogation of a suspect in custody</li>
+                    <li>Not required for general questioning or traffic stops</li>
+                    <li>Suspect must acknowledge understanding</li>
+                    <li>If suspect invokes rights, stop questioning immediately</li>
+                    <li>Document when Miranda was given in your report</li>
+                </ul>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
