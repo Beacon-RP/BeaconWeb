@@ -544,6 +544,156 @@
             color: #e4a71f;
             font-weight: 600;
         }
+
+        /* 10 Codes Grid */
+        .ten-codes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 24px 32px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+        
+        .ten-code-item {
+            background: none;
+            border: none;
+            border-radius: 0;
+            padding: 0;
+            font-size: 15px;
+            color: #fff;
+            box-shadow: none;
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        .rules-section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            color: #e4a71f;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Radar Keybinds Box */
+        .radar-keybinds-box {
+            background: rgba(7, 43, 81, 0.85);
+            border: 1px solid rgba(228, 167, 31, 0.18);
+            border-radius: 18px;
+            padding: 32px 28px 24px 28px;
+            margin: 32px auto 0 auto;
+            max-width: 400px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+        }
+        
+        .radar-keybinds-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            text-align: left;
+        }
+        
+        .radar-keybinds-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .radar-keybind-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            color: #fff;
+        }
+        
+        .radar-keybind-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+        
+        .radar-keybind-key {
+            background: rgba(228, 167, 31, 0.18);
+            border-radius: 8px;
+            padding: 4px 16px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px;
+            color: #e4a71f;
+            min-width: 48px;
+            text-align: center;
+            margin-left: 16px;
+        }
+
+        /* Rules Section Title */
+        .rules-section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            color: #e4a71f;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Radar Keybinds Box */
+        .radar-keybinds-box {
+            background: rgba(7, 43, 81, 0.85);
+            border: 1px solid rgba(228, 167, 31, 0.18);
+            border-radius: 18px;
+            padding: 32px 28px 24px 28px;
+            margin: 32px auto 0 auto;
+            max-width: 400px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+        }
+        
+        .radar-keybinds-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            text-align: left;
+        }
+        
+        .radar-keybinds-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .radar-keybind-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            color: #fff;
+        }
+        
+        .radar-keybind-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+        
+        .radar-keybind-key {
+            background: rgba(228, 167, 31, 0.18);
+            border-radius: 8px;
+            padding: 4px 16px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px;
+            color: #e4a71f;
+            min-width: 48px;
+            text-align: center;
+            margin-left: 16px;
+        }
     </style>
 </head>
 <body>
@@ -790,6 +940,14 @@
                 <span class="sidebar-icon">⚠️</span>
                 <span>Threat Levels</span>
             </a>
+            <a href="#induction" class="sidebar-link" data-section="induction">
+                <span class="sidebar-icon">🎓</span>
+                <span>Police Induction</span>
+            </a>
+            <a href="#equipment" class="sidebar-link" data-section="equipment">
+                <span class="sidebar-icon">🛠️</span>
+                <span>Equipment</span>
+            </a>
             <a href="#evidence" class="sidebar-link" data-section="evidence">
                 <span class="sidebar-icon">📋</span>
                 <span>Evidence</span>
@@ -827,7 +985,7 @@
             </div>
 
             <div class="content-box">
-                <p>Standard Operating Procedures for the Police Department. You are an employee of the State, during your time in employment, you are expected to ensure you follow the Laws within Los Santos, and subsequently enforce the Law in your position as an Officer.</p>
+                <p>Standard Operating Procedures for the Police Department. You are an employee of the State, during your time in employment, you are expected to ensure you follow the Laws within Los Santos, and subsequently enforce the Law in your position as an Officer. You can find in this document definitions that will help with your educational knowledge for the procedures within the Policing Departments.</p>
             </div>
 
             <div class="content-box">
@@ -835,11 +993,11 @@
                 <ul>
                     <li>Respect the Chain of Command</li>
                     <li>Ensure Standard Operating Procedures are followed as required</li>
-                    <li>All evidence should be logged and stored in evidence rooms as soon as possible</li>
+                    <li>All evidence should be logged and stored, and then stored in evidence rooms as soon as possible</li>
                     <li>EMS should be called to help at the roadside</li>
-                    <li>If EMS are not available, transport people to Pillbox for Treatment</li>
-                    <li>Ensure you are fair and open, base decisions on facts, training, or interview knowledge</li>
-                    <li>We cannot speak to 'suppliers' of certain things; they are not willing to engage with Police</li>
+                    <li>If not, EMS are available, people should be transported by an Officer to the Pillbox for Treatment</li>
+                    <li>Ensure you are fair and open, and only base your decisions on facts, training, or interview knowledge. We do not know mechanics</li>
+                    <li>We cannot speak to 'suppliers' of certain things; from our view, they are not willing to talk or engage with the Police</li>
                 </ul>
             </div>
         </section>
@@ -877,8 +1035,8 @@
                     <li>You can search a person when you have Probable Cause to arrest</li>
                     <li>The vehicle has been involved in a crime or contains illegal contraband</li>
                     <li>You can search a person/vehicle when you have consent</li>
-                    <li>You can search a person under extreme circumstances (saving someone's life)</li>
-                    <li>You can search a vehicle when checking after an incident in which you impounded the car</li>
+                    <li>You can search a person under extreme circumstances (saving someone's life takes precedence over SOPs and case laws)</li>
+                    <li>You can search a vehicle when you are checking the vehicle after an incident in which you impounded the car</li>
                 </ul>
             </div>
         </section>
@@ -1046,26 +1204,54 @@
             </div>
         </section>
 
-        <!-- Evidence Section -->
-        <section id="evidence" class="content-section">
+        <!-- Police Induction Section -->
+        <section id="induction" class="content-section">
             <div class="section-header">
-                <h1 class="section-title">Evidence Collection & Storage</h1>
-                <p class="section-subtitle">Proper procedures for handling evidence</p>
+                <h1 class="section-title">Police Induction & Miscellaneous</h1>
+                <p class="section-subtitle">Induction procedures and miscellaneous information</p>
             </div>
 
             <div class="content-box">
-                <h3>Collection Procedures</h3>
+                <h3>Induction Procedures</h3>
                 <ul>
-                    <li>Photograph all evidence before collection</li>
-                    <li>Use proper evidence bags and labeling</li>
-                    <li>Maintain chain of custody documentation</li>
-                    <li>Store in evidence room immediately after collection</li>
-                    <li>Log all evidence in the MDT system</li>
+                    <li><strong>Induction (CPL & Above):</strong> Hire via Services App. Interview, decide Officer (2 x Ride Along) or Cadet. Induction covers: Welcome, Equipment Checklist, Standards, MDT, Radio, Call Signs & 10-Codes.</li>
+                    <li>Cadet follows process with FTO as in MDT FTO Reports. Officer continues journey.</li>
                 </ul>
             </div>
 
-            <div class="warning-box">
-                <strong>Critical:</strong> Never contaminate evidence. Always wear gloves and use proper collection tools.
+            <div class="content-box">
+                <h3>Miscellaneous Information</h3>
+                <ul>
+                    <li><strong>Boats:</strong> Collect PD Boat at Vespucci Beach (next to pier).</li>
+                    <li><strong>Equipment Returns:</strong> On separation, surrender all issued equipment to San Andreas Law Enforcement. Complete PR (Property Return) Form for all equipment returned.</li>
+                    <li><strong>Leave of Absence (LOA):</strong> No prior approval needed. Mark yourself as [LOA] in email system & LOA Channel.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Equipment Section -->
+        <section id="equipment" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">Equipment</h1>
+                <p class="section-subtitle">Standard issue and optional equipment for officers</p>
+            </div>
+
+            <div class="content-box">
+                <h3>Standard Equipment</h3>
+                <p>Standard issue and optional equipment for officers. (Add equipment details here)</p>
+            </div>
+        </section>
+
+        <!-- Evidence Section -->
+        <section id="evidence" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">Evidence</h1>
+                <p class="section-subtitle">Evidence collection procedures</p>
+            </div>
+
+            <div class="content-box">
+                <h3>Evidence Collection</h3>
+                <p>(Add evidence collection procedures here)</p>
             </div>
         </section>
 
@@ -1076,86 +1262,46 @@
                 <p class="section-subtitle">Standard radio communication codes</p>
             </div>
 
-            <div class="codes-grid">
-                <div class="code-item">
-                    <div class="code-number">10-1</div>
-                    <div class="code-description">Receiving Poorly</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-2</div>
-                    <div class="code-description">Receiving Well</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-3</div>
-                    <div class="code-description">Stop Transmitting</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-4</div>
-                    <div class="code-description">Acknowledgement (OK)</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-5</div>
-                    <div class="code-description">Relay</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-6</div>
-                    <div class="code-description">Busy</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-7</div>
-                    <div class="code-description">Out of Service</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-8</div>
-                    <div class="code-description">In Service</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-9</div>
-                    <div class="code-description">Repeat</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-10</div>
-                    <div class="code-description">Fight in Progress</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-11</div>
-                    <div class="code-description">Dog Case</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-12</div>
-                    <div class="code-description">Stand By</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-13</div>
-                    <div class="code-description">Weather/Road Report</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-14</div>
-                    <div class="code-description">Prowler Report</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-15</div>
-                    <div class="code-description">Civil Disturbance</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-16</div>
-                    <div class="code-description">Domestic Problem</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-17</div>
-                    <div class="code-description">Meet Complainant</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-18</div>
-                    <div class="code-description">Complete Assignment Quickly</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-19</div>
-                    <div class="code-description">Return to Station</div>
-                </div>
-                <div class="code-item">
-                    <div class="code-number">10-20</div>
-                    <div class="code-description">Location</div>
+            <div class="content-box">
+                <div class="ten-codes-grid">
+                    <div class="ten-code-item">10-41 - On Duty</div>
+                    <div class="ten-code-item">10-42 - Off Duty</div>
+                    <div class="ten-code-item">10-6 - Busy, Unless Urgent</div>
+                    <div class="ten-code-item">10-7 - Out Of service</div>
+                    <div class="ten-code-item">10-8 - Back In Service</div>
+                    <div class="ten-code-item">10-9 - Repeat</div>
+                    <div class="ten-code-item">10-2 - Loud & Clear</div>
+                    <div class="ten-code-item">10-3 - Break</div>
+                    <div class="ten-code-item">10-4 - Acknowledgment</div>
+                    <div class="ten-code-item">10-95 - Suspect in Custody</div>
+                    <div class="ten-code-item">10-76 - enroute</div>
+                    <div class="ten-code-item">10-77 - Backup Required</div>
+                    <div class="ten-code-item">10-78 - Backup Required (Urgent)</div>
+                    <div class="ten-code-item">10-80 - Pursuit in Progress</div>
+                    <div class="ten-code-item">10-20 - Location</div>
+                    <div class="ten-code-item">10-90 - Robbery in Progress</div>
+                    <div class="ten-code-item">10-23 - Arriving on scene</div>
+                    <div class="ten-code-item">10-98 - Jail Break</div>
+                    <div class="ten-code-item">10-31 - Crime in Progress</div>
+                    <div class="ten-code-item">10-38 - Traffic Stop</div>
+                    <div class="ten-code-item">10-47 - Injured Person</div>
+                    <div class="ten-code-item">10-13A - Officer down (Emergency)</div>
+                    <div class="ten-code-item">10-13B - Officer Down (None-Emergency)</div>
+                    <div class="ten-code-item">10-14A - Medic Down (Emergency)</div>
+                    <div class="ten-code-item">10-14B - Medic Down (None-Emergency)</div>
+                    <div class="ten-code-item">10-50 - Traffic Accident</div>
+                    <div class="ten-code-item">10-71 - Shots Fired</div>
+                    <div class="ten-code-item">10-69 - Turtled</div>
+                    <div class="ten-code-item">10-231 - Cooper's Car is Upside Down</div>
+                    <div class="ten-code-item">10-100 - Headpop</div>
+                    <div class="ten-code-item">Code 1 - No Lights or sirens</div>
+                    <div class="ten-code-item">Code 2 - Lights only</div>
+                    <div class="ten-code-item">Code 3 - Lights and Sirens</div>
+                    <div class="ten-code-item">Code 4 - All Clear</div>
+                    <div class="ten-code-item">Code 5 - Stake Out</div>
+                    <div class="ten-code-item">Code 6 - Searching the Area</div>
+                    <div class="ten-code-item">UTL - Unable to Locate</div>
+                    <div class="ten-code-item">VCB - Visual Contact Broken</div>
                 </div>
             </div>
         </section>
@@ -1163,95 +1309,90 @@
         <!-- Keybinds Section -->
         <section id="keybinds" class="content-section">
             <div class="section-header">
-                <h1 class="section-title">Essential Keybinds</h1>
-                <p class="section-subtitle">Important keyboard shortcuts for officers</p>
+                <h1 class="section-title">Keybinds</h1>
+                <p class="section-subtitle">Police Radar keyboard shortcuts</p>
             </div>
 
             <div class="content-box">
-                <h3>Radio Communications</h3>
-                <table class="info-table">
-                    <tr><td>F1</td><td>Open Phone/Menu</td></tr>
-                    <tr><td>F2</td><td>Open MDT</td></tr>
-                    <tr><td>F3</td><td>Animation Menu</td></tr>
-                    <tr><td>F5</td><td>Server Menu</td></tr>
-                    <tr><td>F6</td><td>Job Menu</td></tr>
-                </table>
-            </div>
-
-            <div class="content-box">
-                <h3>Vehicle Controls</h3>
-                <table class="info-table">
-                    <tr><td>B</td><td>Seatbelt</td></tr>
-                    <tr><td>G</td><td>Engine On/Off</td></tr>
-                    <tr><td>K</td><td>Vehicle Lock</td></tr>
-                    <tr><td>H</td><td>Lights/Sirens</td></tr>
-                </table>
+                <h3 class="rules-section-title">Police Radar</h3>
+                <div class="radar-keybinds-box">
+                    <div class="radar-keybinds-title"><strong>KEYBOARD SHORTCUTS</strong></div>
+                    <div class="radar-keybinds-list">
+                        <div class="radar-keybind-row"><span class="radar-keybind-label">Toggle Radar</span><span class="radar-keybind-key">F5</span></div>
+                        <div class="radar-keybind-row"><span class="radar-keybind-label">Interact with Radar</span><span class="radar-keybind-key">K</span></div>
+                        <div class="radar-keybind-row"><span class="radar-keybind-label">Save Reading</span><span class="radar-keybind-key">J</span></div>
+                        <div class="radar-keybind-row"><span class="radar-keybind-label">Lock/Unlock Radar</span><span class="radar-keybind-key">F9</span></div>
+                        <div class="radar-keybind-row"><span class="radar-keybind-label">Switch to Front</span><span class="radar-keybind-key">←</span></div>
+                        <div class="radar-keybind-row"><span class="radar-keybind-label">Switch to Rear</span><span class="radar-keybind-key">→</span></div>
+                        <div class="radar-keybind-row"><span class="radar-keybind-label">Toggle Log</span><span class="radar-keybind-key">F10</span></div>
+                        <div class="radar-keybind-row"><span class="radar-keybind-label">Toggle BOLO List</span><span class="radar-keybind-key">F11</span></div>
+                        <div class="radar-keybind-row"><span class="radar-keybind-label">Show/Hide Keybinds</span><span class="radar-keybind-key">F12</span></div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Vehicle Usage Section -->
         <section id="vehicleusage" class="content-section">
             <div class="section-header">
-                <h1 class="section-title">Vehicle Usage Guidelines</h1>
-                <p class="section-subtitle">Proper procedures for PD vehicle operation</p>
+                <h1 class="section-title">Vehicle Usage</h1>
+                <p class="section-subtitle">Vehicle allocation and usage guidelines</p>
             </div>
 
             <div class="content-box">
-                <h3>General Guidelines</h3>
-                <ul>
-                    <li>Always perform pre-shift vehicle inspection</li>
-                    <li>Report any damage immediately</li>
-                    <li>Keep vehicles clean and organized</li>
-                    <li>Fuel vehicles before end of shift</li>
-                    <li>Secure all equipment when leaving vehicle</li>
-                </ul>
-            </div>
-
-            <div class="content-box">
-                <h3>Pursuit Procedures</h3>
-                <ul>
-                    <li>Call out location and direction of travel</li>
-                    <li>Describe vehicle and occupants</li>
-                    <li>Follow department pursuit policy</li>
-                    <li>Coordinate with dispatch and supervisor</li>
-                </ul>
+                <table class="info-table">
+                    <tr><td>Police Cruiser</td><td>All Units</td></tr>
+                    <tr><td>Police Cruiser 2</td><td>All Units</td></tr>
+                    <tr><td>Police Cruiser 3</td><td>All Units</td></tr>
+                    <tr><td>Police Bike</td><td>All Units</td></tr>
+                    <tr><td>Police Bike 2</td><td>All Units</td></tr>
+                    <tr><td>Unmarked Cruiser</td><td>Sgt+</td></tr>
+                    <tr><td>Unmarked Cruiser 2</td><td>Sgt+</td></tr>
+                    <tr><td>SUV</td><td>Cpl+</td></tr>
+                    <tr><td>SUV 2</td><td>Cpl+</td></tr>
+                    <tr><td>Interceptor</td><td>Off+</td></tr>
+                    <tr><td>Interceptor 2</td><td>Off+</td></tr>
+                    <tr><td>Tahoe</td><td>Cpl+</td></tr>
+                    <tr><td>Riot</td><td>Sgt+ or when needed</td></tr>
+                    <tr><td>Unmarked Sports Car</td><td>Lt+</td></tr>
+                    <tr><td>Hellcat</td><td>Capt+</td></tr>
+                    <tr><td>Mustang</td><td>Capt+</td></tr>
+                </table>
             </div>
         </section>
 
         <!-- Incident Units Section -->
         <section id="incidents" class="content-section">
             <div class="section-header">
-                <h1 class="section-title">Specialized Incident Units</h1>
-                <p class="section-subtitle">When and how to deploy specialized units</p>
+                <h1 class="section-title">Incident Units</h1>
+                <p class="section-subtitle">Unit deployment guidelines for different incidents</p>
             </div>
 
             <div class="content-box">
-                <h3>SWAT Team</h3>
+                <h3>Bank Robberies</h3>
                 <ul>
-                    <li>High-risk warrant execution</li>
-                    <li>Hostage situations</li>
-                    <li>Active shooter response</li>
-                    <li>Barricaded suspects</li>
+                    <li><strong>Fleeca Bank:</strong> Max 4 units, 1 Air Unit</li>
+                    <li><strong>Pacific Standard:</strong> Max 6 units, 1 Air Unit</li>
+                    <li><strong>Paleto Bank:</strong> Max 5 units, 1 Air Unit</li>
                 </ul>
             </div>
 
             <div class="content-box">
-                <h3>Air Support (Air One)</h3>
+                <h3>Store Robberies</h3>
                 <ul>
-                    <li>Vehicle pursuits</li>
-                    <li>Search and rescue operations</li>
-                    <li>Surveillance operations</li>
-                    <li>Traffic monitoring</li>
+                    <li><strong>24/7, LTD, etc.:</strong> Max 3 units</li>
+                    <li><strong>Jewelry Store:</strong> Max 4 units, 1 Air Unit</li>
+                    <li><strong>Ammunation:</strong> Max 3 units</li>
                 </ul>
             </div>
 
             <div class="content-box">
-                <h3>K-9 Units</h3>
+                <h3>Other Incidents</h3>
                 <ul>
-                    <li>Drug detection</li>
-                    <li>Explosive detection</li>
-                    <li>Suspect tracking</li>
-                    <li>Building searches</li>
+                    <li><strong>Drug Labs:</strong> Max 5 units, 1 Air Unit</li>
+                    <li><strong>Hostage Situations:</strong> Max 6 units, 1 Air Unit, Negotiator</li>
+                    <li><strong>Traffic Stops:</strong> Max 2 units (unless backup requested)</li>
+                    <li><strong>Pursuits:</strong> Max 4 units, 1 Air Unit</li>
                 </ul>
             </div>
         </section>
@@ -1260,29 +1401,17 @@
         <section id="miranda" class="content-section">
             <div class="section-header">
                 <h1 class="section-title">Miranda Rights</h1>
-                <p class="section-subtitle">Required advisement for custodial interrogation</p>
-            </div>
-
-            <div class="warning-box">
-                <strong>When Required:</strong> Before any custodial interrogation of a suspect in custody.
+                <p class="section-subtitle">Miranda warning procedures</p>
             </div>
 
             <div class="content-box">
-                <h3>Standard Miranda Warning</h3>
-                <p style="font-style: italic; border-left: 3px solid #e4a71f; padding-left: 20px; margin: 20px 0;">
-                    "You have the right to remain silent. Anything you say can and will be used against you in a court of law. You have the right to an attorney. If you cannot afford an attorney, one will be provided for you. Do you understand these rights as I have read them to you?"
-                </p>
+                <h3>Miranda Warning Script</h3>
+                <p style="font-style: italic; border-left: 3px solid #e4a71f; padding-left: 20px; margin: 20px 0;">"You have the right to remain silent. Anything you say can be used against you in court. You have the right to talk to a lawyer for advice before we ask you any questions. You have the right to have a lawyer with you during questioning. If you cannot afford a lawyer, one will be appointed for you before any questioning if you wish. If you decide to answer questions now without a lawyer present, you have the right to stop answering at any time."</p>
             </div>
 
             <div class="content-box">
-                <h3>Key Points</h3>
-                <ul>
-                    <li>Must be given before interrogation of a suspect in custody</li>
-                    <li>Not required for general questioning or traffic stops</li>
-                    <li>Suspect must acknowledge understanding</li>
-                    <li>If suspect invokes rights, stop questioning immediately</li>
-                    <li>Document when Miranda was given in your report</li>
-                </ul>
+                <h3>When to Read Miranda</h3>
+                <p>Miranda rights must be read when a suspect is in custody AND being interrogated. Not required for general questioning, traffic stops, or voluntary statements.</p>
             </div>
         </section>
     </main>
