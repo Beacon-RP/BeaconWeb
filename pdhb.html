@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beacon RP - PD Employee Handbook</title>
+    <title>LSPD Employee Handbook - Beacon RP</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -13,14 +13,15 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', sans-serif;
             background: #0a0e1a;
             color: rgba(255, 255, 255, 0.95);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
         /* Header */
-        .top-header {
+        .header {
             position: fixed;
             top: 0;
             left: 0;
@@ -35,7 +36,22 @@
             padding: 0 40px;
         }
 
-        .header-logo {
+        .mobile-menu-btn {
+            display: none;
+            width: 40px;
+            height: 40px;
+            background: rgba(228, 167, 31, 0.2);
+            border: 1px solid rgba(228, 167, 31, 0.4);
+            border-radius: 8px;
+            color: #e4a71f;
+            font-size: 20px;
+            cursor: pointer;
+            margin-right: 15px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 28px;
             letter-spacing: 2px;
@@ -93,6 +109,7 @@
             overflow-y: auto;
             padding: 30px 0;
             z-index: 900;
+            transition: transform 0.3s ease;
         }
 
         .sidebar::-webkit-scrollbar {
@@ -197,7 +214,7 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
-        /* Carousel Styles */
+        /* Carousel */
         .carousel-container {
             background: rgba(7, 43, 81, 0.3);
             border: 1px solid rgba(228, 167, 31, 0.2);
@@ -302,30 +319,6 @@
             font-size: 16px;
             line-height: 1.8;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 25px;
-        }
-
-        .carousel-points {
-            display: grid;
-            gap: 15px;
-        }
-
-        .carousel-point {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-
-        .carousel-point-icon {
-            color: #e4a71f;
-            font-size: 20px;
-            margin-top: 2px;
-        }
-
-        .carousel-point-text {
-            flex: 1;
-            font-size: 15px;
-            line-height: 1.6;
         }
 
         /* Content Box */
@@ -365,87 +358,12 @@
             line-height: 1.6;
         }
 
-        .content-box li:before {
+        .content-box li::before {
             content: '▸';
             position: absolute;
             left: 0;
             color: #e4a71f;
             font-size: 18px;
-        }
-
-        /* 10 Codes Table */
-        .codes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .code-item {
-            background: rgba(7, 43, 81, 0.4);
-            border: 1px solid rgba(228, 167, 31, 0.15);
-            border-radius: 12px;
-            padding: 18px 20px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .code-item:hover {
-            background: rgba(228, 167, 31, 0.15);
-            border-color: rgba(228, 167, 31, 0.4);
-            transform: translateX(5px);
-        }
-
-        .code-number {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 22px;
-            color: #e4a71f;
-            min-width: 80px;
-        }
-
-        .code-description {
-            font-size: 15px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* Search Controls */
-        .search-controls {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-
-        .search-controls input {
-            flex: 1;
-            min-width: 250px;
-            padding: 12px 20px;
-            background: rgba(7, 43, 81, 0.4);
-            border: 1px solid rgba(228, 167, 31, 0.3);
-            border-radius: 10px;
-            color: white;
-            font-size: 15px;
-            outline: none;
-        }
-
-        .search-controls button {
-            padding: 12px 25px;
-            background: rgba(228, 167, 31, 0.2);
-            border: 1px solid rgba(228, 167, 31, 0.4);
-            border-radius: 10px;
-            color: #e4a71f;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 16px;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .search-controls button:hover {
-            background: rgba(228, 167, 31, 0.3);
-            transform: translateY(-2px);
         }
 
         /* Warning Box */
@@ -465,59 +383,30 @@
             font-size: 16px;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .sidebar {
-                width: 240px;
-            }
-            .main-wrapper {
-                margin-left: 240px;
-                padding: 30px 40px;
-            }
+        /* Codes Grid */
+        .codes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
         }
 
-        @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-            }
-            .sidebar.mobile-open {
-                transform: translateX(0);
-            }
-            .main-wrapper {
-                margin-left: 0;
-                padding: 20px;
-            }
-            .carousel-image-wrapper {
-                height: 300px;
-            }
-            .section-title {
-                font-size: 36px;
-            }
+        .code-item {
+            background: rgba(7, 43, 81, 0.4);
+            border: 1px solid rgba(228, 167, 31, 0.15);
+            border-radius: 12px;
+            padding: 18px 20px;
+            transition: all 0.3s ease;
+            font-size: 15px;
         }
 
-        .mobile-menu-btn {
-            display: none;
-            width: 40px;
-            height: 40px;
-            background: rgba(228, 167, 31, 0.2);
-            border: 1px solid rgba(228, 167, 31, 0.4);
-            border-radius: 8px;
-            color: #e4a71f;
-            font-size: 20px;
-            cursor: pointer;
-            margin-right: 15px;
+        .code-item:hover {
+            background: rgba(228, 167, 31, 0.15);
+            border-color: rgba(228, 167, 31, 0.4);
+            transform: translateX(5px);
         }
 
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        }
-
-        /* Table Styles */
+        /* Table */
         .info-table {
             width: 100%;
             margin: 25px 0;
@@ -540,370 +429,132 @@
             width: 40%;
         }
 
+        /* Keybinds Box */
+        .keybinds-box {
+            background: rgba(7, 43, 81, 0.85);
+            border: 1px solid rgba(228, 167, 31, 0.18);
+            border-radius: 18px;
+            padding: 32px 28px 24px 28px;
+            margin: 32px auto 0 auto;
+            max-width: 500px;
+        }
+
+        .keybinds-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+
+        .keybind-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            font-size: 16px;
+            color: #fff;
+            border-bottom: 1px solid rgba(228, 167, 31, 0.1);
+        }
+
+        .keybind-row:last-child {
+            border-bottom: none;
+        }
+
+        .keybind-key {
+            background: rgba(228, 167, 31, 0.18);
+            border-radius: 8px;
+            padding: 4px 16px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px;
+            color: #e4a71f;
+            min-width: 48px;
+            text-align: center;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #e4a71f 0%, #c4901b 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a0e1a;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(228, 167, 31, 0.3);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 240px;
+            }
+            .main-wrapper {
+                margin-left: 240px;
+                padding: 30px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.mobile-open {
+                transform: translateX(0);
+            }
+
+            .main-wrapper {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .carousel-image-wrapper {
+                height: 300px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+        }
+
         .highlight {
-            color: #e4a71f;
-            font-weight: 600;
-        }
-
-        /* 10 Codes Grid */
-        .ten-codes-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, auto);
-            gap: 24px 32px;
-            margin-top: 32px;
-            margin-bottom: 16px;
-        }
-        
-        .ten-code-item {
-            background: none;
-            border: none;
-            border-radius: 0;
-            padding: 0;
-            font-size: 15px;
-            color: #fff;
-            box-shadow: none;
-            text-align: left;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-        }
-
-        .rules-section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 36px;
-            color: #e4a71f;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        /* Radar Keybinds Box */
-        .radar-keybinds-box {
-            background: rgba(7, 43, 81, 0.85);
-            border: 1px solid rgba(228, 167, 31, 0.18);
-            border-radius: 18px;
-            padding: 32px 28px 24px 28px;
-            margin: 32px auto 0 auto;
-            max-width: 400px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-        }
-        
-        .radar-keybinds-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 22px;
-            color: #fff;
-            letter-spacing: 1px;
-            margin-bottom: 18px;
-            text-align: left;
-        }
-        
-        .radar-keybinds-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        
-        .radar-keybind-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 18px;
-            color: #fff;
-        }
-        
-        .radar-keybind-label {
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-        }
-        
-        .radar-keybind-key {
-            background: rgba(228, 167, 31, 0.18);
-            border-radius: 8px;
-            padding: 4px 16px;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 18px;
-            color: #e4a71f;
-            min-width: 48px;
-            text-align: center;
-            margin-left: 16px;
-        }
-
-        /* Rules Section Title */
-        .rules-section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 36px;
-            color: #e4a71f;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        /* Radar Keybinds Box */
-        .radar-keybinds-box {
-            background: rgba(7, 43, 81, 0.85);
-            border: 1px solid rgba(228, 167, 31, 0.18);
-            border-radius: 18px;
-            padding: 32px 28px 24px 28px;
-            margin: 32px auto 0 auto;
-            max-width: 400px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-        }
-        
-        .radar-keybinds-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 22px;
-            color: #fff;
-            letter-spacing: 1px;
-            margin-bottom: 18px;
-            text-align: left;
-        }
-        
-        .radar-keybinds-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        
-        .radar-keybind-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 18px;
-            color: #fff;
-        }
-        
-        .radar-keybind-label {
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-        }
-        
-        .radar-keybind-key {
-            background: rgba(228, 167, 31, 0.18);
-            border-radius: 8px;
-            padding: 4px 16px;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 18px;
-            color: #e4a71f;
-            min-width: 48px;
-            text-align: center;
-            margin-left: 16px;
+            background: rgba(228, 167, 31, 0.3);
+            padding: 2px 5px;
+            border-radius: 3px;
         }
     </style>
 </head>
 <body>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Navigation functionality
-            const sidebarLinks = document.querySelectorAll('.sidebar-link');
-            const contentSections = document.querySelectorAll('.content-section');
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const sidebar = document.getElementById('sidebar');
-            const globalSearch = document.getElementById('globalSearch');
-
-            // Handle navigation clicks
-            sidebarLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetSection = this.getAttribute('data-section');
-                    
-                    // Remove active class from all links and sections
-                    sidebarLinks.forEach(l => l.classList.remove('active'));
-                    contentSections.forEach(s => s.classList.remove('active'));
-                    
-                    // Add active class to clicked link
-                    this.classList.add('active');
-                    
-                    // Show target section
-                    const targetElement = document.getElementById(targetSection);
-                    if (targetElement) {
-                        targetElement.classList.add('active');
-                    }
-                    
-                    // Close mobile menu if open
-                    if (window.innerWidth <= 768) {
-                        sidebar.classList.remove('mobile-open');
-                    }
-                });
-            });
-
-            // Mobile menu toggle
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    sidebar.classList.toggle('mobile-open');
-                });
-            }
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    if (!sidebar.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                        sidebar.classList.remove('mobile-open');
-                    }
-                }
-            });
-
-            // Global search functionality
-            if (globalSearch) {
-                globalSearch.addEventListener('input', function() {
-                    const searchTerm = this.value.toLowerCase().trim();
-                    
-                    if (searchTerm === '') {
-                        // Show all content normally
-                        contentSections.forEach(section => {
-                            const elements = section.querySelectorAll('.content-box, .code-item, .carousel-point-text');
-                            elements.forEach(el => {
-                                el.style.display = '';
-                                el.style.backgroundColor = '';
-                            });
-                        });
-                        return;
-                    }
-                    
-                    // Search through all sections
-                    contentSections.forEach(section => {
-                        let sectionHasMatch = false;
-                        const elements = section.querySelectorAll('.content-box, .code-item, .carousel-point-text');
-                        
-                        elements.forEach(el => {
-                            const text = el.textContent.toLowerCase();
-                            if (text.includes(searchTerm)) {
-                                el.style.display = '';
-                                el.style.backgroundColor = 'rgba(228, 167, 31, 0.2)';
-                                sectionHasMatch = true;
-                            } else {
-                                el.style.display = 'none';
-                                el.style.backgroundColor = '';
-                            }
-                        });
-                        
-                        // If section has matches, show it
-                        if (sectionHasMatch) {
-                            // Remove active from all sections first
-                            contentSections.forEach(s => s.classList.remove('active'));
-                            sidebarLinks.forEach(l => l.classList.remove('active'));
-                            
-                            // Show this section
-                            section.classList.add('active');
-                            
-                            // Highlight corresponding nav link
-                            const correspondingLink = document.querySelector(`[data-section="${section.id}"]`);
-                            if (correspondingLink) {
-                                correspondingLink.classList.add('active');
-                            }
-                        }
-                    });
-                });
-            }
-
-            // 10 Codes search functionality
-            const codesSearch = document.getElementById('codesSearch');
-            const codeItems = document.querySelectorAll('.code-item');
-            
-            if (codesSearch && codeItems.length > 0) {
-                codesSearch.addEventListener('input', function() {
-                    const searchTerm = this.value.toLowerCase().trim();
-                    
-                    codeItems.forEach(item => {
-                        const text = item.textContent.toLowerCase();
-                        if (searchTerm === '' || text.includes(searchTerm)) {
-                            item.style.display = '';
-                            item.style.backgroundColor = searchTerm !== '' && text.includes(searchTerm) 
-                                ? 'rgba(228, 167, 31, 0.2)' : '';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            }
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetSection = document.getElementById(targetId);
-                    
-                    if (targetSection) {
-                        // Handle navigation
-                        contentSections.forEach(s => s.classList.remove('active'));
-                        sidebarLinks.forEach(l => l.classList.remove('active'));
-                        
-                        targetSection.classList.add('active');
-                        const correspondingLink = document.querySelector(`[data-section="${targetId}"]`);
-                        if (correspondingLink) {
-                            correspondingLink.classList.add('active');
-                        }
-                    }
-                });
-            });
-
-            // Initialize carousel if it exists
-            initializeCarousel();
-            
-            function initializeCarousel() {
-                const carouselSlides = document.querySelectorAll('.carousel-slide');
-                const carouselDots = document.querySelectorAll('.carousel-dot');
-                const carouselBtns = document.querySelectorAll('.carousel-btn');
-                
-                if (carouselSlides.length === 0) return;
-                
-                let currentSlide = 0;
-                
-                function showSlide(index) {
-                    carouselSlides.forEach((slide, i) => {
-                        slide.classList.toggle('active', i === index);
-                    });
-                    carouselDots.forEach((dot, i) => {
-                        dot.classList.toggle('active', i === index);
-                    });
-                }
-                
-                function nextSlide() {
-                    currentSlide = (currentSlide + 1) % carouselSlides.length;
-                    showSlide(currentSlide);
-                }
-                
-                function prevSlide() {
-                    currentSlide = currentSlide === 0 ? carouselSlides.length - 1 : currentSlide - 1;
-                    showSlide(currentSlide);
-                }
-                
-                // Dot clicks
-                carouselDots.forEach((dot, index) => {
-                    dot.addEventListener('click', () => {
-                        currentSlide = index;
-                        showSlide(currentSlide);
-                    });
-                });
-                
-                // Button clicks
-                carouselBtns.forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        if (this.textContent.includes('❮') || this.textContent.includes('<')) {
-                            prevSlide();
-                        } else {
-                            nextSlide();
-                        }
-                    });
-                });
-                
-                // Auto-advance carousel
-                setInterval(nextSlide, 5000);
-            }
-        });
-    </script>
-    <!-- Top Header -->
-    <header class="top-header">
+    <!-- Header -->
+    <header class="header">
         <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-        <div class="header-logo">LSPD HANDBOOK</div>
+        <div class="logo">LSPD HANDBOOK</div>
         <div class="header-search">
-            <input type="text" id="globalSearch" placeholder="Search entire handbook...">
+            <input type="text" id="globalSearch" placeholder="Search handbook...">
             <span class="search-icon">🔍</span>
         </div>
     </header>
@@ -942,15 +593,7 @@
             </a>
             <a href="#induction" class="sidebar-link" data-section="induction">
                 <span class="sidebar-icon">🎓</span>
-                <span>Police Induction</span>
-            </a>
-            <a href="#equipment" class="sidebar-link" data-section="equipment">
-                <span class="sidebar-icon">🛠️</span>
-                <span>Equipment</span>
-            </a>
-            <a href="#evidence" class="sidebar-link" data-section="evidence">
-                <span class="sidebar-icon">📋</span>
-                <span>Evidence</span>
+                <span>Induction & Misc</span>
             </a>
             <a href="#codes" class="sidebar-link" data-section="codes">
                 <span class="sidebar-icon">📻</span>
@@ -960,6 +603,10 @@
                 <span class="sidebar-icon">⌨️</span>
                 <span>Keybinds</span>
             </a>
+            <a href="#equipment" class="sidebar-link" data-section="equipment">
+                <span class="sidebar-icon">🛠️</span>
+                <span>Equipment</span>
+            </a>
             <a href="#vehicleusage" class="sidebar-link" data-section="vehicleusage">
                 <span class="sidebar-icon">🚓</span>
                 <span>Vehicle Usage</span>
@@ -967,6 +614,10 @@
             <a href="#incidents" class="sidebar-link" data-section="incidents">
                 <span class="sidebar-icon">🚨</span>
                 <span>Incident Units</span>
+            </a>
+            <a href="#evidence" class="sidebar-link" data-section="evidence">
+                <span class="sidebar-icon">📋</span>
+                <span>Evidence</span>
             </a>
             <a href="#miranda" class="sidebar-link" data-section="miranda">
                 <span class="sidebar-icon">📖</span>
@@ -984,8 +635,32 @@
                 <p class="section-subtitle">Standard Operating Procedures for Police Department</p>
             </div>
 
-            <div class="content-box">
-                <p>Standard Operating Procedures for the Police Department. You are an employee of the State, during your time in employment, you are expected to ensure you follow the Laws within Los Santos, and subsequently enforce the Law in your position as an Officer. You can find in this document definitions that will help with your educational knowledge for the procedures within the Policing Departments.</p>
+            <!-- Carousel -->
+            <div class="carousel-container">
+                <div class="carousel-image-wrapper">
+                    <div class="carousel-slide active">
+                        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1200&h=400&fit=crop" alt="Police Department">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1593115057322-e94b77572f20?w=1200&h=400&fit=crop" alt="Police Training">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1200&h=400&fit=crop" alt="Police Station">
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn prev">‹</button>
+                        <button class="carousel-btn next">›</button>
+                    </div>
+                    <div class="carousel-controls">
+                        <span class="carousel-dot active"></span>
+                        <span class="carousel-dot"></span>
+                        <span class="carousel-dot"></span>
+                    </div>
+                </div>
+                <div class="carousel-content">
+                    <h2 class="carousel-title">Serving with Honor & Integrity</h2>
+                    <p class="carousel-description">Welcome to the Los Santos Police Department. As an employee of the State, you are expected to uphold the highest standards of professionalism and dedication to public service. Standard Operating Procedures for the Police Department. You are an employee of the State, during your time in employment, you are expected to ensure you follow the Laws within Los Santos, and subsequently enforce the Law in your position as an Officer. You can find in this document definitions that will help with your educational knowledge for the procedures within the Policing Departments.</p>
+                </div>
             </div>
 
             <div class="content-box">
@@ -995,7 +670,7 @@
                     <li>Ensure Standard Operating Procedures are followed as required</li>
                     <li>All evidence should be logged and stored, and then stored in evidence rooms as soon as possible</li>
                     <li>EMS should be called to help at the roadside</li>
-                    <li>If not, EMS are available, people should be transported by an Officer to the Pillbox for Treatment</li>
+                    <li>If EMS are not available, people should be transported by an Officer to the Pillbox for Treatment</li>
                     <li>Ensure you are fair and open, and only base your decisions on facts, training, or interview knowledge. We do not know mechanics</li>
                     <li>We cannot speak to 'suppliers' of certain things; from our view, they are not willing to talk or engage with the Police</li>
                 </ul>
@@ -1021,12 +696,12 @@
 
             <div class="warning-box">
                 <strong>The Difference:</strong>
-                Reasonable suspicion is a step before probable cause. At the point of reasonable suspicion, it appears that a crime may have been committed. The situation escalates to probable cause when it becomes obvious that a crime has most likely been committed.
+                Reasonable suspicion is a step before probable cause. At the point of reasonable suspicion, it appears that a crime may have been committed. The situation escalates to probable cause when it becomes obvious that a crime has most likely been committed. Evidence is key to having a distinct difference where the required Probable Cause has been reached to arrest and search a suspect.
             </div>
 
             <div class="content-box">
                 <h3>When can you Frisk?</h3>
-                <p>You can conduct a frisk when you have Reasonable Suspicion that a person has committed, will commit or is committing a crime AND is armed and dangerous. (Terry v. Ohio 1968). When you frisk and remove a weapon, you can only see the weapon and nothing else.</p>
+                <p>You can conduct a frisk when you have Reasonable Suspicion that a person has committed, will commit or is committing a crime AND is armed and dangerous (Terry v. Ohio 1968). When you frisk and remove a weapon, you can only see the weapon and nothing else.</p>
             </div>
 
             <div class="content-box">
@@ -1053,9 +728,9 @@
                 <ul>
                     <li>All citizens have an amendment right to purchase and possess firearms</li>
                     <li>Any weapons not sold by licensed State distributors (Ammunition) are to be seized and destroyed</li>
-                    <li>If a citizen is found with a firearm without a licence, the firearm will be confiscated</li>
+                    <li>If a citizen is found with a firearm without a licence, the firearm will be confiscated and they will be charged with unlicensed possession</li>
                     <li>If a citizen is found with an illegal firearm, they will have their licence revoked</li>
-                    <li>If a citizen commits a felony crime with a firearm in possession, it will be confiscated and not returned</li>
+                    <li>If a citizen commits a felony crime with a firearm in possession, it will be confiscated and not returned, and license revoked</li>
                 </ul>
             </div>
 
@@ -1191,20 +866,24 @@
             <div class="content-box">
                 <h3>Alert Levels</h3>
                 <ul>
-                    <li><strong>Green Alert:</strong> Normal operations, standard equipment</li>
-                    <li><strong>Yellow Alert:</strong> Increased awareness, additional patrol units</li>
-                    <li><strong>Red Alert:</strong> High threat level, specialized equipment and units</li>
-                    <li><strong>Code 99:</strong> Maximum alert, all available units respond</li>
+                    <li><strong>Routine Duty:</strong> Business as usual. Entered after every tsunami. Maintain awareness, no special measures beyond normal duty</li>
+                    <li><strong>Substantial Threat:</strong> Elevated security. Triggered by sustained threat. Additional protective measures required. Body armour, pair up, carry Class 2 openly</li>
+                    <li><strong>Critical Threat:</strong> Maximum protective security. Triggered by severe threats (e.g., Class 3 usage). Heavier uniform, double units, Class 3 rifle on back</li>
                 </ul>
             </div>
 
-            <div class="warning-box">
-                <strong>Equipment Requirements:</strong>
-                Officers must carry appropriate equipment based on current threat level.
+            <div class="content-box">
+                <h3>Weapon Classification</h3>
+                <ul>
+                    <li><strong>Class 0:</strong> Non-lethal</li>
+                    <li><strong>Class 1:</strong> Single-fire / lower calibre</li>
+                    <li><strong>Class 2:</strong> Automatic fire (low calibre) OR single-fire (high calibre)</li>
+                    <li><strong>Class 3:</strong> Snipers, explosives, automatic fire (high calibre)</li>
+                </ul>
             </div>
         </section>
 
-        <!-- Police Induction Section -->
+        <!-- Induction Section -->
         <section id="induction" class="content-section">
             <div class="section-header">
                 <h1 class="section-title">Police Induction & Miscellaneous</h1>
@@ -1213,19 +892,114 @@
 
             <div class="content-box">
                 <h3>Induction Procedures</h3>
-                <ul>
-                    <li><strong>Induction (CPL & Above):</strong> Hire via Services App. Interview, decide Officer (2 x Ride Along) or Cadet. Induction covers: Welcome, Equipment Checklist, Standards, MDT, Radio, Call Signs & 10-Codes.</li>
-                    <li>Cadet follows process with FTO as in MDT FTO Reports. Officer continues journey.</li>
-                </ul>
+                <p><strong>Induction (CPL & Above):</strong> Hire via Services App. Interview, decide Officer (2 x Ride Along) or Cadet. Induction covers: Welcome, Equipment Checklist, Standards, MDT, Radio, Call Signs & 10-Codes.</p>
+                <p>Cadet follows process with FTO as in MDT FTO Reports. Officer continues journey.</p>
             </div>
 
             <div class="content-box">
                 <h3>Miscellaneous Information</h3>
                 <ul>
-                    <li><strong>Boats:</strong> Collect PD Boat at Vespucci Beach (next to pier).</li>
-                    <li><strong>Equipment Returns:</strong> On separation, surrender all issued equipment to San Andreas Law Enforcement. Complete PR (Property Return) Form for all equipment returned.</li>
-                    <li><strong>Leave of Absence (LOA):</strong> No prior approval needed. Mark yourself as [LOA] in email system & LOA Channel.</li>
+                    <li><strong>Boats:</strong> Collect PD Boat at Vespucci Beach (next to pier)</li>
+                    <li><strong>Equipment Returns:</strong> On separation, surrender all issued equipment to San Andreas Law Enforcement. Complete PR (Property Return) Form for all equipment returned</li>
+                    <li><strong>Leave of Absence (LOA):</strong> No prior approval needed. Mark yourself as [LOA] in email system & LOA Channel</li>
                 </ul>
+            </div>
+        </section>
+
+        <!-- 10 Codes Section -->
+        <section id="codes" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">10 Codes</h1>
+                <p class="section-subtitle">Standard radio communication codes</p>
+            </div>
+
+            <div class="codes-grid">
+                <div class="code-item">10-41 - On Duty</div>
+                <div class="code-item">10-42 - Off Duty</div>
+                <div class="code-item">10-6 - Busy, Unless Urgent</div>
+                <div class="code-item">10-7 - Out Of Service</div>
+                <div class="code-item">10-8 - Back In Service</div>
+                <div class="code-item">10-9 - Repeat</div>
+                <div class="code-item">10-2 - Loud & Clear</div>
+                <div class="code-item">10-3 - Break</div>
+                <div class="code-item">10-4 - Acknowledgment</div>
+                <div class="code-item">10-95 - Suspect in Custody</div>
+                <div class="code-item">10-76 - Enroute</div>
+                <div class="code-item">10-77 - Backup Required</div>
+                <div class="code-item">10-78 - Backup Required (Urgent)</div>
+                <div class="code-item">10-80 - Pursuit in Progress</div>
+                <div class="code-item">10-20 - Location</div>
+                <div class="code-item">10-90 - Robbery in Progress</div>
+                <div class="code-item">10-23 - Arriving on Scene</div>
+                <div class="code-item">10-98 - Jail Break</div>
+                <div class="code-item">10-31 - Crime in Progress</div>
+                <div class="code-item">10-38 - Traffic Stop</div>
+                <div class="code-item">10-47 - Injured Person</div>
+                <div class="code-item">10-13A - Officer Down (Emergency)</div>
+                <div class="code-item">10-13B - Officer Down (Non-Emergency)</div>
+                <div class="code-item">10-14A - Medic Down (Emergency)</div>
+                <div class="code-item">10-14B - Medic Down (Non-Emergency)</div>
+                <div class="code-item">10-50 - Traffic Accident</div>
+                <div class="code-item">10-71 - Shots Fired</div>
+                <div class="code-item">10-69 - Turtled</div>
+                <div class="code-item">10-231 - Cooper's Car is Upside Down</div>
+                <div class="code-item">10-100 - Headpop</div>
+                <div class="code-item">Code 1 - No Lights or Sirens</div>
+                <div class="code-item">Code 2 - Lights Only</div>
+                <div class="code-item">Code 3 - Lights and Sirens</div>
+                <div class="code-item">Code 4 - All Clear</div>
+                <div class="code-item">Code 5 - Stake Out</div>
+                <div class="code-item">Code 6 - Searching the Area</div>
+                <div class="code-item">UTL - Unable to Locate</div>
+                <div class="code-item">VCB - Visual Contact Broken</div>
+            </div>
+        </section>
+
+        <!-- Keybinds Section -->
+        <section id="keybinds" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">Keybinds</h1>
+                <p class="section-subtitle">Police Radar keyboard shortcuts</p>
+            </div>
+
+            <div class="keybinds-box">
+                <h3 class="keybinds-title">Police Radar - Keyboard Shortcuts</h3>
+                <div class="keybind-row">
+                    <span>Toggle Radar</span>
+                    <span class="keybind-key">F5</span>
+                </div>
+                <div class="keybind-row">
+                    <span>Interact with Radar</span>
+                    <span class="keybind-key">K</span>
+                </div>
+                <div class="keybind-row">
+                    <span>Save Reading</span>
+                    <span class="keybind-key">J</span>
+                </div>
+                <div class="keybind-row">
+                    <span>Lock/Unlock Radar</span>
+                    <span class="keybind-key">F9</span>
+                </div>
+                <div class="keybind-row">
+                    <span>Switch to Front</span>
+                    <span class="keybind-key">←</span>
+                </div>
+                <div class="keybind-row">
+                    <span>Switch to Rear</span>
+                    <span class="keybind-key">→</span>
+                </div>
+                <div class="keybind-row">
+                    <span>Toggle Log</span>
+                    <span class="keybind-key">F10</span>
+                </div>
+                <div class="keybind-row">
+                    <span>Toggle BOLO List</span>
+                    <span class="keybind-key">F11</span>
+                </div>
+                <div class="keybind-row">
+                    <span>Show/Hide Keybinds</span>
+                    <span class="keybind-key">F12</span>
+                </div>
             </div>
         </section>
 
@@ -1238,96 +1012,7 @@
 
             <div class="content-box">
                 <h3>Standard Equipment</h3>
-                <p>Standard issue and optional equipment for officers. (Add equipment details here)</p>
-            </div>
-        </section>
-
-        <!-- Evidence Section -->
-        <section id="evidence" class="content-section">
-            <div class="section-header">
-                <h1 class="section-title">Evidence</h1>
-                <p class="section-subtitle">Evidence collection procedures</p>
-            </div>
-
-            <div class="content-box">
-                <h3>Evidence Collection</h3>
-                <p>(Add evidence collection procedures here)</p>
-            </div>
-        </section>
-
-        <!-- 10 Codes Section -->
-        <section id="codes" class="content-section">
-            <div class="section-header">
-                <h1 class="section-title">10 Codes</h1>
-                <p class="section-subtitle">Standard radio communication codes</p>
-            </div>
-            <div class="content-box">
-                <div class="ten-codes-grid">
-                    <div class="code-item">10-41 - On Duty</div>
-                    <div class="code-item">10-42 - Off Duty</div>
-                    <div class="code-item">10-6 - Busy, Unless Urgent</div>
-                    <div class="code-item">10-7 - Out Of service</div>
-                    <div class="code-item">10-8 - Back In Service</div>
-                    <div class="code-item">10-9 - Repeat</div>
-                    <div class="code-item">10-2 - Loud & Clear</div>
-                    <div class="code-item">10-3 - Break</div>
-                    <div class="code-item">10-4 - Acknowledgment</div>
-                    <div class="code-item">10-95 - Suspect in Custody</div>
-                    <div class="code-item">10-76 - enroute</div>
-                    <div class="code-item">10-77 - Backup Required</div>
-                    <div class="code-item">10-78 - Backup Required (Urgent)</div>
-                    <div class="code-item">10-80 - Pursuit in Progress</div>
-                    <div class="code-item">10-20 - Location</div>
-                    <div class="code-item">10-90 - Robbery in Progress</div>
-                    <div class="code-item">10-23 - Arriving on scene</div>
-                    <div class="code-item">10-98 - Jail Break</div>
-                    <div class="code-item">10-31 - Crime in Progress</div>
-                    <div class="code-item">10-38 - Traffic Stop</div>
-                    <div class="code-item">10-47 - Injured Person</div>
-                    <div class="code-item">10-13A - Officer down (Emergency)</div>
-                    <div class="code-item">10-13B - Officer Down (None-Emergency)</div>
-                    <div class="code-item">10-14A - Medic Down (Emergency)</div>
-                    <div class="code-item">10-14B - Medic Down (None-Emergency)</div>
-                    <div class="code-item">10-50 - Traffic Accident</div>
-                    <div class="code-item">10-71 - Shots Fired</div>
-                    <div class="code-item">10-69 - Turtled</div>
-                    <div class="code-item">10-231 - Cooper's Car is Upside Down</div>
-                    <div class="code-item">10-100 - Headpop</div>
-                    <div class="code-item">Code 1 - No Lights or sirens</div>
-                    <div class="code-item">Code 2 - Lights only</div>
-                    <div class="code-item">Code 3 - Lights and Sirens</div>
-                    <div class="code-item">Code 4 - All Clear</div>
-                    <div class="code-item">Code 5 - Stake Out</div>
-                    <div class="code-item">Code 6 - Searching the Area</div>
-                    <div class="code-item">UTL - Unable to Locate</div>
-                    <div class="code-item">VCB - Visual Contact Broken</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Keybinds Section -->
-        <section id="keybinds" class="content-section">
-            <div class="section-header">
-                <h1 class="section-title">Keybinds</h1>
-                <p class="section-subtitle">Police Radar keyboard shortcuts</p>
-            </div>
-
-            <div class="content-box">
-                <h3 class="rules-section-title">Police Radar</h3>
-                <div class="radar-keybinds-box">
-                    <div class="radar-keybinds-title"><strong>KEYBOARD SHORTCUTS</strong></div>
-                    <div class="radar-keybinds-list">
-                        <div class="radar-keybind-row"><span class="radar-keybind-label">Toggle Radar</span><span class="radar-keybind-key">F5</span></div>
-                        <div class="radar-keybind-row"><span class="radar-keybind-label">Interact with Radar</span><span class="radar-keybind-key">K</span></div>
-                        <div class="radar-keybind-row"><span class="radar-keybind-label">Save Reading</span><span class="radar-keybind-key">J</span></div>
-                        <div class="radar-keybind-row"><span class="radar-keybind-label">Lock/Unlock Radar</span><span class="radar-keybind-key">F9</span></div>
-                        <div class="radar-keybind-row"><span class="radar-keybind-label">Switch to Front</span><span class="radar-keybind-key">←</span></div>
-                        <div class="radar-keybind-row"><span class="radar-keybind-label">Switch to Rear</span><span class="radar-keybind-key">→</span></div>
-                        <div class="radar-keybind-row"><span class="radar-keybind-label">Toggle Log</span><span class="radar-keybind-key">F10</span></div>
-                        <div class="radar-keybind-row"><span class="radar-keybind-label">Toggle BOLO List</span><span class="radar-keybind-key">F11</span></div>
-                        <div class="radar-keybind-row"><span class="radar-keybind-label">Show/Hide Keybinds</span><span class="radar-keybind-key">F12</span></div>
-                    </div>
-                </div>
+                <p>Standard issue and optional equipment for officers. Equipment details to be added by department leadership.</p>
             </div>
         </section>
 
@@ -1339,23 +1024,19 @@
             </div>
 
             <div class="content-box">
+                <h3>Vehicle Allocation by Rank</h3>
                 <table class="info-table">
-                    <tr><td>Police Cruiser</td><td>All Units</td></tr>
-                    <tr><td>Police Cruiser 2</td><td>All Units</td></tr>
-                    <tr><td>Police Cruiser 3</td><td>All Units</td></tr>
-                    <tr><td>Police Bike</td><td>All Units</td></tr>
-                    <tr><td>Police Bike 2</td><td>All Units</td></tr>
-                    <tr><td>Unmarked Cruiser</td><td>Sgt+</td></tr>
-                    <tr><td>Unmarked Cruiser 2</td><td>Sgt+</td></tr>
-                    <tr><td>SUV</td><td>Cpl+</td></tr>
-                    <tr><td>SUV 2</td><td>Cpl+</td></tr>
-                    <tr><td>Interceptor</td><td>Off+</td></tr>
-                    <tr><td>Interceptor 2</td><td>Off+</td></tr>
-                    <tr><td>Tahoe</td><td>Cpl+</td></tr>
-                    <tr><td>Riot</td><td>Sgt+ or when needed</td></tr>
-                    <tr><td>Unmarked Sports Car</td><td>Lt+</td></tr>
-                    <tr><td>Hellcat</td><td>Capt+</td></tr>
-                    <tr><td>Mustang</td><td>Capt+</td></tr>
+                    <tr><td>Cruiser</td><td>Cadet+</td></tr>
+                    <tr><td>Panto</td><td>Cadet+</td></tr>
+                    <tr><td>STX</td><td>Officer+</td></tr>
+                    <tr><td>Bison</td><td>Corporal+</td></tr>
+                    <tr><td>Baller</td><td>Corporal+</td></tr>
+                    <tr><td>Cypher</td><td>Interceptor Lead & SRU Cert Only</td></tr>
+                    <tr><td>Sultan</td><td>SRU Cert Only</td></tr>
+                    <tr><td>Dominator</td><td>SRU Cert Only</td></tr>
+                    <tr><td>PD Helicopter</td><td>SRU Cert Only</td></tr>
+                    <tr><td>Dinka Thrust</td><td>Moto Cert Only</td></tr>
+                    <tr><td>BF400</td><td>Moto Cert Only</td></tr>
                 </table>
             </div>
         </section>
@@ -1368,31 +1049,65 @@
             </div>
 
             <div class="content-box">
-                <h3>Bank Robberies</h3>
+                <h3>House Robbery (Includes Trevor's, Wade's & Mansion)</h3>
                 <ul>
-                    <li><strong>Fleeca Bank:</strong> Max 4 units, 1 Air Unit</li>
-                    <li><strong>Pacific Standard:</strong> Max 6 units, 1 Air Unit</li>
-                    <li><strong>Paleto Bank:</strong> Max 5 units, 1 Air Unit</li>
+                    <li>2 Units Max & No Air One</li>
                 </ul>
             </div>
 
             <div class="content-box">
-                <h3>Store Robberies</h3>
+                <h3>Store Robbery / Cash Exchange / Pillbox</h3>
                 <ul>
-                    <li><strong>24/7, LTD, etc.:</strong> Max 3 units</li>
-                    <li><strong>Jewelry Store:</strong> Max 4 units, 1 Air Unit</li>
-                    <li><strong>Ammunation:</strong> Max 3 units</li>
+                    <li>3 Units Max & No Air One</li>
                 </ul>
             </div>
 
             <div class="content-box">
-                <h3>Other Incidents</h3>
+                <h3>MRPD & Vangelicos</h3>
                 <ul>
-                    <li><strong>Drug Labs:</strong> Max 5 units, 1 Air Unit</li>
-                    <li><strong>Hostage Situations:</strong> Max 6 units, 1 Air Unit, Negotiator</li>
-                    <li><strong>Traffic Stops:</strong> Max 2 units (unless backup requested)</li>
-                    <li><strong>Pursuits:</strong> Max 4 units, 1 Air Unit</li>
+                    <li>4 Units Max</li>
+                    <li>Air One can be negotiated in – 15 mins in air – 5 Down for fuel or 1x Interceptor</li>
                 </ul>
+            </div>
+
+            <div class="content-box">
+                <h3>Fleeca Bank</h3>
+                <ul>
+                    <li>5 Units Max</li>
+                    <li>Max 2 x Interceptors, 1 can be negotiated OUT</li>
+                    <li>Air One can be negotiated in – 15 mins in air – 5 Down for fuel</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h3>Paleto Bank</h3>
+                <ul>
+                    <li>6 Units Max</li>
+                    <li>Air One mandatory – 15 mins in air – 5 Down for fuel</li>
+                    <li>Max 2 x Interceptors, 1 can be negotiated OUT</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h3>Pacific Bank</h3>
+                <ul>
+                    <li>12 Units Max</li>
+                    <li>Max 4 x Interceptor</li>
+                    <li>Air One Mandatory – 15 mins in air – 5 Down for fuel. Air 2 can also be used</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Evidence Section -->
+        <section id="evidence" class="content-section">
+            <div class="section-header">
+                <h1 class="section-title">Evidence</h1>
+                <p class="section-subtitle">Evidence collection and handling procedures</p>
+            </div>
+
+            <div class="content-box">
+                <h3>Evidence Collection</h3>
+                <p>All evidence must be properly logged, photographed, and stored according to department procedures. Evidence handling procedures to be detailed by department leadership.</p>
             </div>
         </section>
 
@@ -1405,14 +1120,218 @@
 
             <div class="content-box">
                 <h3>Miranda Warning Script</h3>
-                <p style="font-style: italic; border-left: 3px solid #e4a71f; padding-left: 20px; margin: 20px 0;">"You have the right to remain silent. Anything you say can be used against you in court. You have the right to talk to a lawyer for advice before we ask you any questions. You have the right to have a lawyer with you during questioning. If you cannot afford a lawyer, one will be appointed for you before any questioning if you wish. If you decide to answer questions now without a lawyer present, you have the right to stop answering at any time."</p>
+                <p style="font-style: italic; border-left: 3px solid #e4a71f; padding-left: 20px; margin: 20px 0;">"You have the right to remain silent. Anything you say can and will be used against you in a court of law. You have the right to an attorney. If you cannot afford an attorney, one will be appointed for you. Do you understand these rights as I have read them to you?"</p>
             </div>
 
             <div class="content-box">
                 <h3>When to Read Miranda</h3>
-                <p>Miranda rights must be read when a suspect is in custody AND being interrogated. Not required for general questioning, traffic stops, or voluntary statements.</p>
+                <p>Miranda rights must be read to all suspects in custody prior to questioning. This follows the Miranda v. Arizona case law and ensures suspects are aware of their rights. Not required for general questioning, traffic stops, or voluntary statements.</p>
             </div>
         </section>
     </main>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation functionality
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const sidebar = document.getElementById('sidebar');
+            const globalSearch = document.getElementById('globalSearch');
+            const backToTopBtn = document.getElementById('backToTop');
+
+            // Handle navigation clicks
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetSection = this.getAttribute('data-section');
+                    
+                    // Remove active class from all links and sections
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    contentSections.forEach(s => s.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show target section
+                    const targetElement = document.getElementById(targetSection);
+                    if (targetElement) {
+                        targetElement.classList.add('active');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('mobile-open');
+                    }
+                });
+            });
+
+            // Mobile menu toggle
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    sidebar.classList.toggle('mobile-open');
+                });
+            }
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    if (!sidebar.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        sidebar.classList.remove('mobile-open');
+                    }
+                }
+            });
+
+            // Global search functionality
+            if (globalSearch) {
+                globalSearch.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase().trim();
+                    
+                    if (searchTerm === '') {
+                        // Clear all highlights
+                        document.querySelectorAll('.highlight').forEach(el => {
+                            el.outerHTML = el.textContent;
+                        });
+                        contentSections.forEach(section => {
+                            const elements = section.querySelectorAll('.content-box, .code-item');
+                            elements.forEach(el => {
+                                el.style.display = '';
+                            });
+                        });
+                        return;
+                    }
+                    
+                    let foundMatch = false;
+                    
+                    // Search through all sections
+                    contentSections.forEach(section => {
+                        let sectionHasMatch = false;
+                        const elements = section.querySelectorAll('.content-box, .code-item');
+                        
+                        elements.forEach(el => {
+                            const text = el.textContent.toLowerCase();
+                            if (text.includes(searchTerm)) {
+                                el.style.display = '';
+                                sectionHasMatch = true;
+                                foundMatch = true;
+                                
+                                // Highlight matching text
+                                highlightText(el, searchTerm);
+                            } else {
+                                el.style.display = 'none';
+                            }
+                        });
+                        
+                        // If section has matches, show it
+                        if (sectionHasMatch) {
+                            contentSections.forEach(s => s.classList.remove('active'));
+                            sidebarLinks.forEach(l => l.classList.remove('active'));
+                            
+                            section.classList.add('active');
+                            
+                            const correspondingLink = document.querySelector(`[data-section="${section.id}"]`);
+                            if (correspondingLink) {
+                                correspondingLink.classList.add('active');
+                            }
+                        }
+                    });
+                });
+            }
+
+            // Highlight text function
+            function highlightText(element, searchTerm) {
+                // Remove existing highlights
+                element.querySelectorAll('.highlight').forEach(el => {
+                    el.outerHTML = el.textContent;
+                });
+
+                const walker = document.createTreeWalker(
+                    element,
+                    NodeFilter.SHOW_TEXT,
+                    null,
+                    false
+                );
+
+                const nodesToReplace = [];
+                while (walker.nextNode()) {
+                    const node = walker.currentNode;
+                    if (node.nodeValue.toLowerCase().includes(searchTerm)) {
+                        nodesToReplace.push(node);
+                    }
+                }
+
+                nodesToReplace.forEach(node => {
+                    const span = document.createElement('span');
+                    span.innerHTML = node.nodeValue.replace(
+                        new RegExp(searchTerm, 'gi'),
+                        match => `<span class="highlight">${match}</span>`
+                    );
+                    node.parentNode.replaceChild(span, node);
+                });
+            }
+
+            // Carousel functionality
+            const carouselSlides = document.querySelectorAll('.carousel-slide');
+            const carouselDots = document.querySelectorAll('.carousel-dot');
+            const prevBtn = document.querySelector('.carousel-btn.prev');
+            const nextBtn = document.querySelector('.carousel-btn.next');
+            
+            if (carouselSlides.length > 0) {
+                let currentSlide = 0;
+                
+                function showSlide(index) {
+                    carouselSlides.forEach((slide, i) => {
+                        slide.classList.toggle('active', i === index);
+                    });
+                    carouselDots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                }
+                
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % carouselSlides.length;
+                    showSlide(currentSlide);
+                }
+                
+                function prevSlide() {
+                    currentSlide = currentSlide === 0 ? carouselSlides.length - 1 : currentSlide - 1;
+                    showSlide(currentSlide);
+                }
+                
+                // Dot clicks
+                carouselDots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        currentSlide = index;
+                        showSlide(currentSlide);
+                    });
+                });
+                
+                // Button clicks
+                if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+                if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+            }
+
+            // Back to top button
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
